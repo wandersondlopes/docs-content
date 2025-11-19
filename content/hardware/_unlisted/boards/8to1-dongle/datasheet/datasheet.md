@@ -1,7 +1,7 @@
 ---
 identifier: TPX00241
 title: USB Type-C 8-in-1 Dongle
-type: accessory
+type: maker
 ---
 
 ![USB Type-C 8-in-1 Dongle](assets/featured.png)
