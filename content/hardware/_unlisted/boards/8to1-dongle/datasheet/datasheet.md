@@ -1,5 +1,5 @@
 ---
-identifier: OS1030004
+identifier: TPX00241
 title: USB Type-C 8-in-1 Dongle
 type: accessory
 ---
@@ -8,7 +8,7 @@ type: accessory
 
 # Description
 
-<p style="text-align: justify;">The USB Type-C 8-in-1 Dongle (OS1030004) is a compact multiport adapter designed for use with the Arduino® UNO Q and other USB-C devices. This dongle expands a single USB-C port into eight functional interfaces, including power delivery, USB data ports, HDMI video output, Ethernet connectivity, and SD/TF card readers. With its plug-and-play design and broad OS compatibility, it provides essential I/O expansion for development, prototyping, and deployment scenarios.</p>
+<p style="text-align: justify;">The USB Type-C 8-in-1 Dongle (TPX00241) is a compact multiport adapter designed for use with the Arduino® UNO Q and other USB-C devices. This dongle expands a single USB-C port into eight functional interfaces, including power delivery, USB data ports, HDMI video output, Ethernet connectivity, and SD/TF card readers. With its plug-and-play design and broad OS compatibility, it provides essential I/O expansion for development, prototyping, and deployment scenarios.</p>
 
 <div style="page-break-after: always;"></div>
 
@@ -18,15 +18,15 @@ type: accessory
 
 ### General Specifications
 
-| **Feature**              | **Specification**                                                                 |
-|--------------------------|-----------------------------------------------------------------------------------|
-| Model Number             | OS1030004                                                                         |
-| Manufacturer             | Lanyue Electronics (Shenzhen) Co., Ltd                                            |
-| Color                    | Black                                                                             |
-| Chipset                  | CS5266BN + CS7222 + GL823K + RTL8152B                                             |
-| Cable Length             | 175 mm                                                                            |
-| Dimensions               | 119 × 27.8 × 16 mm                                                                |
-| Weight                   | 60 g                                                                              |
+| **Feature**  | **Specification**                      |
+|--------------|----------------------------------------|
+| Model Number | TPX00241                               |
+| Manufacturer | Lanyue Electronics (Shenzhen) Co., Ltd |
+| Color        | Black                                  |
+| Chipset      | CS5266BN + CS7222 + GL823K + RTL8152B  |
+| Cable Length | 175 mm                                 |
+| Dimensions   | 119 × 27.8 × 16 mm                     |
+| Weight       | 60 g                                   |
 
 ### Port Configuration
 
