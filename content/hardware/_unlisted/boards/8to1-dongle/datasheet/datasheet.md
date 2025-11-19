@@ -30,16 +30,18 @@ type: accessory
 
 ### Port Configuration
 
-| **Port Type**            | **Quantity** | **Specification**                                           |
-|--------------------------|--------------|-------------------------------------------------------------|
-| USB-C PD (Power)         | 1×           | 65 W Power Delivery                                         |
-| USB-C Data               | 1×           | 480 Mbps (USB 2.0 speed)                                    |
-| USB-A 2.0                | 1×           | 480 Mbps                                                    |
-| USB-A 3.0                | 1×           | 5 Gbps (USB 3.0 speed)                                      |
-| HDMI                     | 1×           | 4K @ 30 Hz (3840 × 2160)                                    |
-| RJ45 Ethernet            | 1×           | 100 Mbps Fast Ethernet                                      |
-| SD Card Reader           | 1×           | USB 2.0, supports SD/SDHC UHS-I-II / SDXC UHS-I-II          |
-| TF (microSD) Card Reader | 1×           | Supports microSD/microSDHC UHS-I / microSDXC UHS-I          |
+![USB Type-C 8-in-1 Dongle Ports](assets/dongle_ports.png)
+
+| **Port Type**                 | **Quantity** | **Specification**                                  |
+|-------------------------------|--------------|----------------------------------------------------|
+| USB-C PD (Power) (A1)         | 1×           | 65 W Power Delivery                                |
+| USB-C Data (A2)               | 1×           | 480 Mbps                                           |
+| USB-A 2.0 (B2)                | 1×           | 480 Mbps                                           |
+| USB-A 3.0 (B3)                | 1×           | 5 Gbps (USB 3.0 speed)                             |
+| HDMI (B1)                     | 1×           | 4K @ 30 Hz (3840 × 2160)                           |
+| RJ45 Ethernet (C1)            | 1×           | 100 Mbps Fast Ethernet                             |
+| SD Card Reader (A4)           | 1×           | USB 2.0, supports SD/SDHC UHS-I-II / SDXC UHS-I-II |
+| TF (microSD) Card Reader (A3) | 1×           | Supports microSD/microSDHC UHS-I / microSDXC UHS-I |
 
 ### Operating Conditions
 
@@ -136,7 +138,7 @@ type: accessory
 
 <p style="text-align: justify;">The dongle features a compact form factor suitable for portable use alongside the Arduino® UNO Q board. The attached cable provides flexibility for connection without blocking adjacent ports.</p>
 
-![Dongle Dimensions](assets/dimensions.png)
+![Dongle Dimensions](assets/mechanical_drawing_dongle.png)
 
 | **Dimension**            | **Measurement**               |
 |--------------------------|-------------------------------|
