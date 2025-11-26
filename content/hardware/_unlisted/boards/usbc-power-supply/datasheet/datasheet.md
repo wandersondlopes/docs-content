@@ -1,6 +1,6 @@
 ---
 identifier: TPX00242
-title: Arduino USB-C Power Supply
+title: Arduino® USB-C Power Supply (45W)
 type: maker
 ---
 
