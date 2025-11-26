@@ -206,10 +206,9 @@ This equipment complies with FCC radiation exposure limits set forth for an unco
 
 # Reference Documentation
 
-| No. | Reference                   | Link                                                                               |
-|:---:|-----------------------------|------------------------------------------------------------------------------------|
-|  1  | Arduino UNO Q Documentation | [https://docs.arduino.cc/hardware/uno-q/](https://docs.arduino.cc/hardware/uno-q/) |
-|  2  | Arduino Store               | [https://store.arduino.cc/](https://store.arduino.cc/)                             |
+| No. | Reference     | Link                                                   |
+|:---:|---------------|--------------------------------------------------------|
+|  2  | Arduino Store | [https://store.arduino.cc/](https://store.arduino.cc/) |
 
 # Document Revision History
 
