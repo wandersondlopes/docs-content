@@ -8,7 +8,7 @@ type: maker
 
 # Description
 
-<p style="text-align: justify;">The USB Type-C 8-in-1 Dongle (TPX00241) is a compact multiport adapter designed for use with the Arduino® UNO Q and other USB-C devices. This dongle expands a single USB-C port into eight functional interfaces, including power delivery, USB data ports, HDMI video output, Ethernet connectivity, and SD/TF card readers. With its plug-and-play design and broad OS compatibility, it provides essential I/O expansion for development, prototyping, and deployment scenarios.</p>
+<p style="text-align: justify;">The Arduino® USB-C Hub (8 in 1) (TPX00241) is a compact multiport adapter designed for use with the Arduino® UNO Q and other USB-C devices. This dongle expands a single USB-C port into eight functional interfaces, including power delivery, USB data ports, HDMI video output, Ethernet connectivity, and SD/TF card readers. With its plug-and-play design and broad OS compatibility, it provides essential I/O expansion for development, prototyping, and deployment scenarios.</p>
 
 <div style="page-break-after: always;"></div>
 
