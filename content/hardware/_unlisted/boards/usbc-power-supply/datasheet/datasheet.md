@@ -8,7 +8,7 @@ type: maker
 
 # Description
 
-<p style="text-align: justify;">The Arduino® USB-C Power Supply (TPX00242) is a compact, interchangeable plug adapter designed for use with the Arduino® UNO Q and other USB-C devices supporting USB Power Delivery (PD). The 45 W multi-voltage power adapter provides intelligent power delivery across five voltage profiles (5 V, 9 V, 12 V, 15 V, 20 V), negotiating the optimal charging parameters for connected devices. With interchangeable regional plugs (EU, UK, US) and broad safety certifications, it provides a universal power solution for development, prototyping, and deployment scenarios worldwide.</p>
+<p style="text-align: justify;">The Arduino® USB-C Power Supply (45W) (TPX00242) is a compact, interchangeable plug adapter designed for use with the Arduino® UNO Q and other USB-C devices supporting USB Power Delivery (PD). The 45 W multi-voltage power adapter provides intelligent power delivery across five voltage profiles (5 V, 9 V, 12 V, 15 V, 20 V), negotiating the optimal charging parameters for connected devices. With interchangeable regional plugs (EU, UK, US) and broad safety certifications, it provides a universal power solution for development, prototyping, and deployment scenarios worldwide.</p>
 
 <div style="page-break-after: always;"></div>
 
