@@ -1,6 +1,6 @@
 ---
 identifier: TPX00243
-title: Arduino® USB-C Cable (Full 24-pin)
+title: Arduino® USB-C Cable (Full 24-Pin)
 type: maker
 ---
 
