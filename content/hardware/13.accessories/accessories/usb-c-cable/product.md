@@ -1,7 +1,7 @@
 ---
-title: USB-C Cable
+title: USB-C Cable (Full 24-pin)
 url_shop: 
 sku: [TPX00243]
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+The Arduino® USB-C Cable (Full 24-pin) is a USB-C to USB-C cable featuring full 24-pin connectivity for complete functionality, including data transfer, video output, and power delivery. This 1-meter braided cable supports USB 3.0 data speeds up to 5 Gbps, power delivery up to 60 W (20 V / 3 A), and DisplayPort Alt Mode for video transmission. Designed for use with USB-C devices requiring full-featured connectivity, it provides reliable performance for development, prototyping, and deployment scenarios.
