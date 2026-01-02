@@ -1,5 +1,5 @@
 ---
-title: 'RPC Communication with arduino-router'
+title: 'Arduino-Router RPC Communication'
 difficulty: advanced
 compatible-products: [uno-q]
 description: 'Learn how to communicate with the UNO Q MCU using C++, Python, and other languages via the arduino-router daemon'
