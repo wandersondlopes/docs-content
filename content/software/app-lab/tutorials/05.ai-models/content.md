@@ -42,7 +42,7 @@ To set the context, we need to understand what an "AI Model" actually is.
 In the world of Traditional Programming, we write explicit rules: *If button A is pressed, turn on LED B.*
 In **Machine Learning**, we don't write rules; we provide examples. We show the computer 100 photos of a "Banana" and 100 photos of an "Apple," and the computer figures out the rules to tell them apart itself. The result of that learning process is an **AI Model**.
 
-![Image](assets/)
+![Image of Machine Learning](assets/)
 
 By creating a custom model, you are essentially creating a new "brain" file that you can swap into your Arduino App Lab Bricks to change their behavior completely.
 
