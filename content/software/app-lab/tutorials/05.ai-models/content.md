@@ -1,6 +1,6 @@
 ---
 title: Custom AI Models for Arduino App Lab
-description: This tutorial teaches you how to create and train your own AI models to customize your Apps Bricks.
+description: This tutorial teaches you how to create and train your own AI models to customize your App Bricks.
 author: Christopher Méndez
 hardware:
   - hardware/uno/boards/uno-q
@@ -18,7 +18,7 @@ By training our own models, we gain precise control over classification paramete
 
 ## Goals
 
-* **Collect** a custom dataset for audio or image related models.
+* **Collect** a custom dataset for audio or image-related models.
 * **Train** a model from scratch in Edge Impulse Studio.
 * **Integrate** your custom model into Arduino App Lab to customize your Bricks.
 
@@ -82,11 +82,11 @@ When you export for the UNO Q, you get an **.eim (Edge Impulse Model)** file. Th
 
 ![Arduino account setup](assets/app-lab-3.png)
 
-- Your same Arduino account will be valid to log in into the Edge Impulse Studio. After loging in, you will be asked for consent to connect to Edge Impulse Studio.
+- Your same Arduino account will be valid to log into the Edge Impulse Studio. After logging in, you will be asked for consent to connect to Edge Impulse Studio.
 
 ![Connect to Edge Impulse](assets/app-lab-5.png)
 
-- With your Arduino account and Edge Impulse now connected, click on **Start to Train your AI Model** button.
+- With your Arduino account and Edge Impulse now connected, click on the **Start to Train your AI Model** button.
 
 ![Start to train your AI model](assets/app-lab-6.png)
 
@@ -94,7 +94,7 @@ When you export for the UNO Q, you get an **.eim (Edge Impulse Model)** file. Th
 
 ![Edge Impulse Studio](assets/app-lab-7.png)
 
-### Image Based Models
+### Image-Based Models
 
 To create a machine vision model for detecting objects or classifying images, follow the steps below:
 
@@ -191,7 +191,7 @@ To test your model's performance with new data, use the **Live classification** 
 
 ![Live classification](assets/app-lab-17.png)
 
-You can also test your model on your smartphone by using the same QR code we used for creating the dataset (also found in the **Deployment** section). This time tap on **Switch to classification mode**, wait for the model to be downloaded and started, finally, go search for some apples and bananas with the camera.
+You can also test your model on your smartphone by using the same QR code we used for creating the dataset (also found in the **Deployment** section). This time tap on **Switch to classification mode**, wait for the model to be downloaded and started. Finally, go search for some apples and bananas with the camera.
 
 ![Model running on phone](assets/app-lab-18.png)
 
