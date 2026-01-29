@@ -40,7 +40,8 @@ By training our own models, we gain precise control over classification paramete
 To set the context, we need to understand what an "AI Model" actually is.
 
 In the world of Traditional Programming, we write explicit rules: *If button A is pressed, turn on LED B.*
-In **Machine Learning**, we don't write rules; we provide examples. We show the computer 100 photos of a "Banana" and 100 photos of an "Apple," and the computer figures out the rules to tell them apart itself. The result of that learning process is an **AI Model**.
+In the world of traditional programming, we write explicit rules: *If button A is pressed, turn on LED B.*
+In **machine learning**, we don't write rules; we provide examples. We show the computer 100 photos of a "Banana" and 100 photos of an "Apple," and the computer figures out the rules to tell them apart itself. The result of that learning process is an **AI Model**.
 
 ![Machine Learning](assets/ml.png)
 
