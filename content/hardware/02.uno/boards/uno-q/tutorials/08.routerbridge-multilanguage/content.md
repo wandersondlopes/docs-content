@@ -144,7 +144,7 @@ To register a function your application wants to expose, send:
 [0, msgid, "$/register", ["method_name"]]
 ```
 
-To unregister all your methods (useful when shutting down gracefully):
+To unregister all your methods, following can be used. It is useful when shutting down gracefully:
 
 ```
 [0, msgid, "$/reset", []]
