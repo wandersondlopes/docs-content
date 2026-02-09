@@ -1,17 +1,11 @@
 Hub:
   Name: Arduino® USB-C Hub (8 in 1)
   SKU: TPX00241
-  Manufacturer Model: OS1030004
 General:
   Cable Length: 175 mm
   Dimensions: 119 × 27.8 × 16 mm
   Color: Black
   Weight: 60 g
-Chipsets:
-  USB-C Controller: CS5266BN
-  USB Hub Controller: CS7222
-  Card Reader Controller: GL823K
-  Ethernet Controller: RTL8152B
 Ports:
   USB-C PD (Power): 65 W Power Delivery
   USB-C Data: 480 Mbps
@@ -29,7 +23,6 @@ Video Output:
 Network:
   Interface: RJ45 Ethernet
   Speed: 10/100 Mbps (Fast Ethernet)
-  Chipset: RTL8152B
 Power Delivery:
   Input Voltage: 5 V – 20 V (USB PD standard)
   Maximum Power: 65 W

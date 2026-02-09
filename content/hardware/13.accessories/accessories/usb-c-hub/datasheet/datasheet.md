@@ -23,10 +23,7 @@ type: maker
 | **Feature**        | **Specification**                      |
 |--------------------|----------------------------------------|
 | Model Number       | TPX00241                               |
-| Manufacturer Model | OS1030004                              |
-| Manufacturer       | Lanyue Electronics (Shenzhen) Co., Ltd |
 | Color              | Black                                  |
-| Chipset            | CS5266BN + CS7222 + GL823K + RTL8152B  |
 | Cable Length       | 175 mm                                 |
 | Dimensions         | 119 × 27.8 × 16 mm                     |
 | Weight             | 60 g                                   |
@@ -100,7 +97,6 @@ type: maker
 |---------------|-----------------------------|
 | Interface     | RJ45 Ethernet               |
 | Speed         | 10/100 Mbps (Fast Ethernet) |
-| Chipset       | RTL8152B                    |
 
 ### Card Readers
 
@@ -109,7 +105,6 @@ type: maker
 | Interface Speed  | USB 2.0 (480 Mbps)                   | USB 2.0 (480 Mbps)                            |
 | Supported Cards  | SD, SDHC (UHS-I-II), SDXC (UHS-I-II) | microSD, microSDHC (UHS-I), microSDXC (UHS-I) |
 | Maximum Capacity | Up to 2 TB (SDXC)                    | Up to 2 TB (microSDXC)                        |
-| Chipset          | GL823K                               | GL823K                                        |
 | LED Indicator    | Not available                        | Not available                                 |
 
 <div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
@@ -215,4 +210,4 @@ This equipment complies with FCC radiation exposure limits set forth for an unco
 
 |  **Date**  | **Revision** | **Changes**   |
 |:----------:|:------------:|---------------|
-| 07/11/2025 |      1       | First release |
+| 03/10/2026 |      1       | First release |
