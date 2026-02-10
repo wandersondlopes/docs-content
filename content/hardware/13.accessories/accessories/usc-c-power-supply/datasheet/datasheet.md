@@ -23,8 +23,6 @@ type: maker
 | **Feature**        | **Specification**                                                  |
 |--------------------|--------------------------------------------------------------------|
 | Model Number       | TPX00242                                                           |
-| Manufacturer Model | AS4801A-PD45DK                                                     |
-| Manufacturer       | Lanyue Electronics (Shenzhen) Co., Ltd                             |
 | Adapter Type       | Interchangeable plug-in adapter                                    |
 | Output Connector   | USB-C (USB Type-C)                                                 |
 | Dimensions (Body)  | 64 × 64 × 30 mm (folded plug) / 64 × 80.06 × 30 mm (unfolded plug) |
@@ -329,4 +327,4 @@ This equipment complies with FCC radiation exposure limits set forth for an unco
 
 |  **Date**  | **Revision** | **Changes**   |
 |:----------:|:------------:|---------------|
-| 20/11/2025 |      1       | First release |
+| 10/03/2026 |      1       | First release |
