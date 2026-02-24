@@ -15,7 +15,7 @@ hardware:
 
 ## Overview
 
-While the Arduino App Lab provides a convenient Python® Bridge API for communication between the Linux MPU and the Arduino MCU, you may want more control or prefer using C++, standalone Python scripts, or other languages for custom system integration.
+While the Arduino App Lab provides a convenient Python® Bridge API for communication between the Linux microprocessor (MPU) and the Arduino microcontroller (MCU), you may want more control or prefer using C++, standalone Python scripts, or other languages for custom system integration.
 
 ![Arduino Router Architecture](assets/routerbridge-architecture.png)
 
