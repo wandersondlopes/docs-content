@@ -19,7 +19,7 @@ While the Arduino App Lab provides a convenient Python® Bridge API for communic
 
 ![Arduino Router Architecture](assets/routerbridge-architecture.png)
 
-This tutorial shows you how to communicate directly with the `arduino-router` daemon using the MessagePack RPC protocol. This approach gives you the flexibility to build custom applications in any language that supports unix sockets and MessagePack encoding, opening up possibilities for performance critical applications, multi-process architectures, and integration with existing Linux services.
+This tutorial shows you how to communicate directly with the `arduino-router` daemon using the MessagePack RPC protocol. This approach gives you the flexibility to build custom applications in any language that supports Unix sockets and MessagePack encoding, opening up possibilities for performance-critical applications, multi-process architectures, and integration with existing Linux services.
 
 ## Goals
 
