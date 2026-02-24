@@ -48,7 +48,7 @@ Additionally, the router handles service discovery by maintaining a directory of
 
 ![Arduino Router Architecture](assets/routerbridge-architecture.png)
 
-When a client wants to communicate, it connects to the router is Unix socket at `/var/run/arduino-router.sock`. Clients register the functions they want to expose. When another client calls those functions, the router forwards the messages back and forth, handling message ID remapping to prevent conflicts between different clients.
+When a client wants to communicate, it connects to the router via a Unix socket at `/var/run/arduino-router.sock`. Clients register the functions they want to expose. When another client calls those functions, the router forwards the messages back and forth, handling message ID remapping to prevent conflicts between different clients.
 
 ### Managing the Router Service
 
