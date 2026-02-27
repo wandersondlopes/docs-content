@@ -182,7 +182,7 @@ Use the limits below to define the operating environment, thermal margins, and p
 **Power Button Behavior:**
 - **Single press:** Turns on the device if powered down or resets if done while operating
 - **Double press:** Turns off the device
-- **Long press:** Enters Download/Bootloader mode while operating
+- **Long press:** Enters Download/Bootloader mode (works both when the device is on or off)
 
 <div style="page-break-after: always;"></div>
 
@@ -198,7 +198,7 @@ Use the limits below to define the operating environment, thermal margins, and p
   - **KEY1 (S1):** User-programmable button connected to I/O expander P0
   - **KEY2 (S2):** User-programmable button connected to I/O expander P1
 
-- **Power Button (SW_PWR):** Controls device power state. Single-press turns on the device if powered down or resets if done while operating. Double-press turns off the device.
+- **Power Button (SW_PWR):** Controls device power state. Single-press turns on the device if powered down or resets if done while operating. Double-press turns off the device. Long press enters Download/Bootloader mode.
 
 - **Buzzer (BZ1):** 4 kHz passive buzzer driven by `GPIO11` through transistor driver circuit. Provides audio feedback for alarms, notifications, and user interactions.
 
@@ -256,7 +256,30 @@ Use the limits below to define the operating environment, thermal margins, and p
 
 <p style="text-align: justify;">The SX1262 operates in region-specific frequency bands: 868 MHz for Europe (863–870 MHz), 915 MHz for North America and Australia (902–928 MHz), and 923 MHz for Asia (920–925 MHz). Proper frequency configuration is required based on your deployment region to comply with local regulations.</p>
 
-<p style="text-align: justify;">For LoRa® network connectivity, configure the appropriate frequency, spreading factor (SF7–SF12), bandwidth, and coding rate based on your application requirements. Software libraries are available for configuring and using the LoRa® transceiver with the SX1262 module.</p>
+#### LoRa® Module Pin Configuration
+
+The SX1262 LoRa® transceiver connects to the ESP32-C6 and I/O expander with the following pin assignments:
+
+| **Signal** | **Pin**                          | **Connected To** | **Description**                              |
+|------------|----------------------------------|------------------|----------------------------------------------|
+| CS         | `LORA_CS` (GPIO23)               | SX1262 /NSS      | SPI chip select                              |
+| BUSY       | `LORA_BUSY` (GPIO19)             | SX1262 BUSY      | Busy status indicator                        |
+| IRQ        | `LORA_IRQ` (GPIO15)              | SX1262 DIO1      | Interrupt request                            |
+| NRST       | `LORA_ENABLE` (EXP P7)           | SX1262 /nRESET   | Module reset/enable (HIGH: enabled)          |
+| ANT SW     | `LORA_ANTENNA_SWITCH` (EXP P6)   | FM8625H VDD      | RF switch power (HIGH: ON, LOW: OFF)         |
+| LNA EN     | `LORA_LNA_ENABLE` (EXP P5)       | SGM13005L4 ENABLE| LNA enable (HIGH: Rx ON, LOW: Rx disabled)   |
+
+#### Antenna Path and LNA Control
+
+<p style="text-align: justify;">The Rx/Tx antenna path switching between transmit (SRFO) and receive (SRFI) is controlled automatically by the SX1262's DIO2 pin when configured using <code>setDio2AsRfSwitch(true)</code> in RadioLib.</p>
+
+<p style="text-align: justify;">The SGM13005L4 Low Noise Amplifier (LNA) on the receive path <strong>must be enabled (HIGH) for the antenna signal to reach the SX1262 receiver</strong>. Setting <code>LORA_LNA_ENABLE</code> LOW will disable the route between the antenna and the SX1262's receive input. For power-sensitive applications, the LNA can be disabled during transmit and enabled only during receive operations.</p>
+
+<p style="text-align: justify;">The <code>LORA_ANTENNA_SWITCH</code> pin controls power to the FM8625H RF switch and must be HIGH for normal LoRa® operation.</p>
+
+<div style="background-color: rgba(255, 193, 7, 0.2); border-left: 6px solid rgba(255, 152, 0, 1); margin: 20px 0; padding: 15px;">
+  <strong>Note:</strong> For proper LoRa® operation, initialize the control pins as follows: set <code>LORA_ENABLE</code> HIGH to enable the SX1262, set <code>LORA_LNA_ENABLE</code> HIGH to enable the receive path, and set <code>LORA_ANTENNA_SWITCH</code> HIGH to power the RF switch. If two devices are very close, communication may appear to work even with the LNA or antenna switch disabled—this is unreliable behavior and should not be relied upon.
+</div>
 
 ### I/O Expansion
 
@@ -281,7 +304,7 @@ Use the limits below to define the operating environment, thermal margins, and p
 |       3 | GROVE_IO_0 | GPIO 5                          |
 |       4 | GROVE_IO_1 | GPIO 4                          |
 
-<p style="text-align: justify;">The Grove connector provides both power (5V from boost converter) and signal connections. IO_0 and IO_1 are controlled through the GPIO 5 and 4, accessible via I²C commands. Use this connector for Grove modules requiring 5V operation or GPIO control.</p>
+<p style="text-align: justify;">The Grove connector provides both power (5V from boost converter) and signal connections. IO_0 and IO_1 are controlled through the GPIO 5 and 4, accessible via I²C commands. Use this connector for Grove modules.  <strong>Note: </strong> While the power pin provides **5 V**, the data lines (I/O) operate at **3.3 V**. Ensure connected modules use 3.3 V logic levels to avoid damaging the board.</p>
 
 <div style="background-color: rgba(255, 193, 7, 0.2); border-left: 6px solid rgba(255, 152, 0, 1); margin: 20px 0; padding: 15px;">
   <strong>Note:</strong> This connector uses a custom pinout that differs from standard Grove connectors. Verify pin compatibility before connecting standard Grove modules.
@@ -301,7 +324,7 @@ Use the limits below to define the operating environment, thermal margins, and p
 <p style="text-align: justify;">The Qwiic connector shares the main I²C bus with internal peripherals (BMI270 IMU, BQ27220 fuel gauge, touch controller, I/O expander). I²C pull-up resistors are provided on the SDA and SCL lines. Maximum I²C bus speed is 400 kHz (Fast Mode).</p>
 
 <div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
-  <strong>I²C Bus Considerations:</strong> Multiple devices share the same I²C bus. Ensure connected modules use unique I²C addresses to avoid conflicts. The system I²C addresses include: BMI270 (0x68/0x69), BQ27220 (0x55), FT6336U (0x38), PI4IOE5V6408 (0x20/0x21 selectable).
+  <strong>I²C Bus Considerations:</strong> Multiple devices share the same I²C bus. Ensure connected modules use unique I²C addresses to avoid conflicts. The system I²C addresses include: BMI270 (0x68/0x69), BQ27220 (0x55), AW32001A (0x49), FT6336U (0x38), and PI4IOE5V6408 (0x43, 0x44).
 </div>
 
 ### HAT Connector (J4)

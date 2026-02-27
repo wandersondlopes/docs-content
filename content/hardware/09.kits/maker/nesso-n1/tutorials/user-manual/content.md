@@ -38,9 +38,7 @@ This document serves as a comprehensive user manual for the Nesso N1, providing 
 ### Software Requirements
 
 - [Arduino IDE](https://www.arduino.cc/en/software) (v2.0 or higher recommended)
-- [ESP32 Boards core by Espressif](https://github.com/espressif/arduino-esp32) (v3.3.3 or higher)
-
-*Note: Safe battery management requires version 3.3.5 or higher (pending release).*
+- [ESP32 Boards core by Espressif](https://github.com/espressif/arduino-esp32) (v3.3.5 or higher)
 
 ## Product Overview
 
@@ -77,7 +75,7 @@ The Nesso N1 is programmed using the desktop Arduino IDE. To get started, you wi
 
 ### Arduino IDE
 
-To use the board in the Arduino IDE, you must install the latest version of the **esp32 by Espressif Systems** package. Support for the Nesso N1 requires version **3.3.3** or newer.
+To use the board in the Arduino IDE, you must install the latest version of the **esp32 by Espressif Systems** package. Support for the Nesso N1 requires version **3.3.5** or newer.
 
 1.  Open the Arduino IDE.
 2.  Navigate to **Boards Manager** (**Tools > Board > Boards Manager...**).
@@ -86,6 +84,20 @@ To use the board in the Arduino IDE, you must install the latest version of the 
 5.  Once installed, select **Arduino Nesso N1** from the **Tools > Board > esp32** menu.
 
 ![Installing the esp32 Boards core in the Arduino IDE](assets/board-manager.png)
+
+#### Troubleshooting: ESP32 Core Installation
+
+If the installation of the ESP32 boards platform fails due to a timeout/network error, you may need to increase the download timeout value.
+
+1.  Close the Arduino IDE.
+2.  Open the `arduino-cli.yaml` configuration file in a text editor. On Windows, it is located at `C:\Users\<username>\.arduinoIDE\arduino-cli.yaml`. On macOS and Linux, it is located at `~/.arduinoIDE/arduino-cli.yaml`.
+3.  Add (or update) the following content:
+    ```yaml
+    network:
+      connection_timeout: 300s
+    ```
+4.  Save the file and restart the Arduino IDE.
+5.  Try installing or updating the "esp32" boards platform again.
 
 ### Arduino Cloud Editor
 
@@ -130,7 +142,7 @@ Follow these steps to connect your Nesso N1 to the Cloud.
 Because "Manual Devices" do not automatically generate a downloadable sketch, you must create one manually.
 
 1.  Open the **Arduino IDE** on your computer.
-2.  Install the **ArduinoIoTCloud** library via the Library Manager (**Tools > Manage Libraries...**).
+2.  Install the **ArduinoIoTCloud** and **Arduino_Nesso_N1** libraries via the Library Manager (**Tools > Manage Libraries...**).
 3.  Create a new sketch (**File > New Sketch**).
 4.  To keep your credentials secure, create a new tab named `arduino_secrets.h` (click the 3-dot icon near the tab bar > **New Tab**).
 5.  Paste the following code into `arduino_secrets.h` and fill in your details:
@@ -166,6 +178,7 @@ Because "Manual Devices" do not automatically generate a downloadable sketch, yo
 7.  Finally, paste the main application code into your `.ino` file:
 
     ```cpp
+    #include <Arduino_Nesso_N1.h>
     #include "thingProperties.h"
 
     void setup() {
@@ -220,12 +233,18 @@ For projects where a slimmer profile is desired, the included hexagon key can be
 
 ***The Nesso N1 does not include a USB-C® cable, which is required to connect the board to your computer. A compatible cable is [available separately here](https://store.arduino.cc/products/usb-cable2in1-type-c).***
 
+### Factory Sketch
+
+If you wish to restore the Nesso N1 to its original state, or if you want to explore the code that comes preloaded on the board, you can download the source code below:
+
+- [**Nesso N1 Factory Sketch**](assets/NessoN1-Factory-Sketch.zip)
+
 ## Power Supply
 
 The Nesso N1 can be powered in three ways:
 
 - **USB-C® Connector**: Provide a regulated 5 V DC supply through the USB-C® port. This method also charges the internal battery.
-- **Built-in Battery**: The onboard 250 mAh LiPo battery allows the device to operate untethered. **(Note: Please see the Battery section below for critical safety information regarding battery usage with the current software version.)**
+- **Built-in Battery**: The onboard 250 mAh LiPo battery allows the device to operate untethered.
 - **VIN Pin**: You can use the `VIN` pin on the 8-pin expansion header to power the board from an external 5 V DC source.
 
 ***WARNING: Handle the internal LiPo battery with care. Do not puncture, short-circuit, or expose it to high temperatures.***
@@ -234,19 +253,52 @@ The Nesso N1 can be powered in three ways:
 
 The board incorporates a power management system featuring the **AW32001** power path management chip and the **BQ27220** battery monitoring chip.
 
-### ⚠️ CRITICAL WARNING: Battery Software Support Pending
+Support for these features is provided by the **Arduino_Nesso_N1** library (v1.0.0 or higher) combined with the **esp32** board package (v3.3.5 or higher).
 
-Full support for the Nesso N1 battery management system (BMS) requires the **esp32** board package version **3.3.5** (or newer), which is currently pending release.
+### Enable Battery
 
-**Do not attempt to enable battery charging with the current board package (version 3.3.4 or older).**
+To enable battery operation, you must include the `Arduino_Nesso_N1` library in your sketch. This library acts as a wrapper for the system's components, simplifying interaction with the power management system.
 
-Allowing the battery to fully deplete while using the current software may cause the device to become unresponsive and fail to power on, even when connected to USB.
+1.  **Install the Library:** In the Arduino IDE, go to **Tools > Manage Libraries...**, search for **"Arduino_Nesso_N1"**, and install the latest version.
+2.  **Include the Header:** Add `#include <Arduino_Nesso_N1.h>` to your sketch.
+3.  **Initialize:** Create a `NessoBattery` object and call `.begin()` in `setup()`.
+4.  **Enable Charging:** Call `battery.enableCharge()` to allow the battery to charge when USB power is connected.
 
-**Recommendation:**
-*   **Power the device exclusively via USB-C** until the software update is available.
-*   **Do not** call `battery.enableCharge()` in your sketches.
+### Battery Status Example
 
-Once the updated board package is released, this manual will be updated with instructions for safe battery management.
+The following example demonstrates how to enable charging and print the battery status to the Serial Monitor.
+
+```cpp
+#include <Arduino_Nesso_N1.h>
+
+NessoBattery battery;
+
+void setup() {
+  Serial.begin(115200);
+  
+  // Initialize the battery library
+  battery.begin();
+
+  // Enable charging
+  battery.enableCharge();
+}
+
+void loop() {
+  // Read and print battery status
+  float voltage = battery.getVoltage();
+  uint16_t percentage = battery.getChargeLevel();
+  bool charging = (battery.getChargeStatus() == NessoBattery::CHARGING);
+
+  Serial.print("Voltage: ");
+  Serial.print(voltage);
+  Serial.print(" V, Percentage: ");
+  Serial.print(percentage);
+  Serial.print(" %, Charging: ");
+  Serial.println(charging ? "Yes" : "No");
+  
+  delay(1000);
+}
+```
 
 ## Microcontroller (ESP32-C6)
 
@@ -298,7 +350,15 @@ These pins are directly controlled by the main microcontroller.
 
 ### I/O Expander Pins
 
-The Nesso N1 uses two PI4IOE5V6408 I/O expanders (addresses `0x43` and `0x44`) to manage additional pins over the I2C bus. These pins are accessed in code using special `ExpanderPin` objects, which are pre-defined as part of the Nesso N1 board package. You do not need to include any extra libraries to use them.
+The Nesso N1 uses two PI4IOE5V6408 I/O expanders (addresses `0x43` and `0x44`) to manage additional pins over the I2C bus.
+
+Starting from version **3.3.5** of the **esp32** boards platform, these pins require the **Arduino_Nesso_N1** library. If you use `pinMode()`, `digitalRead()`, or `digitalWrite()` with any of the expander pins listed below, you **must** install this library and include the header at the top of your sketch:
+
+```cpp
+#include <Arduino_Nesso_N1.h>
+```
+
+Failure to include this library will result in a compilation error.
 
 | Pin Object            | Expander Port | Function                         |
 | :-------------------- | :------------ | :------------------------------- |
@@ -313,6 +373,8 @@ The Nesso N1 uses two PI4IOE5V6408 I/O expanders (addresses `0x43` and `0x44`) t
 | `VIN_DETECT`          | E1.P5         | External Power (VIN) Detection   |
 | `LCD_BACKLIGHT`       | E1.P6         | LCD Backlight Control            |
 | `LED_BUILTIN`         | E1.P7         | Onboard Status LED (Green)       |
+
+***Because expander E1 already occupies I2C address `0x44`, any external device that also uses `0x44` cannot share the bus. The Modulino Thermo module uses address `0x44`, so it is not compatible with the Nesso N1 when connected through the Qwiic connector.***
 
 
 The configuration of a digital pin is done in the `setup()` function with the `pinMode()` function:
@@ -522,7 +584,7 @@ The Nesso N1 has a multi-function button for power control:
 - **Click (from off state)**: Power on.
 - **Click (from on state)**: Reset the device.
 - **Double-click (from on state)**: Power off.
-- **Press and hold (from on state)**: Enter Download/Bootloader mode.
+- **Long press**: Enter Download/Bootloader mode (works both when the device is on or off).
 
 ![Power Button](assets/power-button.png)
 
@@ -532,11 +594,13 @@ Additionally, the `POWEROFF` expander pin allows you to shut down the device pro
 
 ### User Buttons
 
-The board has two physical buttons, **KEY1** and **KEY2**, that are connected to the I/O expander.  These can be read using `digitalRead()`.
+The board has two physical buttons, **KEY1** and **KEY2**, that are connected to the I/O expander. To use them, you must include the `Arduino_Nesso_N1` library.
 
 ![User Buttons](assets/programmable-buttons.png)
 
 ```arduino
+#include <Arduino_Nesso_N1.h>
+
 void setup() {
   Serial.begin(115200);
   pinMode(KEY1, INPUT_PULLUP);
@@ -562,6 +626,8 @@ The board has an onboard green LED that can be controlled using the `LED_BUILTIN
 ![Built-in LED](assets/built-in-led.png)
 
 ```arduino
+#include <Arduino_Nesso_N1.h>
+
 void setup() {
   // Configure the built-in LED as an output
   pinMode(LED_BUILTIN, OUTPUT);
@@ -581,23 +647,23 @@ void loop() {
 
 ## Display & Touchscreen
 
-The Nesso N1 features a 1.14-inch IPS color touchscreen with a resolution of 135 x 240 pixels, providing a vibrant and intuitive interface for your projects.
+The Nesso N1 features a 1.14-inch IPS color touchscreen with a resolution of 135 x 240 pixels.
 
 - **Display Controller**: ST7789, controlled via SPI.
 - **Touch Controller**: FT6336U, controlled via I2C.
 
-The display can be programmed using the [**M5GFX**](https://github.com/m5stack/M5GFX) library, which is a powerful graphics library that simplifies drawing text, shapes, and images. You can install it from the Arduino IDE Library Manager by searching for "M5GFX".
+The display and touch features are easily accessed using the `Arduino_Nesso_N1` library, which provides the `NessoDisplay` and `NessoTouch` classes. The `NessoDisplay` class is based on [M5GFX](https://github.com/m5stack/M5GFX), so you can use all the powerful graphics functions it offers.
 
 ### Basic Text Display
 
-The following example initializes the display and prints a simple text string.
+The following example initializes the display using the `NessoDisplay` class and prints a simple text string.
 
-![Display Touch Coordinates](assets/display-example-1.png)
+![Display Text](assets/display-example-1.png)
 
 ```arduino
-#include <M5GFX.h>
+#include <Arduino_Nesso_N1.h>
 
-M5GFX display; // Create a display instance
+NessoDisplay display; // Create a display instance
 
 void setup() {
   display.begin();
@@ -620,14 +686,14 @@ void loop() {
 
 ### Drawing Shapes and Colors
 
-The M5GFX library includes functions for drawing basic geometric shapes. You can use predefined color constants (e.g., `TFT_RED`, `TFT_GREEN`, `TFT_BLUE`) or specify 16-bit RGB565 color values.
+NessoDisplay inherits from 'M5GFX', you can therefore draw shapes using established methods.
 
-![Display Touch Coordinates](assets/display-example-2.png)
+![Display Shapes](assets/display-example-2.png)
 
 ```arduino
-#include <M5GFX.h>
+#include <Arduino_Nesso_N1.h>
 
-M5GFX display;
+NessoDisplay display;
 
 void setup() {
   display.begin();
@@ -650,49 +716,47 @@ void loop() {
 
 ### Handling Touch Input
 
-This example demonstrates how to read touch coordinates. It displays an initial message in the center of the screen. When you touch the screen, a "cursor" (a small circle) will appear at the point of contact, and the X/Y coordinates will be displayed in a fixed position at the center of the screen, updating in real-time as you move your finger.
+This example demonstrates how to read touch coordinates using the `NessoTouch` class.
 
 ![Display Touch Coordinates](assets/display-example-3.png)
 
 ```arduino
-#include <M5GFX.h>
+#include <Arduino_Nesso_N1.h>
 
-M5GFX display;
+NessoDisplay display;
+NessoTouch touch;
 
 void setup() {
   display.begin();
+  touch.begin();
+  
   display.setRotation(1); // Set to landscape mode
   display.fillScreen(TFT_BLACK);
 
-  // Set text properties that will be used for all text in this sketch
-  display.setTextDatum(MC_DATUM); // Middle-Center datum for text alignment
+  display.setTextDatum(MC_DATUM);
   display.setTextColor(TFT_WHITE);
   display.setTextSize(2);
 
-  // Display the initial message centered on the screen
   display.drawString("Touch the screen", display.width() / 2, display.height() / 2);
 }
 
 void loop() {
-  // Create a structure to hold touch data
-  lgfx::touch_point_t tp;
+  int16_t x, y;
 
   // Check if the screen is being touched
-  if (display.getTouch(&tp)) {
-    // Clear the screen to update both the circle and the text
+  if (touch.read(x, y)) {
+    // Clear the screen
     display.fillScreen(TFT_BLACK);
     
-    // Draw a white circle at the current touch coordinates
-    display.fillCircle(tp.x, tp.y, 5, TFT_WHITE);
+    // Draw a circle at the touch point
+    display.fillCircle(x, y, 5, TFT_WHITE);
 
-    // Create a string with the updated coordinates
-    String coords = "X:" + String(tp.x) + " Y:" + String(tp.y);
-
-    // Draw the coordinates string at the FIXED center of the screen
+    // Display coordinates
+    String coords = "X:" + String(x) + " Y:" + String(y);
     display.drawString(coords, display.width() / 2, display.height() / 2);
   }
   
-  delay(20); // Small delay for responsiveness
+  delay(20);
 }
 ```
 
@@ -753,7 +817,7 @@ void loop() {
 
 The Nesso N1 supports **Bluetooth® 5.3 Low Energy (LE)**, enabling efficient, short-range communication with smartphones, sensors, and other BLE-enabled devices.
 
-***WARNING: The ESP32 board package includes its own library for Bluetooth® that conflicts with the standard `ArduinoBLE` library. If you have the `ArduinoBLE` library installed in your IDE, you may encounter compilation errors. To resolve this, you must uninstall the `ArduinoBLE` library from the Library Manager before compiling sketches for the Nesso N1.***
+***WARNING: The ESP32 board package includes its own library for Bluetooth® that conflicts with the standard `ArduinoBLE` library. If you have the `ArduinoBLE` library installed in your IDE, you may encounter compilation errors. To resolve this, you must uninstall the `ArduinoBLE` library from the Library Manager before running sketches for the Nesso N1.***
 
 #### Simple BLE Server Example
 
@@ -918,7 +982,8 @@ You have now successfully sent and received a message over a peer-to-peer Thread
 
 The Nesso N1's 802.15.4 radio allows it to act as a **Zigbee® End Device**, enabling it to join existing Zigbee® mesh networks. This is ideal for creating low-power devices like sensors or light controllers that integrate with popular smart home hubs.
 
-To compile this example, you must configure the following settings in the Arduino IDE:
+To run this example, you must configure the following settings in the Arduino IDE:
+- Install the **Arduino_Nesso_N1** library via the Library Manager.
 - Navigate to **Tools > Zigbee Mode** and select **End device**.
 - Navigate to **Tools > Partition Scheme** and select **Zigbee SPIFF 4MB**.
 
@@ -931,6 +996,7 @@ This example configures the Nesso N1 to act as a simple Zigbee® On/Off light bu
 #error "Zigbee end device mode is not selected in Tools->Zigbee mode"
 #endif
 
+#include <Arduino_Nesso_N1.h>
 #include "Zigbee.h"
 
 // Define the Zigbee endpoint for the light
@@ -996,7 +1062,10 @@ The choice of transport is determined by **compile-time definitions** you add at
 
 This example turns your Nesso N1 into a simple On/Off light bulb. The same code works for both Matter over Wi-Fi® and Matter over Thread. After commissioning, you can control the Nesso N1's built-in LED from your smart home app.
 
+***Before running the example, ensure you have installed the **Arduino_Nesso_N1** library via the Library Manager.***
+
 ```arduino
+#include <Arduino_Nesso_N1.h>
 #include <Matter.h>
 // Include WiFi.h only if you plan to use Matter over Wi-Fi
 #include <WiFi.h>
@@ -1120,9 +1189,25 @@ The LoRa® module is controlled via SPI and several dedicated pins on both the E
 | `LORA_ANTENNA_SWITCH` |      | E0.P6         | LoRa® RF Antenna Switch Control  |
 | `LORA_ENABLE`         |      | E0.P7         | LoRa® Module Reset/Enable        |
 
+#### Understanding the LoRa® Antenna Control Pins
+
+The Nesso N1 includes an RF antenna switch (FM8625) and a Low Noise Amplifier (SGM1300) for the LoRa® receive path. Understanding how these work is important for reliable communication:
+
+- **`LORA_ENABLE` (EXP P7):** Controls the SX1262 module reset. Set HIGH to enable the module, LOW to reset.
+
+- **`LORA_ANTENNA_SWITCH` (EXP P6):** Powers the RF antenna switch. Must be set HIGH for normal LoRa® operation. This controls the VDD supply to the FM8625 RF switch IC.
+
+- **`LORA_LNA_ENABLE` (EXP P5):** Enables the SGM1300 Low Noise Amplifier on the receive path. **This must be set HIGH for the antenna signal to reach the SX1262 receiver.** Setting it LOW will disable the route between the antenna and the SX1262's receive input (SRFI). For power-sensitive applications, you can disable the LNA during transmit and enable it only during receive.
+
+- **Rx/Tx Switching:** The actual antenna path switching between transmit (SRFO) and receive (SRFI) is handled automatically by the SX1262's DIO2 pin when configured with `radio.setDio2AsRfSwitch(true)` in RadioLib.
+
+***Note: If two Nesso N1 devices are very close to each other, communication may appear to work even with the LNA or antenna switch disabled. This should be considered unreliable behavior and is not suitable for production use.***
+
 #### LoRa® Peer-to-Peer (P2P) Examples
 
 The following examples demonstrate basic LoRa® peer-to-peer (P2P) communication using the [RadioLib](https://github.com/jgromes/RadioLib) library. This is the foundational step for testing your hardware and building more complex network applications.
+
+***Before running the examples, ensure you have installed the **RadioLib** and **Arduino_Nesso_N1** libraries via the Library Manager.***
 
 **LoRa® Transmitter Example**
 
@@ -1131,6 +1216,7 @@ This example configures the Nesso N1 to send a "Hello World!" packet every five 
 ***WARNING: You must configure the LoRa® frequency (`LORA_FREQUENCY`) variable to match your geographical region. to a value that is legal for your geographical region. Transmitting on an unauthorized frequency can result in fines. Common frequencies are 915.0 MHz for North America/Australia, 868.0 MHz for Europe, and 433.0 MHz for Asia.***
 
 ```arduino
+#include <Arduino_Nesso_N1.h>
 #include <RadioLib.h>
 
 // LoRa® frequency regions
@@ -1151,12 +1237,17 @@ int packetCounter = 0;
 void setup() {
   Serial.begin(115200);
 
-  // Manually reset the LoRa module using the expander pin for reliability.
+  // Enable the SX1262 module
   pinMode(LORA_ENABLE, OUTPUT);
-  digitalWrite(LORA_ENABLE, LOW);
-  delay(10);
   digitalWrite(LORA_ENABLE, HIGH);
-  delay(10);
+
+  // Enable the LNA (required for receiving - antenna signal won't pass through if LOW)
+  pinMode(LORA_LNA_ENABLE, OUTPUT);
+  digitalWrite(LORA_LNA_ENABLE, HIGH);
+
+  // Enable the RF antenna switch power
+  pinMode(LORA_ANTENNA_SWITCH, OUTPUT);
+  digitalWrite(LORA_ANTENNA_SWITCH, HIGH);
 
   // Initialize the LoRa® module
   Serial.print(F("[SX1262] Initializing... "));
@@ -1167,6 +1258,9 @@ void setup() {
     while (true);
   }
   Serial.println(F("success!"));
+
+  // Tell the SX1262 to use its DIO2 pin to control the antenna Rx/Tx switch
+  radio.setDio2AsRfSwitch(true);
 }
 
 void loop() {
@@ -1192,6 +1286,7 @@ void loop() {
 This example configures a second Nesso N1 to listen for LoRa® packets and print them to the Serial Monitor. It uses a simple polling method where the main loop waits until a packet is received.
 
 ```arduino
+#include <Arduino_Nesso_N1.h>
 #include <RadioLib.h>
 
 // LoRa® frequency regions
@@ -1208,14 +1303,19 @@ SX1262 radio = new Module(LORA_CS, LORA_IRQ, RADIOLIB_NC, LORA_BUSY);
 void setup() {
   Serial.begin(115200);
 
-  // Manually reset the LoRa module.
+  // Enable the SX1262 module
   pinMode(LORA_ENABLE, OUTPUT);
-  digitalWrite(LORA_ENABLE, LOW);
-  delay(10);
   digitalWrite(LORA_ENABLE, HIGH);
-  delay(10);
 
-  // Initialize the LoRa® module.
+  // Enable the LNA (required for receiving - antenna signal won't pass through if LOW)
+  pinMode(LORA_LNA_ENABLE, OUTPUT);
+  digitalWrite(LORA_LNA_ENABLE, HIGH);
+
+  // Enable the RF antenna switch power
+  pinMode(LORA_ANTENNA_SWITCH, OUTPUT);
+  digitalWrite(LORA_ANTENNA_SWITCH, HIGH);
+
+  // Initialize the LoRa® module
   Serial.print(F("[SX1262] Initializing... "));
   int state = radio.begin(LORA_FREQUENCY);
   if (state != RADIOLIB_ERR_NONE) {
@@ -1223,16 +1323,10 @@ void setup() {
     Serial.println(state);
     while (true);
   }
-
-  // Start listening for LoRa packets.
-  Serial.print(F("[SX1262] Starting to listen... "));
-  state = radio.startReceive();
-  if (state != RADIOLIB_ERR_NONE) {
-    Serial.print(F("failed, code "));
-    Serial.println(state);
-    while (true);
-  }
   Serial.println(F("success!"));
+
+  // Tell the SX1262 to use its DIO2 pin to control the antenna Rx/Tx switch
+  radio.setDio2AsRfSwitch(true);
 }
 
 void loop() {
@@ -1264,7 +1358,7 @@ void loop() {
 }
 ```
 
-***Please note: because the `LORA_ENABLE` pin is on an I/O expander, it cannot be passed directly to the RadioLib library constructor. The library must be initialized with the reset pin set to `RADIOLIB_NC` and it is best practice to perform a manual reset in setup.***
+***Please note: because the `LORA_ENABLE` pin is on an I/O expander, it cannot be passed directly to the RadioLib library constructor. The library must be initialized with the reset pin set to `RADIOLIB_NC`.***
 
 #### Configuring for Public LoRa® Networks
 
@@ -1274,12 +1368,14 @@ The onboard SX1262 module can be configured to communicate on public LoRa® netw
 
 ### 6-Axis IMU
 
-The **BMI270** is a high-performance 6-axis Inertial Measurement Unit (IMU) that combines a 3-axis accelerometer and a 3-axis gyroscope. It connects to the ESP32-C6 via the I2C bus (`SCL` on GPIO8, `SDA` on GPIO10) and provides an interrupt signal on `SYS_IRQ` (GPIO3). It is ideal for motion tracking, gesture recognition, and orientation sensing.
+The **BMI270** is a high-performance 6-axis Inertial Measurement Unit (IMU) that combines a 3-axis accelerometer and a 3-axis gyroscope.
 
-Here is a minimal example using the [Arduino_BMI270_BMM150](https://github.com/arduino-libraries/arduino_bmi270_bmm150)  library:
+To use the IMU, it is recommended to include the `Arduino_Nesso_N1` library. This library automatically configures the correct pins and settings for the onboard sensor.
+
+Here is a minimal example:
 
 ```arduino
-#include <Arduino_BMI270_BMM150.h>
+#include <Arduino_Nesso_N1.h>
 
 void setup() {
   Serial.begin(115200);
@@ -1413,7 +1509,9 @@ The Qwiic system’s key advantages include:
 
 ***The Qwiic connector on the Nesso N1 is connected to the primary I2C bus, which uses the standard `Wire` object. The connector provides a 3.3 V supply, making it ideal for modern sensors.***
 
-The Qwiic connector allows you to interface with our Modulino family for developing soldering-free projects.
+***__Important:__ The Modulino Thermo module cannot be used with the Nesso N1 Qwiic connector because both the module and an internal I/O expander use I2C address `0x44`.***
+
+The Qwiic connector allows you to interface with our Modulino family for solder-free project development, except for the Modulino Thermo module on the Qwiic port.
 
 ![Modulino nodes](assets/modulino.png)
 
@@ -1422,7 +1520,9 @@ You can check our [Modulino family](https://store.arduino.cc/collections/modulin
 
 ### Grove Connector
 
-The Nesso N1 also includes one standard **Grove** connector. It provides a 5 V interface with two digital I/O pins (`GROVE_IO_0` on GPIO5, `GROVE_IO_1` on GPIO4), making it compatible with the extensive ecosystem of [Grove modules](https://search.arduino.cc/search?q=grove%20module&tab=store), including those from [M5Stack](https://shop.m5stack.com/pages/search-results-page?q=grove&page=1&rb_tags=ACTUATORS%7CSENSOR) and [Arduino Sensor Kit](https://store.arduino.cc/products/sensor-kit-base).
+The Nesso N1 also includes one standard **Grove** connector. It provides **5 V power** and two digital I/O pins (GROVE_IO_0 on GPIO5, GROVE_IO_1 on GPIO4) operating at **3.3 V logic**. This interface makes the board compatible with the extensive ecosystem of [Grove modules](https://search.arduino.cc/search?q=grove%20module&tab=store), including those from [M5Stack](https://shop.m5stack.com/pages/search-results-page?q=grove&page=1&rb_tags=ACTUATORS%7CSENSOR) and [Arduino Sensor Kit](https://store.arduino.cc/products/sensor-kit-base).
+
+**Important:** Do not input 5 V logic signals to these pins, as they are not 5 V tolerant.
 
 ![Grove Connector](assets/grove-connector.png)
 
