@@ -17,7 +17,7 @@ This page contains all release notes for Arduino App Lab. To access the software
 
 Cat ipsum dolor sit amet, tweeting a baseball but stick butt in face rub whiskers on bare skin act innocent. Thinking about you i'm joking it's food always food thug cat or check cat door for ambush 10 times before coming in and russian blue your pillow is now my pet bed, so jump launch to pounce upon little yarn mouse, bare fangs at toy run hide in litter box until treats are fed.
 
-## Latest Firmware Version: [YYYY.MM.DD] | 0.5.0
+## Latest Firmware Version: [2026.03.27] | 0.5.0
 
 You can now connect App Lab with Arduino Cloud and your Edge Impulse Account! This means that you can now use the IoT Remote App as a camera input to your examples, as well as create your own custom models using Edge Impulse.
 
