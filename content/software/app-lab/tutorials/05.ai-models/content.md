@@ -114,7 +114,7 @@ When you export for the UNO Q, you get an **.eim (Edge Impulse Model)** file. Th
 
 ![Connect to Edge Impulse](assets/app-lab-5.png)
 
-- You will be asked for permision to gran Arduino App Lab to access your Edge Impulse account.
+- You will be asked for permission to gran Arduino App Lab to access your Edge Impulse account.
 
 ![Edge Impulse permission](assets/app-lab-5.5.png)
 
@@ -231,7 +231,7 @@ This Impulse has the following settings:
 - **Resolution:** 96x96 pixels
 - **Neural Network architecture:** FOMO (Faster Objects, More Objects) MobileNetV2 0.35
 
-Notice that the traning result is shown as a confusion matrix and with these settings we have accomplished a very different performance:
+Notice that the training result is shown as a confusion matrix and with these settings we have accomplished a very different performance:
 
 - **Inferencing Time:** 3 ms
 - **Peak RAM Usage:** 887.1 kB
