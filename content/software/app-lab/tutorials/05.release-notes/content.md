@@ -63,7 +63,7 @@ See a full list of what's new and which bugs have been fixed below.
 You can always find the latest release [here](https://github.com/arduino/arduino-app-lab/releases). 
 </Alert>
 
-## Previous Relases
+## Previous Releases
 
 Below is a list of release notes for previous versions.
 
