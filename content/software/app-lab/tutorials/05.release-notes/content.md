@@ -6,27 +6,27 @@ description: 'This article contains release notes of App Lab.'
 author: Arduino Team
 ---
 
-# Firmware Information
+## Overview
 
 This page contains all release notes for Arduino App Lab. To access the software, go [here](https://www.arduino.cc/en/software/#app-lab-section).
 
 <Alert type="note">Note that you need to have an UNO Q ([2GB](https://store.arduino.cc/products/uno-q) or [4GB](https://store.arduino.cc/products/uno-q-4gb)) to use Arduino App Lab.
 </Alert>
 
-# Firmware Versions
+## Releases
 
-
-## Latest Firmware Version: [2026.03.27] | 0.5.0
+### Release 0.5.0 [2026.02.27]
 
 You can now connect App Lab with Arduino Cloud and your Edge Impulse Account! This means that you can now use the IoT Remote App as a camera input to your examples, as well as create your own custom models using Edge Impulse.
 
 New Examples: 
+
 * Color Your LEDs
 * Video Object Detection on Mobile
 
 See a full list of what's new and which bugs have been fixed below.
 
-### What's new
+#### What's new
 
 * Connect App Lab with Edge Impulse Account
 * Edge Impulse Custom Model integration
@@ -45,7 +45,7 @@ See a full list of what's new and which bugs have been fixed below.
   * New: Video Object Detection on Mobile
   * Improvements: LED Matrix Painter
 
-### What's fixed
+#### What's fixed
 
 * HTML syntax highlighting lost on scroll
 * Board discovery: duplicates and network mode shown when USB connection available
@@ -63,14 +63,14 @@ See a full list of what's new and which bugs have been fixed below.
 You can always find the latest release [here](https://github.com/arduino/arduino-app-lab/releases). 
 </Alert>
 
-## Available Firmware Versions
+## Previous Relases
 
-Below is a list of all available firmware versions with their release notes.
+Below is a list of release notes for previous versions.
 
-### App Lab | 0.4.0
+### Release 0.4.0 [2026.02.06]
 
 <details>
-  <summary><strong>2026.02.06 (Release 0.4.0)</strong></summary>
+  <summary><strong>Details</strong></summary>
 
 #### What’s New
 
@@ -90,10 +90,10 @@ Below is a list of all available firmware versions with their release notes.
 - **Security:** Applied security updates to the open-source repository.
 - **General Fixes:** Addressed various minor visual and behavioral bugs.
 
-#### GitHub Release
+### GitHub Release
 
 https://github.com/arduino/arduino-app-lab/releases/tag/al-0.4.0
 
 </details>
 
-If you have already downloaded App Lab once, you should get your updates automatically next time you open the software. If you want to download the latest firmware, you can always access it [here](https://www.arduino.cc/en/software/#app-lab-section). 
+If you have already downloaded App Lab once, you should get your updates automatically next time you open the software. You can also [download the latest release here](https://www.arduino.cc/en/software/#app-lab-section). 
