@@ -4,7 +4,7 @@ title: Arduino® UNO Breakout Carrier
 type: maker
 author: Christopher Méndez
 ---
-![](assets/featured.png)
+![](assets/featured.svg)
 
 # Description
 
@@ -12,14 +12,24 @@ The Arduino UNO Breakout Carrier is designed to give developers complete, direct
 
 # Features
 
+* Connectors
+  * Two 2x20 Male Headers (2.54 mm)
+  * Two 2x30 Male Headers(JMEDIA and JMISC 1.27 mm)
+  * 1x8 through-hole pads (2.54 mm)
+* Power
+  * Powered from the host UNO Q
+  * VIN input power rails (+7-24 VDC)
+* I/O
+  * I2C
+  * Microphone In / Headphone Out
+  * Earphone Out
+  * Audio Line Out
+  * PWM
+  * PSSI
+  * GPIO
+
 # Contents
 ## The Board
-### Application Examples
-This product is designed to work alongside the Portenta family. Please check the Getting Started guide of your Portenta board.
-
-**Product Development:** The Portenta Breakout board reduces development time for industrial-grade solution automation based on the Portenta line.
-
-**Technical Education:** The Portenta Breakout board can act as a first point of entry for technician education in industrial-grade control and embedded systems.
 
 ### Related Products
 *   Arduino UNO Q (SKU: ABX00162 - ABX00173)
@@ -28,18 +38,12 @@ This product is designed to work alongside the Portenta family. Please check the
 
 
 ## Ratings
-### Absolute Maximum Ratings
-| Symbol |             Description             | Min  | Typ  | Max  | Unit |
-| :----: | :---------------------------------: | :--: | :--: | :--: | ---- |
-|  T<sub>Max</sub>  |        Maximum thermal limit        | -40  |  20  |  85  | °C   |
-| 5V<sub>Max</sub>  | Maximum input voltage from 5V input | 4.0  |  5   | 5.5  | V    |
-|  P<sub>Max</sub>  |      Maximum Power Consumption      |  -   |  -   | 5000 | mW   |
 
 ### Recommended Operating Conditions
-| Symbol |         Description         | Min  | Typ  | Max  | Unit |
-| :----: | :-------------------------: | :--: | :--: | :--: | :--: |
-|   T    | Conservative thermal limits | -15  |  20  |  60  |  °C  |
-|   5V   | Input voltage from 5V input | 4.8  |  5   | 5.2  |  V   |
+|     Symbol     |         Description         |  Min  |  Typ  |  Max  | Unit  |
+| :------------: | :-------------------------: | :---: | :---: | :---: | :---: |
+|       T        | Conservative thermal limits |  -10  |  20   |  60   |  °C   |
+| V<sub>IN</sub> | Input voltage from VIN pad  |   6   |   7   |  24   |   V   |
 
 ## Functional Overview
 ### Board Topology
