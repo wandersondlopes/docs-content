@@ -27,7 +27,6 @@ type: maker
 | Output Connector   | USB-C (USB Type-C)                                                 |
 | Dimensions (Body)  | 64 × 64 × 30 mm (folded plug) / 64 × 80.06 × 30 mm (unfolded plug) |
 | Material           | PC (Polycarbonate) housing                                         |
-| Fire Rating        | UL94V-0                                                            |
 
 ### Input Specifications
 
@@ -72,7 +71,6 @@ type: maker
 | United States (Default) | Type A        | Integrated (foldable)           |
 | Europe (EU)             | Type C        | 34.6-36.0 × 27.5 × 37 mm        |
 | United Kingdom          | Type G        | 48.98 × 39.83 × 22.23-23.23 mm* |
-| Australia (AU)          | Type I        | 20.0 × 16.99 × 8.69 mm          |
 
 <div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
   <strong>Note:</strong> Plugs are interchangeable and can be replaced without tools. Make sure the correct plug is attached for your region before use.
@@ -237,9 +235,6 @@ type: maker
 |--------------------|
 | RoHS               |
 | REACH              |
-| CPSIA              |
-| EN71               |
-| California Prop 65 |
 
 <div style="page-break-after: always;"></div>
 
@@ -257,8 +252,6 @@ The Arduino USB-C Power Supply holds the following safety certifications:
 | CE                | Europe         | EN62368              |
 | UKCA              | United Kingdom | EN62368              |
 | FCC               | USA            | Part 15 Class B      |
-| SAA               | Australia      | AS/NZS 62368         |
-| C-TICK            | Australia      | AS/NZS CISPR32:2015  |
 
 <div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
   <strong>Note:</strong> All certifications are maintained and updated regularly. For the most current certification status, please contact Arduino support or refer to product documentation.

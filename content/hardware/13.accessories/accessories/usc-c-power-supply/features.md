@@ -15,7 +15,7 @@ The **Arduino® USB-C Power Supply (45W)** provides power delivery for USB-C dev
   </Feature>
 
   <Feature title="Interchangeable Plugs" image="connection">
-    Regional plugs for US, EU, UK, and AU. Tool-free plug replacement.
+    Regional plugs for US, EU, and UK. Tool-free plug replacement.
   </Feature>
 
   <Feature title="Safety Protection" image="security">
