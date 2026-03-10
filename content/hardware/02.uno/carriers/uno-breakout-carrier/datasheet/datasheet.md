@@ -14,7 +14,7 @@ The Arduino UNO Breakout Carrier is designed to give developers complete, direct
 
 * Connectors
   * Two 2x20 Male Headers (2.54 mm)
-  * Two 2x30 Male Headers(JMEDIA and JMISC 1.27 mm)
+  * Two 2x30 Male Headers (JMEDIA and JMISC 1.27 mm)
   * 1x8 through-hole pads (2.54 mm)
 * Power
   * Powered from the host UNO Q
@@ -40,7 +40,7 @@ The Arduino UNO Breakout Carrier is designed to give developers complete, direct
 |     Symbol     |         Description         |  Min  |  Typ  |  Max  | Unit  |
 | :------------: | :-------------------------: | :---: | :---: | :---: | :---: |
 |       T        | Conservative thermal limits |  -10  |  20   |  60   |  °C   |
-| V<sub>IN</sub> | Input voltage from VIN pad  |   6   |   7   |  24   |   V   |
+| V<sub>IN</sub> | Input voltage from VIN pad  |   7   |   -   |  24   |   V   |
 
 ## Functional Overview
 
@@ -107,7 +107,7 @@ The UNO Breakout Carrier pinout is shown in the following figure.
 | 37  | GND       | Ground        | Ground                               |
 | 38  | HPH_REF   | Analog        | Headphone Reference                  |
 | 39  | VCOIN     | Power In      | Coin Cell / RTC Backup Voltage Input |
-| 40  | HS_DET    | Analog        | Headphone Detection                  |
+| 40  | HS_DET    | Analog        | Headset Detection                   |
 
 #### J15
 
@@ -151,7 +151,7 @@ The UNO Breakout Carrier pinout is shown in the following figure.
 | 36  | SOC_GPIO_100          | Digital       | MPU GPIO              |
 | 37  | SOC_GPIO_18           | Digital       | MPU GPIO              |
 | 38  | SOC_GPIO_101          | Digital       | MPU GPIO              |
-| 39  | SOC_GPIO_20           | Digital       | MPU GPIO              |
+| 39  | SOC_GPIO_28           | Digital       | MPU GPIO              |
 | 40  | GND                   | Ground        | Ground                |
 
 #### JMEDIA
@@ -208,10 +208,10 @@ The UNO Breakout Carrier pinout is shown in the following figure.
 | 48  | NC                      | None      | Not Connected      |
 | 49  | GND                     | Ground    | Ground             |
 | 50  | GND                     | Ground    | Ground             |
-| 51  | NC                      | None      | Not Connected      |
-| 52  | CCI_I2C_SCL0 / GPIO_23  | I2C       | MPU GPIO           |
-| 53  | NC                      | None      | Not Connected      |
-| 54  | CCI_I2C_SDA0 / GPIO_22  | I2C       | MPU GPIO           |
+| 51  | CCI_I2C_SCL0 / GPIO_23  | I2C       | MPU GPIO           |
+| 52  | NC                      | None      | Not Connected      |
+| 53  | CCI_I2C_SDA0 / GPIO_22  | I2C       | MPU GPIO           |
+| 54  | NC                      | None      | Not Connected      |
 | 55  | GND                     | Ground    | Ground             |
 | 56  | GND                     | Ground    | Ground             |
 | 57  | VIN                     | Power In  | Voltage Input      |
@@ -239,7 +239,7 @@ The UNO Breakout Carrier pinout is shown in the following figure.
 | 14  | MCU_PE8 / PE8         | Digital       | MCU GPIO                             |
 | 15  | MCU_PSSI_D7 / PI7     | Digital       | MCU GPIO                             |
 | 16  | MCU_I2C4_SCL / PF14   | Digital / I2C | MCU GPIO                             |
-| 17  | MCU_PSSI_PDCK / PI9   | Digital       | MCU GPIO                             |
+| 17  | MCU_PSSI_PDCK / PD9   | Digital       | MCU GPIO                             |
 | 18  | MCU_I2C4_SDA / PF15   | Digital / I2C | MCU GPIO                             |
 | 19  | MCU_PSSI_RDY / PI5    | Digital       | MCU GPIO                             |
 | 20  | MCU_OPAMP1_VOUT / PA3 | Analog        | MCU GPIO / OPAMP OUT                 |
