@@ -6,8 +6,6 @@ variant: 'Datasheet'
 author: José Bagur
 ---
 
-![](assets/featured.png)
-
 # Description
 
 <p style="text-align: justify;">The Arduino Bughopper is a compact USB-to-UART bridge board designed to bring straightforward remote debugging to the Arduino UNO Q via its JCTL connector. Built around the FTDI FT230XQ integrated circuit (IC), it provides a reliable, high-speed serial link between your development machine and the UNO Q, enabling advanced debugging and logging without occupying the board's main I/O pins. Its compact 38.5 × 11 mm footprint, USB-C connectivity, and multiple header options make it easy to integrate into any workspace, enclosure, or automated test setup.</p>
@@ -34,8 +32,7 @@ Embedded development, hardware testing, education
 
 ### General Specifications Overview
 
-<p style="text-align: justify;">The Arduino Bughopper is a compact USB-to-UART bridge board built around the FTDI FT230XQ IC. Designed exclusively for the Arduino UNO Q, it connects via the JCTL header to provide a dedicated debug and serial communication channel that does not interfere with the board's main I/O.
-</p>
+<p style="text-align: justify;">The Arduino Bughopper is a compact USB-to-UART bridge board built around the FTDI FT230XQ IC. Designed exclusively for the Arduino UNO Q, it connects via the JCTL header to provide a dedicated debug and serial communication channel that does not interfere with the board's main I/O.</p>
 
 The main features of the board are highlighted in the table shown below.
 
@@ -55,13 +52,10 @@ The main features of the board are highlighted in the table shown below.
 
 <div style="page-break-after: always;"></div>
 
-### Accessories
-
-- TBD
-
 ### Related Products
 
-- Arduino UNO Q (SKU: TBD)
+- Arduino® UNO™ Q 2GB (SKU: ABX00162)
+- Arduino® UNO™ Q 4GB (SKU: ABX00173)
 
 <div style="page-break-after: always;"></div>
 
@@ -101,15 +95,11 @@ The main features of the board are highlighted in the table shown below.
 
 ## Functional Overview
 
-<p style="text-align: justify;">
-The core of the Bughopper is the FT230XQ-R USB-to-UART bridge from FTDI. The board receives +5 VDC power from the USB-C connector and generates +3.3 VDC through the FT230XQ-R's internal LDO regulator. UART signals (TXD and RXD) are routed through a SN74AVC2T245RSWR bidirectional level translator, which ensures safe voltage-level translation between the +3.3 VDC domain of the FT230XQ-R and the VTARGET domain of the connected Arduino UNO Q board. Four onboard LEDs provide visual status: a green LED for the +3.3 VDC power rail, a red LED for the VTARGET rail, and two yellow LEDs for TXD and RXD activity.
-</p>
+<p style="text-align: justify;">The core of the Bughopper is the FT230XQ-R USB-to-UART bridge from FTDI. The board receives +5 VDC power from the USB-C connector and generates +3.3 VDC through the FT230XQ's internal voltage regulator. UART signals (TXD and RXD) are routed through a bidirectional level translator (SN74AVC2T245RSWR), which ensures safe voltage-level translation between the +3.3 VDC domain of the FT230XQ and the VTARGET domain of the connected Arduino UNO Q board. Four onboard LEDs provide visual status: a green LED for the +3.3 VDC power rail, a red LED for the VTARGET rail, and two yellow LEDs for TXD and RXD activity.</p>
 
 ### Pinout
 
 The Bughopper connectors pinout is shown in the figure below.
-
-![](assets/Bughopper_Pinout.png)
 
 <div style="page-break-after: always;"></div>
 
@@ -117,16 +107,14 @@ The Bughopper connectors pinout is shown in the figure below.
 
 An overview of the high-level architecture of the Bughopper is illustrated in the figure below.
 
-![](assets/Bughopper_Block_Diagram.png)
-
 The Bughopper's architecture can be summarized in the following functional blocks:
 
-- **USB-C Connector (CX60B-16P)**: Provides the physical USB interface to the host development machine. Includes ESD protection (ESD321DYAR) on the data lines and a TVS diode (STN1010SB301) on VBUS.
-- **FTDI FT230XQ-R**: The central IC of the board. It handles the entire USB protocol, converts USB data to UART signals (TXD, RXD), generates +3.3 VDC via its internal LDO, and provides four configurable CBUS outputs.
-- **Level Translator (SN74AVC2T245RSWR)**: Performs bidirectional voltage-level translation between the FT230XQ-R's +3.3 VDC UART signals and the VTARGET domain of the connected UNO Q, ensuring safe communication across different voltage levels.
-- **CBUS Open-Drain MOSFETs (2N7002PS,115 ×4)**: Convert the FT230XQ-R's CBUS outputs to open-drain signals, allowing flexible interfacing with external circuits through the board's header connectors.
-- **Status LEDs**: Four LEDs provide at-a-glance status: green (DL1, +3V3 power), red (DL3, VTARGET), and two yellow (DL2 for TXD, DL4 for RXD activity).
-- **ESD Protection**: ESD321DYAR devices on USB data lines and the VTARGET line, plus a STN1010SB301 on VBUS, protect the board against electrostatic discharge events.
+- **USB-C connector**: Provides the physical USB interface to the host development machine. Includes ESD protection (ESD321DYAR) on the data lines and a TVS diode (STN1010SB301) on VBUS.
+- **FTDI FT230XQ**: The central IC of the board. It handles the entire USB protocol, converts USB data to UART signals (TXD, RXD), generates +3.3 VDC via its internal voltage regulator, and provides four configurable CBUS outputs.
+- **Level translator (SN74AVC2T245RSWR)**: Performs bidirectional voltage-level translation between the FT230XQ's +3.3 VDC UART signals and the VTARGET domain of the connected UNO Q board, ensuring safe communication across different voltage levels.
+- **CBUS Open-Drain MOSFETs (2N7002PS,115 ×4)**: Convert the FT230XQ's CBUS outputs to open-drain signals, allowing flexible interfacing with external circuits through the board's header connectors.
+- **Status LEDs**: Four LEDs provide at-a-glance status: green (+ 3.3 VDC power), red (VTARGET), and two yellow (TXD and RXD activity).
+- **ESD Protection**: On USB data lines, VTARGET line, and VBUS line, protect the board against electrostatic discharge events.
 
 <div style="page-break-after: always;"></div>
 
@@ -194,8 +182,6 @@ The Bughopper is a compact, single-sided 38.5 mm × 11 mm board with a USB-C con
 
 The Bughopper board outline is shown in the figure below; all the dimensions are in mm.
 
-![](assets/Bughopper_Outline.png)
-
 <div style="page-break-after: always;"></div>
 
 ### Board Connectors
@@ -204,8 +190,6 @@ The Bughopper board outline is shown in the figure below; all the dimensions are
 The Bughopper features three connectors: a USB-C connector (CX60B-16P) on one end for host communication and power, a female 2.54 mm 2×5 header for direct cable attachment, and a male 1.27 mm 2×5 header (FTSH-105-01-L-DH-C-TR) for compact ribbon cable connections. The placement of these connectors is shown in the figure below; all the dimensions are in mm.
 </p>
 
-![](assets/Bughopper_Connectors.png)
-
 <div style="page-break-after: always;"></div>
 
 ### Board Peripherals and Actuators
@@ -213,8 +197,6 @@ The Bughopper features three connectors: a USB-C connector (CX60B-16P) on one en
 <p style="text-align: justify;">
 The Bughopper has four onboard LEDs that provide visual status feedback. A green LED (DL1, HSMG-C190) indicates the +3V3 power rail status, a red LED (DL3, XHY-STB0603SR) indicates the VTARGET rail status, and two yellow LEDs (DL2 and DL4, KPT-1608YC) indicate TXD and RXD serial activity, respectively. The placement of these components is shown in the figure below; all the dimensions are in mm.
 </p>
-
-![](assets/Bughopper_PeripheralsActuators.png)
 
 <div style="page-break-after: always;"></div>
 
