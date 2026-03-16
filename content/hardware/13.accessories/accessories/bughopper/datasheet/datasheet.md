@@ -6,9 +6,11 @@ variant: 'Datasheet'
 author: José Bagur
 ---
 
+![](assets/featured.png)
+
 # Description
 
-<p style="text-align: justify;">The Arduino Bughopper is a compact USB-to-UART bridge board designed to bring straightforward remote debugging to the Arduino UNO Q via its JCTL connector. Built around the FTDI FT230XQ integrated circuit (IC), it provides a reliable, high-speed serial link between your development machine and the UNO Q, enabling advanced debugging and logging without occupying the board's main I/O pins. Its compact 38.5 × 11 mm footprint, USB-C connectivity, and multiple header options make it easy to integrate into any workspace, enclosure, or automated test setup.</p>
+<p style="text-align: justify;">The Arduino Bughopper is a compact USB-to-UART bridge board designed to bring straightforward remote debugging to the Arduino UNO Q via its JCTL connector. Built around the FT230XQ, the Bughopper provides a reliable, high-speed serial link between your development machine and the UNO Q, enabling advanced debugging and logging without occupying the board's main I/O pins. Its compact 35 × 11 mm footprint, USB-C connectivity, and multiple header options make it easy to integrate into any workspace, enclosure, or automated test setup.</p>
 
 # Target Areas:
 
@@ -22,33 +24,33 @@ Embedded development, hardware testing, education
 
 - **Embedded development and debugging**: The Bughopper streamlines the firmware development workflow by providing a dedicated debug serial channel that does not interfere with the UNO Q's main I/O pins.
   - <p style="text-align: justify;"><strong>Remote debug over serial</strong>: Connect the Bughopper to the UNO Q's JCTL connector to establish a dedicated UART link for real-time debugging. Developers can monitor serial output, send debug commands, and inspect firmware behavior directly from their development machine via USB-C, all without occupying the UNO Q's primary serial port or I/O headers.</p>
-  - <p style="text-align: justify;"><strong>Firmware flashing and continuous UART logging</strong>: Use the Bughopper as a persistent serial interface for firmware updates and continuous data logging during long-running tests. Its reliable FT230XQ-R USB-to-UART bridge ensures stable communication at data rates from 300 baud to 3 Mbaud, making it suitable for both routine flashing and high-throughput logging scenarios.</p>
+  - <p style="text-align: justify;"><strong>Firmware flashing and continuous UART logging</strong>: Use the Bughopper as a persistent serial interface for firmware updates and continuous data logging during long-running tests. Its reliable USB-to-UART bridge (FT230XQ) ensures stable communication at data rates from 300 baud to 3 Mbaud, making it suitable for both routine flashing and high-throughput logging scenarios.</p>
   - <p style="text-align: justify;"><strong>Research and development (R&D) and testing</strong>: The Bughopper enables R&D teams and test engineers to integrate reliable debug access into their prototyping and validation workflows.</p>
-  - <p style="text-align: justify;"><strong>Field diagnostics and automated test</strong>: Install the Bughopper into automated testing rigs to provide consistent, hands-free serial access to UNO Q boards. Its compact form factor and dual header options (2.54 mm female and 1.27 mm male) allow seamless integration into custom test fixtures, enabling field diagnostics and continuous integration pipelines for hardware/software validation.</p>
+  - <p style="text-align: justify;"><strong>Field diagnostics and automated test</strong>: Install the Bughopper into automated testing rigs to provide consistent, hands-free serial access to UNO Q boards. Its compact form factor and dual header options (2.54 mm female and 1.27 mm male) allow integration into custom test fixtures, enabling field diagnostics and continuous integration pipelines for hardware and software validation.</p>
   - <p style="text-align: justify;"><strong>Education and training labs</strong>: The Bughopper offers a low-cost, student-friendly tool for teaching serial communication protocols and hardware debugging fundamentals.</p>
-  - <p style="text-align: justify;"><strong>Teaching UART communication and debugging workflows</strong>: Institutions teaching embedded systems, IoT development, or hardware debugging can use the Bughopper with UNO Q boards to provide hands-on lab exercises. Students learn serial communication protocols, debugging techniques, and project troubleshooting using a modern USB-C interface with clear power status LEDs for quick visual feedback.</p>
+  - <p style="text-align: justify;"><strong>Teaching UART communication and debugging workflows</strong>: Institutions teaching embedded systems, Internet of Things (IoT) development, or hardware debugging can use the Bughopper with UNO Q boards to provide hands-on lab exercises. Students learn serial communication protocols, debugging techniques, and project troubleshooting using a modern USB-C interface with clear power status LEDs for quick visual feedback.</p>
 
 ## Features
 
 ### General Specifications Overview
 
-<p style="text-align: justify;">The Arduino Bughopper is a compact USB-to-UART bridge board built around the FTDI FT230XQ IC. Designed exclusively for the Arduino UNO Q, it connects via the JCTL header to provide a dedicated debug and serial communication channel that does not interfere with the board's main I/O.</p>
+<p style="text-align: justify;">The Arduino Bughopper is a compact USB-to-UART bridge board built around the FT230XQ from FTDI. Designed exclusively for the Arduino UNO Q, it connects via the JCTL header to provide a dedicated debug and serial communication channel that does not interfere with the board's main I/O.</p>
 
-The main features of the board are highlighted in the table shown below.
+The main features of the Bughopper are highlighted in the table shown below.
 
-| **Feature**                   | **Description**                                                                                                                                  |
-|-------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
-| USB-to-UART Bridge            | FTDI FT230XQ-R, USB 2.0 Full Speed, data rates from 300 baud to 3 Mbaud                                                                        |
-| USB Connector                 | USB-C (CX60B-16P) for modern, reversible connections                                                                                             |
-| Level Translator              | SN74AVC2T245RSWR bidirectional voltage-level translator for safe UART communication between +3.3 VDC and VTARGET domains                        |
-| ESD Protection                | ESD321DYAR (×3) and STN1010SB301 for robust electrostatic discharge protection on USB and signal lines                                           |
-| Header Connectors             | Female 2.54 mm 2×5 header for direct cable attachment; male 1.27 mm 2×5 header (FTSH-105-01-L-DH-C-TR) for compact ribbon cable setups          |
-| CBUS Open-Drain Outputs       | 4× configurable CBUS outputs via 2N7002PS,115 MOSFETs                                                                                           |
-| Onboard LEDs                  | Green (+3V3 power), Red (VTARGET status), 2× Yellow (TXD and RXD activity)                                                                      |
-| Power Supply                  | +5 VDC via USB-C; +3.3 VDC generated by the FT230XQ-R internal LDO regulator                                                                    |
-| Target Board Compatibility    | Arduino UNO Q (via JCTL connector)                                                                                                               |
-| Dimensions                    | 38.5 mm × 11 mm                                                                                                                                 |
-| Weight                        | TBD                                                                                                                                              |
+|         **Feature**        | **Description**                                                                                                                        |
+|:--------------------------:|----------------------------------------------------------------------------------------------------------------------------------------|
+|     USB-to-UART Bridge     | FTDI FT230XQ-R, USB 2.0 Full Speed, data rates from 300 baud to 3 Mbaud                                                                |
+|        USB Connector       | USB-C for modern, reversible connections                                                                                               |
+|      Level Translator      | Bidirectional voltage-level translator (SN74AVC2T245RSWR) for safe UART communication between +3.3 VDC and +1.8 VDC domains            |
+|       ESD Protection       | Onboard electrostatic discharge protection on USB (ESD321DYAR) and signal (STN1010SB301) lines                                         |
+|      Header Connectors     | Female 2.54 mm 2×5 header for direct cable attachment; male 1.27 mm 2×5 header (FTSH-105-01-L-DH-C-TR) for compact ribbon cable setups |
+|    Auxiliary GPIO Lines    | Configurable CBUS outputs (x4, via 2N7002PS MOSFETs)                                                                                   |
+|        Onboard LEDs        | Green (+3.3 VDC power), red (+1.8 VDC status), yellow (x2, TXD and RXD activity)                                                       |
+|        Power Supply        | +5 VDC via USB-C; +3.3 VDC generated by the FT230XQ internal voltage regulator                                                         |
+| Target Board Compatibility | Arduino UNO Q (via JCTL connector)                                                                                                     |
+|         Dimensions         | 35 mm × 11 mm                                                                                                                        |
+|           Weight           | TBD                                                                                                                                    |
 
 <div style="page-break-after: always;"></div>
 
@@ -63,39 +65,39 @@ The main features of the board are highlighted in the table shown below.
 
 ### Recommended Operating Conditions
 
-<p style="text-align: justify;">The table below provides a comprehensive guideline for the optimal use of the Bughopper, outlining typical operating conditions and design limits. The operating conditions of the Bughopper are largely based on the specifications of the FTDI FT230XQ USB-to-UART bridge and the board's level translator (SN74AVC2T245RSWR).</p>
+<p style="text-align: justify;">The table below provides a comprehensive guideline for the optimal use of the Arduino Bughopper, outlining typical operating conditions and design limits. The operating conditions of the Bughopper are largely based on the specifications of the FT230XQ USB-to-UART bridge and the board's level translator (SN74AVC2T245RSWR).</p>
 
 <div style="text-align:center;">
 
-|           **Parameter**           |     **Symbol**     | **Min** | **Typ** | **Max** | **Unit** |
-|:---------------------------------:|:------------------:|:-------:|:-------:|:-------:|:--------:|
-| USB Supply Voltage (VBUS)         | V<sub>USB</sub>    |   4.0   |   5.0   |   5.25  |     V    |
-| FT230XQ-R Supply Voltage (VCC)    | V<sub>CC</sub>     |   3.3   |   5.0   |   5.5   |     V    |
-| Internal LDO Output Voltage       | V<sub>3V3OUT</sub> |    -    |   3.3   |    -    |     V    |
-| VTARGET Voltage<sup>1</sup>       | V<sub>TARGET</sub> |   TBD   |   TBD   |   TBD   |     V    |
-| Operating Temperature             | T<sub>OP</sub>     |   -40   |    -    |    85   |    °C    |
-| Operating Current (Active)        | I<sub>OP</sub>     |    -    |    8    |    -    |    mA    |
-| USB Suspend Current               | I<sub>SUSP</sub>   |    -    |   125   |    -    |    µA    |
+|        **Parameter**        |     **Symbol**     | **Min** | **Typ** | **Max** | **Unit** |
+|:---------------------------:|:------------------:|:-------:|:-------:|:-------:|:--------:|
+|      USB Supply Voltage     |   V<sub>USB</sub>  |   4.0   |   5.0   |   5.25  |     V    |
+|    FT230XQ Supply Voltage   |         VCC        |   3.3   |   5.0   |   5.5   |     V    |
+| Internal LDO Output Voltage | V<sub>3V3OUT</sub> |    -    |   3.3   |    -    |     V    |
+|        Target Voltage       | V<sub>TARGET</sub> |    -    |   1.8   |    -    |     V    |
+|    Operating Temperature    |   T<sub>OP</sub>   |   -40   |    -    |    85   |    °C    |
+|  Operating Current (Active) |   I<sub>OP</sub>   |    -    |    8    |    -    |    mA    |
+|     USB Suspend Current     |  I<sub>SUSP</sub>  |    -    |   125   |    -    |    µA    |
 
 </div>
 
 <p style="text-align: justify;">
-<sup>1</sup> VTARGET is the voltage level supplied by the connected Arduino UNO Q board through the JCTL connector. This voltage is used as the reference for the level translator's B-side (target side) and the VTARGET status LED.
+<sup>1</sup> V<sub>TARGET</sub> is the voltage level supplied by the connected Arduino UNO Q board through the JCTL connector. This voltage is used as the reference for the level translator (target side) and the V<sub>TARGET</sub> status LED.
 </p>
 
 <div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
-<p style="text-align: justify;"><strong>Driver Tip:</strong> The Bughopper uses the FTDI FT230XQ-R, which is supported by FTDI's royalty-free <strong>Virtual Com Port (VCP)</strong> and <strong>Direct (D2XX)</strong> drivers. These drivers are available for Windows, macOS, and Linux, and enable the board to appear as a standard serial COM port on your development machine.</p>
+<p style="text-align: justify;"><strong>Driver Tip:</strong> The Bughopper uses the FT230XQ from FTDI, which is supported by FTDI's royalty-free <strong>Virtual Com Port (VCP)</strong> and <strong>Direct (D2XX)</strong> drivers. These drivers are <a href="https://ftdichip.com/drivers/vcp-drivers/" target="_blank" style="color: #0056b3; text-decoration: underline;"> available for Windows, macOS, and Linux</a>, and enable the board to appear as a standard serial COM port on your development machine.</p>
 </div>
 
 <div style="background-color: #FFCCCC; border-left: 6px solid #FF0000; margin: 20px 0; padding: 15px;">
-<p style="text-align: justify;"><strong>Safety Note:</strong> The Bughopper is powered exclusively through its USB-C connector. Do not attempt to supply external power through the header connector pins. Ensure that the JCTL connector is properly aligned before connecting the board to the Arduino UNO Q to prevent damage to both boards.</p>
+<p style="text-align: justify;"><strong>Safety Note:</strong> The Bughopper is powered exclusively through its USB-C connector. <strong>Do not attempt to supply external power through the header connector pins</strong>. Ensure that the JCTL connector is properly aligned before connecting the board to the Arduino UNO Q to prevent damage to both boards.</p>
 </div>
 
 <div style="page-break-after: always;"></div>
 
 ## Functional Overview
 
-<p style="text-align: justify;">The core of the Bughopper is the FT230XQ-R USB-to-UART bridge from FTDI. The board receives +5 VDC power from the USB-C connector and generates +3.3 VDC through the FT230XQ's internal voltage regulator. UART signals (TXD and RXD) are routed through a bidirectional level translator (SN74AVC2T245RSWR), which ensures safe voltage-level translation between the +3.3 VDC domain of the FT230XQ and the VTARGET domain of the connected Arduino UNO Q board. Four onboard LEDs provide visual status: a green LED for the +3.3 VDC power rail, a red LED for the VTARGET rail, and two yellow LEDs for TXD and RXD activity.</p>
+<p style="text-align: justify;">The core of the Arduino Bughopper is the FT230XQ USB-to-UART bridge from FTDI. The board receives +5 VDC power from the USB-C connector and generates +3.3 VDC through the FT230XQ's internal voltage regulator. UART signals (TXD and RXD) are routed through a bidirectional level translator (SN74AVC2T245RSWR), which ensures safe voltage-level translation between the +3.3 VDC domain of the FT230XQ and the V<sub>TARGET</sub> domain (+1.8 VDC) of the connected Arduino UNO Q board. Four onboard LEDs provide visual status: a green LED for the +3.3 VDC power rail, a red LED for the V<sub>TARGET</sub> rail, and two yellow LEDs for TXD and RXD activity.</p>
 
 ### Pinout
 
@@ -105,16 +107,17 @@ The Bughopper connectors pinout is shown in the figure below.
 
 ### Block Diagram
 
-An overview of the high-level architecture of the Bughopper is illustrated in the figure below.
+<p style="text-align: justify;">An overview of the high-level architecture of the Arduino Bughopper is illustrated in the figure below.</p>
+
+<img src="assets/Bughopper_Block_Diagram.png" alt="Bughopper Bughopper high-level architecture block diagramm+." style="width: 85%; height: auto;"></img>
 
 The Bughopper's architecture can be summarized in the following functional blocks:
 
-- **USB-C connector**: Provides the physical USB interface to the host development machine. Includes ESD protection (ESD321DYAR) on the data lines and a TVS diode (STN1010SB301) on VBUS.
-- **FTDI FT230XQ**: The central IC of the board. It handles the entire USB protocol, converts USB data to UART signals (TXD, RXD), generates +3.3 VDC via its internal voltage regulator, and provides four configurable CBUS outputs.
-- **Level translator (SN74AVC2T245RSWR)**: Performs bidirectional voltage-level translation between the FT230XQ's +3.3 VDC UART signals and the VTARGET domain of the connected UNO Q board, ensuring safe communication across different voltage levels.
-- **CBUS Open-Drain MOSFETs (2N7002PS,115 ×4)**: Convert the FT230XQ's CBUS outputs to open-drain signals, allowing flexible interfacing with external circuits through the board's header connectors.
-- **Status LEDs**: Four LEDs provide at-a-glance status: green (+ 3.3 VDC power), red (VTARGET), and two yellow (TXD and RXD activity).
-- **ESD Protection**: On USB data lines, VTARGET line, and VBUS line, protect the board against electrostatic discharge events.
+- <p style="text-align: justify;"><strong>USB-C connector</strong>: Provides the physical USB interface to the host development machine. Includes ESD protection (ESD321DYAR) on the data lines and a TVS diode (STN1010SB301) on V<sub>BUS</sub>.</p>
+- <p style="text-align: justify;"><strong>FTDI FT230XQ</strong>: The central IC of the board. It handles the entire USB protocol, converts USB data to UART signals (TXD, RXD), generates +3.3 VDC via its internal voltage regulator, and provides four configurable GPIOs.</p>
+- <p style="text-align: justify;"><strong>Level translator (SN74AVC2T245)</strong>: Performs bidirectional voltage-level translation between the FT230XQ's +3.3 VDC UART signals and the V<sub>TARGET</sub> domain (+1.8 VDC) domain of the connected UNO Q board, ensuring safe communication across different voltage levels.</p>
+- <p style="text-align: justify;"><strong>Auxiliary GPIO Lines (x4, via 2N7002PS MOSFETs)</strong>: Convert the FT230XQ's CBUS outputs to open-drain signals, allowing flexible interfacing with external circuits through the board's header connectors.</p>
+- <p style="text-align: justify;"><strong>Status LEDs</strong>: Four LEDs provide at-a-glance status: green (+ 3.3 VDC power), red (V<sub>TARGET</sub>, +1.8 VDC), and two yellow (TXD and RXD activity).</pp>
 
 <div style="page-break-after: always;"></div>
 
@@ -122,11 +125,11 @@ The Bughopper's architecture can be summarized in the following functional block
 
 <div style="text-align:justify;">
 
-The Bughopper is powered through its USB-C connector:
+The Arduino Bughopper is powered through its USB-C connector:
 
-- **USB-C connector (+5 VDC)**: The primary and only power input. When connected to a USB host (development machine), the board receives +5 VDC through VBUS. This voltage powers the FT230XQ-R's VCC pin directly.
-- **Internal +3.3 VDC LDO (FT230XQ-R 3V3OUT)**: The FT230XQ-R generates +3.3 VDC from the +5 VDC USB supply using its integrated LDO regulator. This regulated output powers the FT230XQ-R's I/O (VCCIO pin) and the level translator's A-side (VCCA).
-- **VTARGET**: This is not a power input to the Bughopper. Instead, it is the voltage reference supplied by the connected Arduino UNO Q through the JCTL connector. VTARGET is used as the reference for the level translator's B-side (VCCB) and as the supply for the VTARGET status LED.
+- <p style="text-align: justify;"><strong>USB-C connector (+5 VDC)</strong>: The primary and only power input. When connected to a USB host (development machine), the board receives +5 VDC through V<sub>BUS</sub>. This voltage powers the FT230XQ's VCC pin directly.</p>
+- <p style="text-align: justify;"><strong>Internal +3.3 VDC LDO (FT230XQ-R V<sub>3V3OUT</sub>)</strong>: The FT230XQ-R generates +3.3 VDC from the +5 VDC USB supply using its integrated LDO regulator. This regulated output powers the FT230XQ and the level translator's host side.</p>
+- <p style="text-align: justify;"><strong>V<sub>TARGET</sub></strong>: This is not a power input to the Bughopper. It is the voltage reference supplied by the connected Arduino UNO Q through the JCTL connector. V<sub>TARGET</sub> is used as the reference for the level translator's target side and as the supply for the V<sub>TARGET</sub> LED.</p>
 
 </div>
 
@@ -135,7 +138,7 @@ The Bughopper is powered through its USB-C connector:
 </div>
 
 <div style="background-color: #FFCCCC; border-left: 6px solid #FF0000; margin: 20px 0; padding: 15px;">
-<strong>Safety Note:</strong> Do not attempt to power the Bughopper through any pin other than the USB-C connector. The header connector pins are designed for signal communication and voltage reference (VTARGET) only, not for supplying power to the board.
+<strong>Safety Note:</strong> Do not attempt to power the Bughopper through any pin other than the USB-C connector. <strong>The header connector pins are designed for signal communication and voltage reference only, not for supplying power to the board</strong>.
 </div>
 
 <div style="page-break-after: always;"></div>
@@ -144,29 +147,33 @@ The Bughopper is powered through its USB-C connector:
 
 <div style="text-align:justify;">
 
-### Getting Started - IDE
+### Getting Started - Arduino App Lab
 
-To use the Bughopper with the Arduino UNO Q, install the Arduino Desktop IDE **[1]**. Connect the Bughopper to your development machine using a USB-C cable. Once connected, the board will appear as a standard serial COM port thanks to FTDI's Virtual Com Port (VCP) drivers. Then, connect the Bughopper to the UNO Q's JCTL connector using the appropriate header cable.
+The Arduino UNO Q is programmed through Arduino App Lab <strong>[1]</strong>, a unified editor that builds and runs projects on the board's dual-processor architecture: a Linux system (Qualcomm Dragonwing™ QRB2210) and a microcontroller (STM32U585). The Arduino Bughopper complements this workflow by providing an independent serial debug channel through the UNO Q's JCTL connector, accessible from any serial terminal application on your development machine.
 
-### Getting Started - Arduino Web Editor
+To set up the Bughopper with the UNO Q:
 
-All Arduino devices work out of the box on the Arduino Cloud Editor **[2]** by installing a simple plugin. The Arduino Cloud Editor is hosted online. Therefore, it will always be up-to-date with all the latest features and support for all boards and devices. Follow **[3]** to start coding on the browser and upload your sketches onto your device.
+1. <p style="text-align: justify;">Connect the Bughopper to the UNO Q's JCTL connector using the appropriate header cable.</p>
+2. <p style="text-align: justify;">Connect the Bughopper to your development machine using a USB-C data cable.</p>
+3. <p style="text-align: justify;">The board will appear as a standard serial COM port on your system thanks to FTDI's Virtual Com Port (VCP) drivers.</p>
+4. <p style="text-align: justify;">Open a serial terminal application (such as the Arduino IDE Serial Monitor, PuTTY, or any other terminal emulator) and select the Bughopper's COM port.</p>
+5. <p style="text-align: justify;">Use Arduino App Lab <strong>[1]</strong> to develop and deploy your Apps on the UNO Q as usual. Debug output routed through the JCTL interface will appear in the Bughopper's serial terminal, independently from the Arduino App Lab console.</p>
 
-### Getting Started - Arduino Cloud
-
-All Arduino IoT-enabled products are supported on Arduino Cloud, which allows you to log, graph, and analyze sensor data, trigger events, and automate your home or business. Take a look at the official documentation to know more.
+<div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
+<p style="text-align: justify;"><strong>Note:</strong> The Bughopper provides a serial channel that is <strong>separate</strong> from the UNO Q's main USB-C connection. This means you can monitor debug output through the Bughopper while Arduino App Lab communicates with the UNO Q through its own USB-C or network connection, without any interference between the two channels.</p>
+</div>
 
 ### FTDI Drivers
 
-The Bughopper uses the FTDI FT230XQ-R, which requires FTDI's VCP (Virtual Com Port) or D2XX drivers to be installed on your development machine. These drivers are available for Windows, macOS, and Linux from the FTDI website **[4]**. Most modern operating systems include built-in FTDI driver support.
+<p style="text-align: justify;">The Bughopper uses the FTDI FT230XQ, which requires FTDI's VCP (Virtual Com Port) or D2XX drivers to be installed on your development machine. These drivers are <a href="https://ftdichip.com/drivers/vcp-drivers/" target="_blank" style="color: #0056b3; text-decoration: underline;"> available for Windows, macOS, and Linux</a>, and enable the board to appear as a standard serial COM port on your development machine <strong>[3]</strong>. Most modern operating systems include built-in FTDI driver support.</p>
 
 ### Sample Sketches
 
-Sample sketches demonstrating the use of the Bughopper with the Arduino UNO Q can be found either in the "Examples" menu in the Arduino IDE or in the "Bughopper Documentation" section of Arduino documentation **[5]**.
+<p style="text-align: justify;">Sample sketches demonstrating the use of the Bughopper with the Arduino UNO Q can be found either in the "Examples" section of the Arduino App Lab <strong>[1]</strong> or in the "Bughopper Documentation" section of Arduino documentation <strong>[4]</strong>.</p>
 
 ### Online Resources
 
-Now that you have gone through the basics of what you can do with the device, you can explore the endless possibilities it provides by checking exciting projects on Arduino Project Hub **[6]**, the Arduino Library Reference **[7]**, and the online store **[8]** where you will be able to complement your Bughopper board with additional extensions, sensors, and actuators.
+<p style="text-align: justify;">Explore community projects on Arduino Project Hub <strong>[5]</strong>, browse the Arduino Library Reference <strong>[6]</strong> for supported libraries, and find accessories such as Modulino nodess in the Arduino Store <strong>[7]</strong>.</p>
 
 </div>
 
@@ -174,29 +181,33 @@ Now that you have gone through the basics of what you can do with the device, yo
 
 ## Mechanical Information
 
-<p style="text-align: justify;">
-The Bughopper is a compact, single-sided 38.5 mm × 11 mm board with a USB-C connector on one end, a female 2.54 mm 2×5 header on the opposite end, and a male 1.27 mm 2×5 header adjacent to it. The board's narrow form factor is designed for easy integration into workspaces, enclosures, and automated test fixtures.
-</p>
+<p style="text-align: justify;">The Arduino Bughopper is a compact, double-sided 35 mm × 11 mm board with a USB-C connector on one end, a female 2.54 mm 2×5 header on the opposite end, and a male 1.27 mm 2×5 header adjacent to it. The board's narrow form factor is designed for easy integration  into workspaces, enclosures, and automated test fixtures.</p>
 
 ### Board Dimensions
 
-The Bughopper board outline is shown in the figure below; all the dimensions are in mm.
+The Bughopper board outline is shown in the figure below; <strong>all the dimensions are in mm</strong>.
+
+<img src="assets/Bughopper_Outline_1.png" alt="Bughopper board outline dimensions (top view); all dimensions are in mm." style="width: 75%; height: auto;"></img>
+
+<img src="assets/Bughopper_Outline_2.png" alt="Bughopper board outline dimensions (side view); all dimensions are in mm." style="width: 75%; height: auto;"></img>
 
 <div style="page-break-after: always;"></div>
 
 ### Board Connectors
 
-<p style="text-align: justify;">
-The Bughopper features three connectors: a USB-C connector (CX60B-16P) on one end for host communication and power, a female 2.54 mm 2×5 header for direct cable attachment, and a male 1.27 mm 2×5 header (FTSH-105-01-L-DH-C-TR) for compact ribbon cable connections. The placement of these connectors is shown in the figure below; all the dimensions are in mm.
-</p>
+<p style="text-align: justify;">The Bughopper features three connectors: a USB-C connector on one end for host communication and power, a female 2.54 mm 2×5 header for direct cable attachment, and a male 1.27 mm 2×5 header (FTSH-105-01-L-DH-C-TR) for compact ribbon cable connections. The placement of these connectors is shown in the figure below; <strong>all the dimensions are in mm</strong>.</p>
+
+<img src="assets/Bughopper_Connectors_1.png" alt="Bughopper board connectors placement (top view); all dimensions are in mm." style="width: 75%; height: auto;"></img>
+
+<img src="assets/Bughopper_Connectors_2.png" alt="Bughopper board connectors placement (bottom view); all dimensions are in mm." style="width: 50%; height: auto;"></img>
 
 <div style="page-break-after: always;"></div>
 
 ### Board Peripherals and Actuators
 
-<p style="text-align: justify;">
-The Bughopper has four onboard LEDs that provide visual status feedback. A green LED (DL1, HSMG-C190) indicates the +3V3 power rail status, a red LED (DL3, XHY-STB0603SR) indicates the VTARGET rail status, and two yellow LEDs (DL2 and DL4, KPT-1608YC) indicate TXD and RXD serial activity, respectively. The placement of these components is shown in the figure below; all the dimensions are in mm.
-</p>
+<p style="text-align: justify;">The Bughopper has four onboard LEDs that provide visual status feedback. A green LED indicates the +3.3 VDC power rail status, a red LED indicates the V<sub>TARGET</sub> rail status, and two yellow LEDs indicate TXD and RXD serial activity, respectively. The placement of these LEDs is shown in the figure below; <strong>all the dimensions are in mm</strong>.</p>
+
+<img src="assets/Bughopper_LEDS_1.png" alt="Bughopper board LEDs placement (top view); all dimensions are in mm." style="width: 65%; height: auto;"></img>
 
 <div style="page-break-after: always;"></div>
 
@@ -254,21 +265,20 @@ As a global supplier of electronic and electrical components, Arduino is aware o
 
 | **Company Information** | **Details**                                |
 |-------------------------|--------------------------------------------|
-| **Company Name**        | Arduino S.r.l.                             |
-| **Company Address**     | Via Andrea Appiani, 25-20900 Monza (Italy) |
+| Company Name            | Arduino S.r.l.                             |
+| Company Address         | Via Andrea Appiani, 25-20900 Monza (Italy) |
 
 ## Reference Documentation
 
-| **No.** | **Reference**                   | **Link**                                           |
-|:-------:|---------------------------------|----------------------------------------------------|
-|    1    | Arduino IDE (Desktop)           | https://www.arduino.cc/en/Main/Software            |
-|    2    | Arduino IDE (Cloud)             | https://create.arduino.cc/editor                   |
-|    3    | Arduino Cloud - Getting Started | https://docs.arduino.cc/arduino-cloud/guides/overview/ |
-|    4    | FTDI VCP Drivers                | https://ftdichip.com/drivers/vcp-drivers/          |
-|    5    | Bughopper Documentation         | TBD                                                |
-|    6    | Project Hub                     | https://create.arduino.cc/projecthub               |
-|    7    | Library Reference               | https://www.arduino.cc/reference/en/               |
-|    8    | Online Store                    | https://store.arduino.cc/                          |
+| **No.** | **Reference**                   | **Link**                                               |
+|:-------:|---------------------------------|--------------------------------------------------------|
+|    1    | Arduino App Lab                 | TBD                                                    |
+|    2    | UNO Q Documentation             | TBD                                                    |
+|    3    | FTDI VCP Drivers                | https://ftdichip.com/drivers/vcp-drivers/              |
+|    4    | Bughopper Documentation         | TBD                                                    |
+|    5    | Project Hub                     | https://create.arduino.cc/projecthub                   |
+|    6    | Library Reference               | https://www.arduino.cc/reference/en/                   |
+|    7    | Arduino Store                   | https://store.arduino.cc/                              |
 
 ## Document Revision History
 
