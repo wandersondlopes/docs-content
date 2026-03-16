@@ -109,7 +109,7 @@ The Bughopper connectors pinout is shown in the figure below.
 
 <p style="text-align: justify;">An overview of the high-level architecture of the Arduino Bughopper is illustrated in the figure below.</p>
 
-<img src="assets/Bughopper_Block_Diagram.png" alt="Bughopper Bughopper high-level architecture block diagramm+." style="width: 85%; height: auto;"></img>
+<img src="assets/Bughopper_Block_Diagram.png" alt="Bughopper Bughopper high-level architecture block diagram." style="width: 85%; height: auto;"></img>
 
 The Bughopper's architecture can be summarized in the following functional blocks:
 
@@ -173,7 +173,7 @@ To set up the Bughopper with the UNO Q:
 
 ### Online Resources
 
-<p style="text-align: justify;">Explore community projects on Arduino Project Hub <strong>[5]</strong>, browse the Arduino Library Reference <strong>[6]</strong> for supported libraries, and find accessories such as Modulino nodess in the Arduino Store <strong>[7]</strong>.</p>
+<p style="text-align: justify;">Explore community projects on Arduino Project Hub <strong>[5]</strong>, browse the Arduino Library Reference <strong>[6]</strong> for supported libraries, and find accessories such as Modulino nodes in the Arduino Store <strong>[7]</strong>.</p>
 
 </div>
 
