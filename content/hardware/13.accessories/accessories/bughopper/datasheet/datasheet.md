@@ -10,7 +10,7 @@ author: José Bagur
 
 # Description
 
-<p style="text-align: justify;">The Arduino Bughopper is a compact USB-to-UART bridge board designed to bring straightforward remote debugging to the Arduino UNO Q via its JCTL connector. Built around the FT230XQ, the Bughopper provides a reliable, high-speed serial link between your development machine and the UNO Q, enabling advanced debugging and logging without occupying the board's main I/O pins. Its compact 38.5 × 11 mm footprint, USB-C® connectivity, and multiple header options make it easy to integrate into any workspace, enclosure, or automated test setup.</p>
+<p style="text-align: justify;">The Arduino Bughopper is a compact USB-to-UART bridge board designed to bring straightforward remote debugging to the Arduino UNO Q via its 1.27 mm connector. Built around the FT230XQ, the Bughopper provides a reliable, high-speed serial link between your development machine and the UNO Q, enabling advanced debugging and logging without occupying the board's main I/O pins. Its compact 38.5 × 11 mm footprint, USB-C® connectivity, and multiple header options make it easy to integrate into any workspace, enclosure, or automated test setup.</p>
 
 # Target Areas:
 
@@ -23,7 +23,7 @@ Embedded development, hardware testing, education
 <p style="text-align: justify;">The Arduino Bughopper, when connected to an Arduino UNO Q board, provides a dedicated debugging and serial communication channel for various development scenarios. Below are some application examples that demonstrate its practical value:</p>
 
 - **Embedded development and debugging**: The Bughopper streamlines the firmware development workflow by providing a dedicated debug serial channel that does not interfere with the UNO Q's main I/O pins.
-  - <p style="text-align: justify;"><strong>Remote debug over serial</strong>: Connect the Bughopper to the UNO Q's JCTL connector to establish a dedicated UART link for real-time debugging. Developers can monitor serial output, send debug commands, and inspect firmware behavior directly from their development machine via USB-C, all without occupying the UNO Q's primary serial port or I/O headers.</p>
+  - <p style="text-align: justify;"><strong>Remote debug over serial</strong>: Connect the Bughopper to the UNO Q's 1.27 mm connector to establish a dedicated UART link for real-time debugging. Developers can monitor serial output, send debug commands, and inspect firmware behavior directly from their development machine via USB-C, all without occupying the UNO Q's primary serial port or I/O headers.</p>
   - <p style="text-align: justify;"><strong>Firmware flashing and continuous UART logging</strong>: Use the Bughopper as a persistent serial interface for firmware updates and continuous data logging during long-running tests. Its reliable USB-to-UART bridge (FT230XQ) ensures stable communication at data rates from 300 baud to 3 Mbaud, making it suitable for both routine flashing and high-throughput logging scenarios.</p>
   - <p style="text-align: justify;"><strong>Research and development (R&D) and testing</strong>: The Bughopper enables R&D teams and test engineers to integrate reliable debug access into their prototyping and validation workflows.</p>
   - <p style="text-align: justify;"><strong>Field diagnostics and automated test</strong>: Install the Bughopper into automated testing rigs to provide consistent, hands-free serial access to UNO Q boards. Its compact form factor and dual header options (2.54 mm female and 1.27 mm male) allow integration into custom test fixtures, enabling field diagnostics and continuous integration pipelines for hardware and software validation.</p>
@@ -34,7 +34,7 @@ Embedded development, hardware testing, education
 
 ### General Specifications Overview
 
-<p style="text-align: justify;">The Arduino Bughopper is a compact USB-to-UART bridge board built around the FT230XQ from FTDI. Designed exclusively for the Arduino UNO Q, it connects via the JCTL header to provide a dedicated debug and serial communication channel that does not interfere with the board's main I/O.</p>
+<p style="text-align: justify;">The Arduino Bughopper is a compact USB-to-UART bridge board built around the FT230XQ from FTDI. Designed exclusively for the Arduino UNO Q, it connects via the 1.27 mm connector to provide a dedicated debug and serial communication channel that does not interfere with the board's main I/O.</p>
 
 The main features of the Bughopper are highlighted in the table shown below.
 
@@ -48,7 +48,7 @@ The main features of the Bughopper are highlighted in the table shown below.
 |    Auxiliary GPIO Lines    | Configurable CBUS outputs (x4, via 2N7002PS MOSFETs)                                                                                   |
 |        Onboard LEDs        | Green (+3.3 VDC power), red (+1.8 VDC status), yellow (x2, TXD and RXD activity)                                                       |
 |        Power Supply        | +5 VDC via USB-C; +3.3 VDC generated by the FT230XQ internal voltage regulator                                                         |
-| Target Board Compatibility | Arduino UNO Q (via JCTL connector)                                                                                                     |
+| Target Board Compatibility | Arduino UNO Q (via 1.27 mm connector)                                                                                                  |
 |         Dimensions         | 38.5 mm × 11 mm                                                                                                                        |
 |           Weight           | TBD                                                                                                                                    |
 
@@ -58,6 +58,7 @@ The main features of the Bughopper are highlighted in the table shown below.
 
 - Arduino® UNO™ Q 2GB (SKU: ABX00162)
 - Arduino® UNO™ Q 4GB (SKU: ABX00173)
+- Arduino® VENTUNO™ Q (SKU: ABX00181)
 
 <div style="page-break-after: always;"></div>
 
@@ -71,10 +72,10 @@ The main features of the Bughopper are highlighted in the table shown below.
 
 |        **Parameter**        |     **Symbol**     | **Min** | **Typ** | **Max** | **Unit** |
 |:---------------------------:|:------------------:|:-------:|:-------:|:-------:|:--------:|
-|      USB Supply Voltage     |   V<sub>USB</sub>  |   4.75   |   5.0   |   5.25  |     V    |
+|      USB Supply Voltage     |   V<sub>USB</sub>  |   4.75  |   5.0   |   5.25  |     V    |
 |    FT230XQ Supply Voltage   |         VCC        |   2.97  |   5.0   |   5.5   |     V    |
-| Internal LDO Output Voltage | V<sub>3V3OUT</sub> |    2.97    |   3.3   |    3.63    |     V    |
-|        Target Voltage       | V<sub>TARGET</sub> |    -    |   1.8   |    -    |     V    |
+| Internal LDO Output Voltage | V<sub>3V3OUT</sub> |   2.97  |   3.3   |   3.63  |     V    |
+|  Target Voltage<sup>1</sub> | V<sub>TARGET</sub> |    -    |   1.8   |    -    |     V    |
 |    Operating Temperature    |   T<sub>OP</sub>   |   -40   |    -    |    85   |    °C    |
 |  Operating Current (Active) |   I<sub>OP</sub>   |    -    |    8    |    -    |    mA    |
 |     USB Suspend Current     |  I<sub>SUSP</sub>  |    -    |   125   |    -    |    µA    |
@@ -82,7 +83,7 @@ The main features of the Bughopper are highlighted in the table shown below.
 </div>
 
 <p style="text-align: justify;">
-<sup>1</sup> V<sub>TARGET</sub> is the voltage level supplied by the connected Arduino UNO Q board through the JCTL connector. This voltage is used as the reference for the level translator (target side) and the V<sub>TARGET</sub> status LED.
+<sup>1</sup> V<sub>TARGET</sub> is the voltage level supplied by the connected Arduino UNO Q board through the 1.27 mm connector. This voltage is used as the reference for the level translator (target side) and the V<sub>TARGET</sub> status LED.
 </p>
 
 <div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
@@ -90,7 +91,7 @@ The main features of the Bughopper are highlighted in the table shown below.
 </div>
 
 <div style="background-color: #FFCCCC; border-left: 6px solid #FF0000; margin: 20px 0; padding: 15px;">
-<p style="text-align: justify;"><strong>Safety Note:</strong> The Bughopper is powered exclusively through its USB-C connector. <strong>Do not attempt to supply external power through the header connector pins</strong>. Ensure that the JCTL connector is properly aligned before connecting the board to the Arduino UNO Q to prevent damage to both boards.</p>
+<p style="text-align: justify;"><strong>Safety Note:</strong> The Bughopper is powered exclusively through its USB-C connector. <strong>Do not attempt to supply external power through the header connector pins</strong>. Ensure that the 1.27 mm connector is properly aligned before connecting the board to the Arduino UNO Q to prevent damage to both boards.</p>
 </div>
 
 <div style="page-break-after: always;"></div>
@@ -133,7 +134,7 @@ The Arduino Bughopper is powered through its USB-C connector:
 
 - <p style="text-align: justify;"><strong>USB-C connector (+5 VDC)</strong>: The primary and only power input. When connected to a USB host (development machine), the board receives +5 VDC through V<sub>BUS</sub>. This voltage powers the FT230XQ's VCC pin directly.</p>
 - <p style="text-align: justify;"><strong>Internal +3.3 VDC LDO (FT230XQ-R V<sub>3V3OUT</sub>)</strong>: The FT230XQ-R generates +3.3 VDC from the +5 VDC USB supply using its integrated LDO regulator. This regulated output powers the FT230XQ and the level translator's host side.</p>
-- <p style="text-align: justify;"><strong>V<sub>TARGET</sub></strong>: This is not a power input to the Bughopper. It is the voltage reference supplied by the connected Arduino UNO Q through the JCTL connector. V<sub>TARGET</sub> is used as the reference for the level translator's target side and as the supply for the V<sub>TARGET</sub> LED.</p>
+- <p style="text-align: justify;"><strong>V<sub>TARGET</sub></strong>: This is not a power input to the Bughopper. It is the voltage reference supplied by the connected Arduino UNO Q through the 1.27 mm connector. V<sub>TARGET</sub> is used as the reference for the level translator's target side and as the supply for the V<sub>TARGET</sub> LED.</p>
 
 </div>
 
@@ -153,15 +154,15 @@ The Arduino Bughopper is powered through its USB-C connector:
 
 ### Getting Started - Arduino App Lab
 
-The Arduino UNO Q is programmed through Arduino App Lab <strong>[1]</strong>, a unified editor that builds and runs projects on the board's dual-processor architecture: a Linux system (Qualcomm Dragonwing™ QRB2210) and a microcontroller (STM32U585). The Arduino Bughopper complements this workflow by providing an independent serial debug channel through the UNO Q's JCTL connector, accessible from any serial terminal application on your development machine.
+The Arduino UNO Q is programmed through Arduino App Lab <strong>[1]</strong>, a unified editor that builds and runs projects on the board's dual-processor architecture: a Linux system (Qualcomm Dragonwing™ QRB2210) and a microcontroller (STM32U585). The Arduino Bughopper complements this workflow by providing an independent serial debug channel through the UNO Q's 1.27 mm connector, accessible from any serial terminal application on your development machine.
 
 To set up the Bughopper with the UNO Q:
 
-1. <p style="text-align: justify;">Connect the Bughopper to the UNO Q's JCTL connector using the appropriate header cable.</p>
+1. <p style="text-align: justify;">Connect the Bughopper to the UNO Q's 1.27 mm connector using the appropriate header cable.</p>
 2. <p style="text-align: justify;">Connect the Bughopper to your development machine using a USB-C data cable.</p>
 3. <p style="text-align: justify;">The board will appear as a standard serial COM port on your system thanks to FTDI's Virtual Com Port (VCP) drivers.</p>
 4. <p style="text-align: justify;">Open a serial terminal application (such as the Arduino IDE Serial Monitor, PuTTY, or any other terminal emulator) and select the Bughopper's COM port.</p>
-5. <p style="text-align: justify;">Use Arduino App Lab <strong>[1]</strong> to develop and deploy your Apps on the UNO Q. Debug output routed through the JCTL interface will appear in the Bughopper's serial terminal, independently of the Arduino App Lab console.</p>
+5. <p style="text-align: justify;">Use Arduino App Lab <strong>[1]</strong> to develop and deploy your Apps on the UNO Q. Debug output routed through the 1.27 mm connector will appear in the Bughopper's serial terminal, independently of the Arduino App Lab console.</p>
 
 <div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
 <p style="text-align: justify;"><strong>Note:</strong> The Bughopper provides a serial channel that is <strong>separate</strong> from the UNO Q's main USB-C connection. This means you can monitor debug output through the Bughopper while Arduino App Lab communicates with the UNO Q through its own USB-C or network connection, without any interference between the two channels.</p>
