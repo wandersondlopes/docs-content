@@ -2,7 +2,7 @@ Here you will find the technical specifications for the Arduino® Bug Hopper.
 
 **Please read: power supply and voltage domains.**
 
-The Arduino Bughopper is powered **exclusively** through its USB-C® connector, which supplies +5 VDC from the host development machine. The onboard FT230XQ USB-UART bridge IC uses this +5 VDC input to generate a regulated +3.3 VDC rail internally, which powers the board's logic and is indicated by the onboard green LED.
+The Arduino Bughopper is powered **exclusively** through its USB-C® connector, which supplies +5 VDC from the host development machine. The onboard FT230XQ-R USB-to-UART bridge IC uses this +5 VDC input to generate a regulated +3.3 VDC rail internally, which powers the board's logic and is indicated by the onboard green LED.
 
 The Bughopper operates across two distinct voltage domains:
 
