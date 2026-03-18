@@ -117,7 +117,7 @@ The Bughopper's architecture can be summarized in the following functional block
 
 - <p style="text-align: justify;"><strong>USB-C connector</strong>: Provides the physical USB interface to the host development machine. Includes ESD protection (ESD321DYAR) on the data lines and a TVS diode (STN1010SB301) on V<sub>BUS</sub>.</p>
 - <p style="text-align: justify;"><strong>FTDI FT230XQ</strong>: The central IC of the board. It handles the entire USB protocol, converts USB data to UART signals (TXD, RXD), generates +3.3 VDC via its internal voltage regulator, and provides four configurable GPIOs.</p>
-- <p style="text-align: justify;"><strong>Level translator (SN74AVC2T245)</strong>: Performs bidirectional voltage-level translation between the FT230XQ's +3.3 VDC UART signals and the V<sub>TARGET</sub> domain (+1.8 VDC) domain of the connected UNO Q board, ensuring safe communication across different voltage levels.</p>
+- <p style="text-align: justify;"><strong>Level translator (SN74AVC2T245RSWR)</strong>: Performs bidirectional voltage-level translation between the FT230XQ's +3.3 VDC UART signals and the V<sub>TARGET</sub> domain (+1.8 VDC) of the connected UNO Q board, ensuring safe communication across different voltage levels.</p>
 - <p style="text-align: justify;"><strong>Auxiliary GPIO Lines (x4, via 2N7002PS MOSFETs)</strong>: Convert the FT230XQ's CBUS outputs to open-drain signals, allowing flexible interfacing with external circuits through the board's header connectors.</p>
 - <p style="text-align: justify;"><strong>Status LEDs</strong>: Four LEDs provide at-a-glance status: green (+ 3.3 VDC power), red (V<sub>TARGET</sub>, +1.8 VDC), and two yellow (TXD and RXD activity).</pp>
 
