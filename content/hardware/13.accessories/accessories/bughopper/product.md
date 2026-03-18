@@ -4,7 +4,7 @@ url_shop: https://store.arduino.cc/products/bug-hopper
 primary_button_url: /tutorials/bug-hopper/user-manual/#first-use
 primary_button_title: Get Started
 core:
-certifications: [CE, RoHS, REACH, WEEE, UKCA]
+certifications: [CE, RoHS, REACH, WEEE]
 forumCategorySlug: '/hardware/bug-hopper/TBD'
 productCode: ['TBD']
 sku: [ABX00156]
