@@ -98,7 +98,7 @@ The board can be used in **three different modes:**
 - **Over local Wi-Fi® network (network mode)<sup>1</sup>** - using this mode, a connection with the board is established over the local network (over Wi-Fi®), using SSH<sup>2</sup>.
 - **Using board as an Single Board Computer (SBC mode)** - by connecting a USB dongle with a monitor, keyboard & mouse connected, the UNO Q can be used as an SBC.
 
-***<sup>1</sup>Network mode only works once the first setup is complete, which requires a USB connection. After the first setup, when launching the Arduino App Lab, select the "Network" mode.***
+***<sup>1</sup>Network mode only works once the first setup is complete. After the first setup, when launching the Arduino App Lab, select the "Network" mode.***
 
 ***<sup>2</sup>The computer connecting to the board needs to be connected to the same local network.***
 
@@ -243,7 +243,7 @@ Once an App is launched, the status of the App is available in the **Console**. 
 
 To create a new App, click on the **"Create New App"** on the main page.
 
-When creating a new App from scratch, the `sketch.ino` and `main.py` will need to be written manually,  and Brick will need to be imported manually.
+When creating a new App from scratch, the `sketch.ino` and `main.py` will be automatically created with the minimum necessary code required to launch the app, while Bricks will need to be imported manually.
 
 To add a Brick, click on the **"Add Bricks"** button, and select the Brick you'd like to use. The Brick can now be used in your `main.py` file.
 
