@@ -1,6 +1,6 @@
 ---
 title: "Getting Started with Modulino Matrix"
-description: "Complete guide for the Modulino LED Matrix display module and programming with Arduino and MicroPython."
+description: "Complete guide for the Modulino LED Matrix display module and how to program it with Arduino and MicroPython."
 tags:
  - Modulino
  - LED Matrix
