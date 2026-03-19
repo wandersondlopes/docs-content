@@ -46,7 +46,7 @@ One unique feature of this setup is the ability to change the I²C address via s
 The default I²C address for the **Modulino LED Matrix** module is:
 
 | Modulino I²C Address | Hardware I²C Address | Editable Addresses (HEX)                        |
-|----------------------|----------------------|--------------------------------------------------|
+|----------------------|----------------------|-------------------------------------------------|
 | 0x32                 | 0x19                 | Any custom address (via software configuration) |
 
 ### Pinout
@@ -54,24 +54,24 @@ The default I²C address for the **Modulino LED Matrix** module is:
 ![Modulino LED Matrix Pinout](assets/MatrixPinouts.png)
 
 **Qwiic / I2C (1×4 Header)**
-| **Pin** | **Function**              |
-|---------|---------------------------|
-| GND     | Ground                   |
-| 3.3 V    | Power Supply (3.3 V)     |
-| SDA     | I2C Data                 |
-| SCL     | I2C Clock                |
+| **Pin** | **Function**         |
+|---------|----------------------|
+| GND     | Ground               |
+| 3.3 V   | Power Supply (3.3 V) |
+| SDA     | I2C Data             |
+| SCL     | I2C Clock            |
 
 These pads and the Qwiic connectors share the same I2C bus at 3.3 V.
 
 **Additional 1×6 Header (Debug & Power)**
-| **Pin** | **Function**      |
-|---------|-------------------|
-| GND     | Ground            |
-| 3V3     | 3.3 V Power       |
-| PF2     | RESET (NRST)      |
-| SWCLK   | SWD Clock (PA14)  |
-| SWDIO   | SWD Data (PA13)   |
-| GND     | Ground            |
+| **Pin** | **Function**     |
+|---------|------------------|
+| GND     | Ground           |
+| 3V3     | 3.3 V Power      |
+| PF2     | RESET (NRST)     |
+| SWCLK   | SWD Clock (PA14) |
+| SWDIO   | SWD Data (PA13)  |
+| GND     | Ground           |
 
 **Note:** The LED matrix is controlled by pins PA0, PA1, PA2, PA3, PA4, PA5, PA6, PA7, PA8, PA11, and PA12 using charlieplexing. Due to space constraints on the specialised PCB, only the RESET strap is populated.
 
