@@ -75,7 +75,7 @@ The main features of the Bughopper are highlighted in the table shown below.
 |      USB Supply Voltage     |   V<sub>USB</sub>  |   4.75  |   5.0   |   5.25  |     V    |
 |    FT230XQ Supply Voltage   |         VCC        |   2.97  |   5.0   |   5.5   |     V    |
 | Internal LDO Output Voltage | V<sub>3V3OUT</sub> |   2.97  |   3.3   |   3.63  |     V    |
-|  Target Voltage<sup>1</sub> | V<sub>TARGET</sub> |    -    |   1.8   |    -    |     V    |
+|  Target Voltage<sup>1</sup> | V<sub>TARGET</sub> |    -    |   1.8   |    -    |     V    |
 |    Operating Temperature    |   T<sub>OP</sub>   |   -40   |    -    |    85   |    °C    |
 |  Operating Current (Active) |   I<sub>OP</sub>   |    -    |    8    |    -    |    mA    |
 |     USB Suspend Current     |  I<sub>SUSP</sub>  |    -    |   125   |    -    |    µA    |
