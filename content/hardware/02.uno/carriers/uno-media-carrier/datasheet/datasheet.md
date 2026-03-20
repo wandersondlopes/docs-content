@@ -8,11 +8,11 @@ type: maker
 
 # Description
 
-<p style="text-align: justify;">The Arduino UNO Media Carrier extends the multimedia capabilities of the UNO Q, enabling advanced vision, display, and audio applications with plug-and-play simplicity. Designed for easy integration, it connects to the board via the JMEDIA and JMISC high-speed connectors, both of which feature passthrough designs to keep all pins available for additional modules or carriers in your setup.</p>
+<p style="text-align: justify;">The Arduino UNO Media Carrier extends the multimedia capabilities of compatible host boards, enabling advanced vision, display, and audio applications with plug-and-play simplicity. Designed for easy integration, it connects via the JMEDIA and JMISC high-speed connectors, both of which feature passthrough designs to keep all pins available for additional modules or carriers in your setup.</p>
 
 <p style="text-align: justify;">Equipped with two MIPI CSI connectors for standard Raspberry Pi cameras, the carrier opens the door to dual-camera computer vision projects, from stereo depth mapping to multi-angle image capture. A MIPI DSI interface provides compatibility with Raspberry Pi displays, making it easy to add rich, interactive visual output to your projects without additional adapters. For audio, the carrier includes three dedicated 3.5 mm jacks: one combined microphone input and headphone output for flexible audio capture and monitoring, one line out for connecting to amplifiers or powered speakers, and one ear out for direct connection to earphones.</p>
 
-<p style="text-align: justify;">Together, these interfaces allow the UNO Q to serve as a complete edge multimedia hub, ideal for AI-powered kiosks, object tracking, interactive installations, and more.</p>
+<p style="text-align: justify;"> Together, these interfaces enable a complete edge multimedia hub, ideal for AI-powered kiosks, object tracking, interactive installations, and more.</p>
 
 # Target Areas
 
@@ -24,7 +24,7 @@ Makers and advanced hobbyists, educational institutions and training centers, pr
 
 ## Application Examples
 
-<p style="text-align: justify;">The UNO Media Carrier expands the UNO Q's multimedia capabilities, enabling dual-camera computer vision, interactive displays, and multi-channel audio applications. With plug-and-play compatibility for Raspberry Pi cameras and displays, the carrier simplifies hardware integration for a wide range of multimedia projects.</p>
+<p style="text-align: justify;">The UNO Media Carrier expands the multimedia capabilities of compatible host boards, enabling dual-camera computer vision, interactive displays, and multi-channel audio applications. With plug-and-play compatibility for Raspberry Pi cameras and displays, the carrier simplifies hardware integration for a wide range of multimedia projects.</p>
 
 - **Computer Vision and AI:** Stereo depth mapping for robotics, dual-camera object tracking for automated inspection systems, and gesture recognition interfaces using synchronized camera inputs.
 
@@ -54,10 +54,10 @@ Makers and advanced hobbyists, educational institutions and training centers, pr
 
 #### Board Interface & Expansion
 
-| **Component**        | **Details**                                                                                                                             |
-|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------|
-| UNO Q Connection     | - JMEDIA high-speed connector<br></br>- JMISC high-speed connector<br></br>- Passthrough design maintains pin availability              |
-| Available Interfaces | - I2C<br></br>- MIPI-CSI<br></br>- MIPI-DSI<br></br>- PSSI<br></br>- GPIO<br></br>- Audio endpoints (HP OUT, LINE OUT, MIC IN, EAR OUT) |
+| **Component**         | **Details**                                                                                                                             |
+|-----------------------|-----------------------------------------------------------------------------------------------------------------------------------------|
+| Host Board Connection | - JMEDIA high-speed connector<br></br>- JMISC high-speed connector<br></br>- Passthrough design maintains pin availability              |
+| Available Interfaces  | - I2C<br></br>- MIPI-CSI<br></br>- MIPI-DSI<br></br>- PSSI<br></br>- GPIO<br></br>- Audio endpoints (HP OUT, LINE OUT, MIC IN, EAR OUT) |
 
 <div style="page-break-after: always;"></div>
 
@@ -65,10 +65,10 @@ Makers and advanced hobbyists, educational institutions and training centers, pr
 
 ### Input Power
 
-| **Source**               | **Voltage** | **Notes**                 |
-|--------------------------|------------:|---------------------------|
-| UNO Q (via JMEDIA/JMISC) |           - | Power source from UNO Q   |
-| VIN                      |      5 V DC | Alternative input voltage |
+| **Source**                    |         **Voltage** | **Notes**                    |
+|-------------------------------|--------------------:|------------------------------|
+| Host board (via JMEDIA/JMISC) | +5V / +3.3V / +1.8V | Power source from host board |
+| VIN                           |              5 V DC | Alternative input voltage    |
 
 ### Recommended Operating Conditions
 
@@ -141,8 +141,8 @@ Makers and advanced hobbyists, educational institutions and training centers, pr
 - **DSI0 (B1):** 22-pin MIPI-DSI display connector compatible with Raspberry Pi displays. Operates at 1.8 V logic level, routed from JMEDIA connector.
 - **CSI1 (B2):** 24-pin MIPI-CSI camera connector compatible with Raspberry Pi cameras. Operates at 1.8 V logic level, routed from JMEDIA connector. Camera 1 interface.
 - **CSI0 (B3):** 24-pin MIPI-CSI camera connector compatible with Raspberry Pi cameras. Operates at 1.8 V logic level, routed from JMEDIA connector. Camera 0 interface.
-- **JMEDIA CONNECTOR (JMEDIA):** Female 60-pin high-speed connector interfacing with UNO Q's JMEDIA header. Routes MIPI-CSI camera signals (`CSI0`, `CSI1`), MIPI-DSI display signals (DSI0), Camera Control Interface I2C (`CCI_I2C0`, `CCI_I2C1`), camera master clocks (CAM_MCLK0, CAM_MCLK1), and power rails. Signals operate at 1.8 V logic level. Passthrough design maintains pin availability for stacking.
-- **JMISC CONNECTOR (JMISC):** Female 60-pin mixed-voltage connector interfacing with UNO Q's JMISC header. Routes SoC GPIO (1.8 V), MCU GPIO and peripherals (3.3 V), analog audio signals, debug or trace interfaces, and power rails (`+3V3`, `+5V_USB`, `+1V8`, `VBAT`, `VCOIN`). Passthrough design maintains pin availability for stacking.
+- **JMEDIA CONNECTOR (JMEDIA):** Female 60-pin high-speed connector interfacing with the host board's JMEDIA header. Routes MIPI-CSI camera signals (`CSI0`, `CSI1`), MIPI-DSI display signals (DSI0), Camera Control Interface I2C (`CCI_I2C0`, `CCI_I2C1`), camera master clocks (CAM_MCLK0, CAM_MCLK1), and power rails. Signals operate at 1.8 V logic level. Passthrough design maintains pin availability for stacking.
+- **JMISC CONNECTOR (JMISC):** Female 60-pin mixed-voltage connector interfacing with the host board's JMISC header. Routes SoC GPIO (1.8 V), MCU GPIO and peripherals (3.3 V), analog audio signals, debug or trace interfaces, and power rails (`+3V3`, `+5V_USB`, `+1V8`, `VBAT`, `VCOIN`). Passthrough design maintains pin availability for stacking.
 
 <p style="text-align: justify;">MIPI-CSI and MIPI-DSI signals operate in the 1.8 VDC domain. Camera Control Interface (CCI) I<sup>2</sup>C buses provide camera configuration and control. Audio signals are analog and referenced to ground. Level translation is required when interfacing 1.8 VDC SoC signals with 3.3 VDC or 5 VDC devices.</p>
 
@@ -152,12 +152,12 @@ Makers and advanced hobbyists, educational institutions and training centers, pr
 
 ### Power Distribution Header (J13)
 
-| **Pin** | **Designation** | **Direction** | **Voltage** | **Notes**             |
-|--------:|-----------------|---------------|-------------|-----------------------|
-|       1 | +5V             | OUT           | +5V         | 5V power output       |
-|       2 | DC_IN           | OUT           | Variable    | DC input from UNO Q   |
-|       3 | PWR_3P3V        | OUT           | +3.3V       | 3.3V main logic power |
-|       4 | GND             | -             | 0V          | Ground                |
+| **Pin** | **Designation** | **Direction** | **Voltage** | **Notes**                |
+|--------:|-----------------|---------------|-------------|--------------------------|
+|       1 | +5V             | OUT           | +5V         | 5V power output          |
+|       2 | DC_IN           | OUT           | Variable    | DC input from host board |
+|       3 | PWR_3P3V        | OUT           | +3.3V       | 3.3V main logic power    |
+|       4 | GND             | -             | 0V          | Ground                   |
 
 This header provides access to the main power rails for external use or testing. It is connected to JMEDIA power distribution and includes test points TP21 (`DC_IN`) and TP22 (`PWR_3P3V`) for voltage monitoring.
 
@@ -170,7 +170,7 @@ This header provides access to the main power rails for external use or testing.
 |       3 | VBAT            | IN            | Variable    | Battery voltage input       |
 |       4 | GND             | -             | 0V          | Ground                      |
 
-This header provides access to low-voltage and backup power rails connected to JMISC power distribution. Test point TP20 (`VCC_PX3_1P8`) is available for the 1.8 V rail. The VCOIN input has a maximum voltage limit of 3.6 VDC and is dedicated to UNO Q RTC backup only.
+This header provides access to low-voltage and backup power rails connected to JMISC power distribution. Test point TP20 (`VCC_PX3_1P8`) is available for the 1.8 V rail. The VCOIN input has a maximum voltage limit of 3.6 VDC and is dedicated to host board RTC backup only.
 
 ### JMISC Expansion Header (Male)
 
@@ -302,7 +302,7 @@ Through the JMEDIA and JMISC connectors, the board provides access to:
 
 ### Logic Level Compatibility
 
-<p style="text-align: justify;">The board uses three logic domains: MPU signals (SoC) operate at 1.8 VDC, MCU signals run at 3.3 VDC, and analog audio/microphone signals are referenced to ground. Level translation is mandatory when connecting 3.3 VDC or 5 VDC devices to 1.8 VDC SoC GPIO pins to prevent damage to the UNO Q processor.</p>
+<p style="text-align: justify;">The board uses three logic domains: MPU signals (SoC) operate at 1.8 VDC, MCU signals run at 3.3 VDC, and analog audio/microphone signals are referenced to ground. Level translation is mandatory when connecting 3.3 VDC or 5 VDC devices to 1.8 VDC SoC GPIO pins to prevent damage to the host board processor.</p>
 
 ### Audio Interface Signals
 
@@ -310,34 +310,34 @@ Through the JMEDIA and JMISC connectors, the board provides access to:
 
 ### Power Output Capability
 
-<p style="text-align: justify;">The combined maximum current for the <code>+3V3</code> and <code>+5V_USB</code> rails depends on the UNO Q board's specifications. The <code>VCC_PX3_1P8</code> rail provides low current, suitable only for I<sup>2</sup>C-level translation circuits and should not be used for applications requiring high current or external device power supply.</p>
+<p style="text-align: justify;">The combined maximum current for the <code>+3V3</code> and <code>+5V_USB</code> rails depends on the host board's specifications. When using the UNO Q, refer to its power ratings for maximum current limits. The <code>VCC_PX3_1P8</code> rail provides low current, suitable only for I<sup>2</sup>C-level translation circuits and should not be used for applications requiring high current or external device power supply.</p>
 
 ## Device Operation
 
 ### Getting Started
 
-<p style="text-align: justify;">The UNO Media Carrier connects directly to the UNO Q through the JMEDIA and JMISC high-speed connectors. Install the carrier by aligning the connectors and pressing firmly until fully seated. The passthrough design ensures all UNO Q signals remain accessible for future expansion.</p>
+<p style="text-align: justify;">The UNO Media Carrier connects directly to the host board through the JMEDIA and JMISC high-speed connectors. Install the carrier by aligning the connectors and pressing firmly until fully seated. The passthrough design ensures all signals remain accessible for future expansion.</p>
 
 ![](assets/ASX00083_stack.png)
 
-1. Power off the UNO Q before installing the UNO Media Carrier.
-2. Align the JMEDIA and JMISC connectors on the UNO Media Carrier with the corresponding female connectors on the UNO Q.
-3. Press the carrier firmly onto the UNO Q until both connectors are fully seated.
+1. Power off the host board before installing the UNO Media Carrier.
+2. Align the JMEDIA and JMISC connectors on the UNO Media Carrier with the corresponding female connectors on the host board.
+3. Press the carrier firmly onto the host board until both connectors are fully seated.
 4. Connect cameras to the `CSI0` and `CSI1` connectors as needed.
 5. Connect a display to the `DSI0` connector if required.
 6. Connect audio peripherals to the 3.5 mm jacks as needed.
-7. Power on the UNO Q using a 5 VDC / 3 A USB-C source or the VIN input (7-24 VDC).
+7. When using UNO Q as the host board, power on using a 5 VDC / 3 A USB-C source or the VIN input (7-24 VDC).
 
 <div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
-  <strong>Note:</strong> Make sure the UNO Q is powered off before installing or removing the UNO Media Carrier to prevent damage to the connectors or components.
+  <strong>Note:</strong> Make sure the host board is powered off before installing or removing the UNO Media Carrier to prevent damage to the connectors or components.
 </div>
 
 ### Power Considerations
 
-<p style="text-align: justify;">The UNO Media Carrier is powered mainly through the JMEDIA and JMISC connectors from the UNO Q. An optional 5 VDC VIN input (J13) is available for additional power when using power-hungry peripherals such as multiple cameras or high-power displays.</p>
+<p style="text-align: justify;">The UNO Media Carrier is powered mainly through the JMEDIA and JMISC connectors from the host board. An optional 5 VDC VIN input (J13) is available for additional power when using power-hungry peripherals such as multiple cameras or high-power displays.</p>
 
 <div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
-  <strong>Power Budget:</strong> Ensure the UNO Q's power supply (5 VDC / 3 A) can handle the combined current draw of the carrier board and all connected peripherals. Use the VIN input if additional power is required.
+  <strong>Power Budget:</strong> Ensure the host board's power supply can handle the combined current draw of the carrier board and all connected peripherals.
 </div>
 
 ### Getting Started - Arduino App Lab
@@ -402,7 +402,7 @@ Use a 5 VDC / 3 A USB-C source and cable, or power from the 5 V or VIN pins as s
 
 ### Camera Setup
 
-<p style="text-align: justify;">The UNO Media Carrier supports MIPI-CSI cameras connected via the 24-pin MIPI-CSI connectors. Cameras are controlled through the UNO Q's Linux system using V4L2 drivers.</p>
+<p style="text-align: justify;">The UNO Media Carrier supports MIPI-CSI cameras connected via the 24-pin MIPI-CSI connectors. Cameras are controlled through the host board's Linux system using V4L2 drivers.</p>
 
 1. Lift the locking tab on the CSI connector (`CSI0` or `CSI1`).
 2. Insert the camera ribbon cable with contacts facing down.
@@ -411,7 +411,7 @@ Use a 5 VDC / 3 A USB-C source and cable, or power from the 5 V or VIN pins as s
 
 ### Display Setup
 
-<p style="text-align: justify;">The UNO Media Carrier supports MIPI-DSI displays connected via the 22-pin MIPI-DSI connector. Displays are driven through the UNO Q's MIPI-DSI interface.</p>
+<p style="text-align: justify;">The UNO Media Carrier supports MIPI-DSI displays connected via the 22-pin MIPI-DSI connector. Displays are driven through the host board's MIPI-DSI interface.</p>
 
 1. Lift the locking tab on the DSI connector.
 2. Insert the display ribbon cable with contacts facing down.
@@ -420,7 +420,7 @@ Use a 5 VDC / 3 A USB-C source and cable, or power from the 5 V or VIN pins as s
 
 ### Audio Setup
 
-<p style="text-align: justify;">The UNO Media Carrier provides three 3.5 mm audio jacks for flexible audio input and output. Audio signals are routed through the JMISC connector to the UNO Q's audio codec.</p>
+<p style="text-align: justify;">The UNO Media Carrier provides three 3.5 mm audio jacks for flexible audio input and output. Audio signals are routed through the JMISC connector to the host board's audio codec.</p>
 
 - **MIC-IN / Headphones Out:** Combined jack for microphone input and headphone output. Use a four-pole TRRS connector for simultaneous input and output.
 - **Line Out:** Stereo line-level output for connection to external amplifiers or powered speakers.
@@ -430,7 +430,7 @@ Use a 5 VDC / 3 A USB-C source and cable, or power from the 5 V or VIN pins as s
 
 ## Mechanical Information
 
-<p style="text-align: justify;">The board dimension measures 68.58 mm × 53.34 mm. The outline and hole pattern are shown below and are compatible with the UNO form factor. The board is designed to stack directly onto the UNO Q through the JMEDIA and JMISC connectors.</p>
+<p style="text-align: justify;">The board dimension measures 68.58 mm × 53.34 mm. The outline and hole pattern are shown below and are compatible with the UNO form factor. The board is designed to stack directly onto the host board through the JMEDIA and JMISC connectors.</p>
 
 ![](assets/ASX00083_mechanical_drawing.svg)
 
