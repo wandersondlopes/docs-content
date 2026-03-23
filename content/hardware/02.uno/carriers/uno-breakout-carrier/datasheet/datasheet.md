@@ -10,6 +10,10 @@ author: Christopher Méndez
 
 The Arduino UNO Breakout Carrier is designed to give developers complete, direct access to every signal available on the UNO Q’s JMEDIA and JMISC high-speed connectors. Ideal for advanced prototyping, testing, and integration work, it exposes all lines — including high-speed video, camera, audio, I²C, SPI, UART, PWM, power rails, and control signals — to clearly labeled, easy-to-use breakout headers.
 
+# Target Areas:
+
+Rapid Prototyping, Proof of Concept, Edge AI, Research and Development
+
 # Features
 
 * Connectors
@@ -27,9 +31,28 @@ The Arduino UNO Breakout Carrier is designed to give developers complete, direct
   * PWM
   * PSSI
   * GPIO
+  * SPI
+  * OPAMP
 
 # Contents
-## The Board
+
+## Application Examples
+
+**Embedded Hardware Development:** 
+- **Custom Interface Boards:** Rapidly design and test custom peripherals for the Arduino UNO Q. By providing direct access to the JMEDIA and JMISC connectors, developers can seamlessly route I2C, SPI, UART, and GPIO signals to custom interface boards without the need for complex adapters or soldering.
+- **Multimedia System Integration:** Leverage the comprehensive breakout of audio interfaces (HP OUT, LINE OUT, MIC IN, EAR OUT, PWM) to integrate the UNO Q into advanced multimedia and smart audio systems. The clearly labeled 2.54 mm male headers simplify wiring and testing, accelerating the development of complex embedded audio applications.
+- **Rapid Hardware Prototyping:** Expand the UNO Q's capabilities by easily integrating third-party modules and external hardware components. The Carrier's direct access to power rails and communication buses makes it an ideal platform for building out proofs of concept for advanced IoT, multimedia, and edge computing devices.
+
+**R&D and Testing:**
+- **Automated Lab Setups:** Build reliable, organized, and accessible automated test rigs for hardware validation. The Breakout Carrier exposes all critical UNO Q control signals to standard headers, allowing test engineers to quickly connect measurement equipment and script automated QA tests for complex systems.
+- **Interface Compliance Testing:** Streamline the verification process for new system designs. Engineers can connect oscilloscopes and logic analyzers directly to the carrier’s accessible pins to probe high-speed communication buses, power rails, and PSSI interfaces, ensuring strict electrical and protocol timing compliance.
+- **Mixed-Signal Debugging:** Speed up troubleshooting during product development by providing immediate, clear access to audio and control signals. Teams can isolate issues and verify signal integrity safely without the risk of damaging the main UNO Q board or fabricating temporary breakout solutions.
+
+**Education:**
+- **Hardware Prototyping Courses:** Provide a durable, reusable tool for multiple student cohorts learning to build embedded systems around a powerful Linux SBC. The straightforward 2x20 header pinout allows students to easily wire external sensors, actuators, and breadboards, fostering hands-on experimentation in STEM and project-based learning.
+- **Mixed-Signal Debugging Workshops:** Facilitate practical lab exercises in university engineering programs. The Breakout Carrier bridges the gap between theory and practice, giving students clear, accessible points to probe audio inputs/outputs, I2C, and GPIO signals using standard lab equipment.
+- **Advanced Embedded Linux Projects:** Accelerate cross-disciplinary student projects by simplifying the hardware-software interface. Students can focus on developing custom kernel drivers and multimedia applications on the Arduino UNO Q, using the carrier to effortlessly connect their physical hardware prototypes.
+
 
 ### Related Products
 *   Arduino UNO Q (SKU: ABX00162 - ABX00173)
@@ -284,6 +307,21 @@ The UNO Breakout Carrier pinout is shown in the following figure.
 | 59  | VCOIN                 | Power In      | Coin Cell / RTC Backup Voltage Input |
 | 60  | VBAT                  | Power Out     | +3.8V Buck Converter Output          |
 
+### Block Diagram
+
+An overview of the UNO Breakout Carrier high-level architecture is illustrated in the figure below.
+
+![UNO Breakout Carrier Block Diagram](assets/Block_Diagram.png)
+
+## Device Operation
+
+### Getting Started - IDE
+
+If you want to program your UNO Q to use the UNO Breakout Carrier while offline you need to install the Arduino® Desktop IDE **[1]**. To connect the UNO Q to your computer, you will need a USB cable or an insternet connection (Network Mode), which can also provide power to the board.
+
+### Online Resources
+
+Now that you have learned the basics of what you can do with the carrier, you can explore its endless possibilities by checking out exciting projects on Arduino Project Hub **[4]**, the Arduino Library Reference **[5]**, and the online store **[6]**. Here, you can complement your board with sensors, actuators and more.
 
 ## Mechanical Information
 
@@ -302,6 +340,96 @@ The UNO Breakout Carrier's connectors are placed on the top side of the board, a
 the dimensions are in mm.
 
 ![Mechanical View of UNO Breakout Carrier's Connectors](assets/connectors.png)
+
+<div style="page-break-after: always;"></div>
+
+## Certifications
+
+### Certificactions Summary
+
+|  **Certification**  | **Status** |
+| :-----------------: | :--------: |
+| CE (European Union) |    Yes     |
+|        RoHS         |    Yes     |
+|        REACH        |    Yes     |
+|        WEEE         |    Yes     |
+|      FCC (USA)      |    Yes     |
+|     IC (Canada)     |    Yes     |
+|      UKCA (UK)      |    Yes     |
+|      VCC (Japan)    |    Yes     |
+
+### Declaration of Conformity CE DoC (EU)
+
+We declare under our sole responsibility that the products above are in conformity with the essential requirements of the following EU Directives and therefore qualify for free movement within markets comprising the European Union (EU) and European Economic Area (EEA).
+
+### Declaration of Conformity to EU RoHS & REACH 211 01/19/2021
+
+Arduino boards are in compliance with RoHS 2 Directive 2011/65/EU of the European Parliament and RoHS 3 Directive 2015/863/EU of the Council of 4 June 2015 on the restriction of the use of certain hazardous substances in electrical and electronic equipment.
+
+| **Substance**                          | **Maximum Limit (ppm)** |
+| -------------------------------------- | ----------------------- |
+| Lead (Pb)                              | 1000                    |
+| Cadmium (Cd)                           | 100                     |
+| Mercury (Hg)                           | 1000                    |
+| Hexavalent Chromium (Cr6+)             | 1000                    |
+| Poly Brominated Biphenyls (PBB)        | 1000                    |
+| Poly Brominated Diphenyl ethers (PBDE) | 1000                    |
+| Bis(2-Ethylhexyl) phthalate (DEHP)     | 1000                    |
+| Benzyl butyl phthalate (BBP)           | 1000                    |
+| Dibutyl phthalate (DBP)                | 1000                    |
+| Diisobutyl phthalate (DIBP)            | 1000                    |
+
+Exemptions : No exemptions are claimed.
+
+Arduino Boards are fully compliant with the related requirements of European Union Regulation (EC) 1907 /2006 concerning the Registration, Evaluation, Authorization and Restriction of Chemicals (REACH). We declare none of the SVHCs ([https://echa.europa.eu/web/guest/candidate-list-table](https://echa.europa.eu/web/guest/candidate-list-table)), the Candidate List of Substances of Very High Concern for authorization currently released by ECHA, is present in all products (and also package) in quantities totaling in a concentration equal or above 0.1%. To the best of our knowledge, we also declare that our products do not contain any of the substances listed on the "Authorization List" (Annex XIV of the REACH regulations) and Substances of Very High Concern (SVHC) in any significant amounts as specified by the Annex XVII of Candidate list published by ECHA (European Chemical Agency) 1907 /2006/EC.
+
+### Conflict Minerals Declaration
+
+As a global supplier of electronic and electrical components, Arduino is aware of our obligations with regards to laws and regulations regarding Conflict Minerals, specifically the Dodd-Frank Wall Street Reform and Consumer Protection Act, Section 1502. Arduino does not directly source or process conflict minerals such as Tin, Tantalum, Tungsten, or Gold. Conflict minerals are contained in our products in the form of solder, or as a component in metal alloys. As part of our reasonable due diligence Arduino has contacted component suppliers within our supply chain to verify their continued compliance with the regulations. Based on the information received thus far we declare that our products contain Conflict Minerals sourced from conflict-free areas.
+
+### FCC Caution
+
+Any Changes or modifications not expressly approved by the party responsible for compliance could void the user’s authority to operate the equipment.
+
+This device complies with part 15 of the FCC Rules. Operation is subject to the following two conditions:
+
+(1) This device may not cause harmful interference
+
+(2) this device must accept any interference received, including interference that may cause undesired operation.
+
+**FCC RF Radiation Exposure Statement:**
+
+1. This Transmitter must not be co-located or operating in conjunction with any other antenna or transmitter.
+
+2. This equipment complies with RF radiation exposure limits set forth for an uncontrolled environment.
+
+3. This equipment should be installed and operated with a minimum distance of 20 cm between the radiator & your body.
+
+English:
+User manuals for licence-exempt radio apparatus shall contain the following or equivalent notice in a conspicuous location in the user manual or alternatively on the device or both. This device complies with Industry Canada licence-exempt RSS standard(s). Operation is subject to the following two conditions:
+
+(1) this device may not cause interference
+
+(2) this device must accept any interference, including interference that may cause undesired operation of the device.
+
+French:
+Le présent appareil est conforme aux CNR d’Industrie Canada applicables aux appareils radio exempts de licence. L’exploitation est autorisée aux deux conditions suivantes :
+
+(1) l’ appareil nedoit pas produire de brouillage
+
+(2) l’utilisateur de l’appareil doit accepter tout brouillage radioélectrique subi, même si le brouillage est susceptible d’en compromettre le fonctionnement.
+
+**IC SAR Warning:**
+
+English
+This equipment should be installed and operated with a minimum distance of 20 cm between the radiator and your body.
+
+French:
+Lors de l’ installation et de l’ exploitation de ce dispositif, la distance entre le radiateur et le corps est d ’au moins 20 cm.
+
+**Important:** The operating temperature of the EUT can’t exceed 85 ℃ and shouldn’t be lower than -40 ℃.
+
+Hereby, Arduino S.r.l. declares that this product is in compliance with essential requirements and other relevant provisions of Directive 201453/EU. This product is allowed to be used in all EU member states.
 
 ## Company Information
 | Company name    | Arduino S.r.l.                               |
@@ -322,4 +450,5 @@ the dimensions are in mm.
 ## Change Log
 | **Date**   | **Revision** | **Changes**                                 |
 |------------|--------------|---------------------------------------------|
+| 23/03/2026 | 2            | Certification Section Added                 |
 | 06/03/2026 | 1            | First Release                               |
