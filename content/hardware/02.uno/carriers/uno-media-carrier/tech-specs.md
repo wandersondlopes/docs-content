@@ -1,1 +1,1 @@
-Here you will find the technical specifications for the Arduino® UNO Media Carrier.
+Here are the technical specifications for the Arduino® UNO Media Carrier.
