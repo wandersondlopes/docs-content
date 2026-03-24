@@ -2,10 +2,8 @@
 title: UNO Media Carrier
 url_shop: https://store.arduino.cc/products/uno-media-carrier
 url_guide: /tutorials/uno-media-carrier/smart-doorbell
-primary_button_url: /tutorials/uno-media-carrier/smart-doorbell
-primary_button_title: Smart Doorbell
-secondary_button_url: /hardware/uno-q
-secondary_button_title: UNO Q
+primary_button_url: /hardware/uno-q
+primary_button_title: UNO Q
 sku: [ASX00083]
 ---
 
