@@ -364,6 +364,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 |  **Date**  | **Revision** |                      **Changes**                           |
 | :--------: | :----------: | :--------------------------------------------------------: |
+| 24/03/2026 |      7       | Updating top image to include both variants                |
 | 01/12/2025 |      6       | Additional note on multiple SKUs and certification updates  |
 | 11/02/2025 |      5       | Header Version and SKU added as Collective Datasheet       |
 | 14/11/2024 |      4       | Official launch revision and power information update      |
