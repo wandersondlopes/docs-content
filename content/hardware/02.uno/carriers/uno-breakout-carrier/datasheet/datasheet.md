@@ -10,7 +10,7 @@ author: Christopher Méndez
 
 The Arduino UNO Breakout Carrier is designed to give developers complete, direct access to every signal available on the UNO Q’s JMEDIA and JMISC high-speed connectors. Ideal for advanced prototyping, testing, and integration work, it exposes all lines — including high-speed video, camera, audio, I²C, SPI, UART, PWM, power rails, and control signals — to clearly labeled, easy-to-use breakout headers.
 
-# Target Areas:
+# Target Areas
 
 Rapid Prototyping, Proof of Concept, Edge AI, Research and Development
 
