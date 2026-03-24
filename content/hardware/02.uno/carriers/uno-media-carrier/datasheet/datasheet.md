@@ -48,7 +48,7 @@ Makers and advanced hobbyists, educational institutions and training centers, pr
 
 | **Component**     | **Details**                                                                                                       |
 |-------------------|-------------------------------------------------------------------------------------------------------------------|
-| Camera Connectors | - 2× MIPI-CSI 24-pin camera connectors<br></br>- Raspberry Pi camera compatible                                   |
+| Camera Connectors | - 2× MIPI-CSI 22-pin camera connectors<br></br>- Raspberry Pi camera compatible                                   |
 | Display Connector | - 1× MIPI-DSI 22-pin display connector<br></br>- Raspberry Pi display compatible                                  |
 | Audio Connectors  | - 1× MIC-IN / Headphones Out 3.5 mm jack<br></br>- 1× Line Out 3.5 mm jack<br></br>- 1× Earphones Out 3.5 mm jack |
 
@@ -63,12 +63,15 @@ Makers and advanced hobbyists, educational institutions and training centers, pr
 
 ## Ratings
 
-### Input Power
+### Power Rails
 
-| **Source**                    |         **Voltage** | **Notes**                    |
-|-------------------------------|--------------------:|------------------------------|
-| Host board (via JMEDIA/JMISC) | +5V / +3.3V / +1.8V | Power source from host board |
-| VIN                           |              5 V DC | Alternative input voltage    |
+| **Source**                    | **Voltage** | **Notes**                                      |
+|-------------------------------|------------:|------------------------------------------------|
+| Host board (via JMEDIA/JMISC) |           - | Power source from host board                   |
+| VIN (DC IN)                   |   7-24 V DC | DC power input for high-power configurations   |
+| VCOIN                         |    3.0 V DC | Coin cell input for host board RTC (max 3.6 V) |
+
+![](assets/ASX00083_stack_pw.png)
 
 ### Recommended Operating Conditions
 
@@ -96,12 +99,12 @@ Makers and advanced hobbyists, educational institutions and training centers, pr
 
 ### Camera Interfaces
 
-<p style="text-align: justify;">The UNO Media Carrier provides two MIPI-CSI 24-pin camera connectors, compatible with standard Raspberry Pi cameras. These allow dual-camera computer vision applications such as stereo vision, depth mapping, or multi-angle capture.</p>
+<p style="text-align: justify;">The UNO Media Carrier provides two MIPI-CSI 22-pin camera connectors, compatible with standard Raspberry Pi cameras. These allow dual-camera computer vision applications such as stereo vision, depth mapping, or multi-angle capture.</p>
 
 | **Connector** | **Type** | **Pin Count** |
 |---------------|----------|:-------------:|
-| CSI0          | MIPI-CSI |      24       |
-| CSI1          | MIPI-CSI |      24       |
+| CSI0          | MIPI-CSI |      22       |
+| CSI1          | MIPI-CSI |      22       |
 
 ### Display Interface
 
@@ -139,57 +142,57 @@ Makers and advanced hobbyists, educational institutions and training centers, pr
 - **MICROPHONE IN / HEADPHONES OUT (A2):** 3.5 mm jack supporting microphone input and headphone output. Microphone signals (`MIC2_INP`, `MIC2_INN`, `MIC2_BIAS`) and headphone signals (`HPH_L`, `HPH_R`, `HPH_REF`, `HS_DET`) routed through JMISC.
 - **EAR OUT (A3):** 3.5 mm audio jack for earphone connection. Signals routed through JMISC analog audio endpoints (`EAR_P_R`, `EAR_M_R`).
 - **DSI0 (B1):** 22-pin MIPI-DSI display connector compatible with Raspberry Pi displays. Operates at 1.8 V logic level, routed from JMEDIA connector.
-- **CSI1 (B2):** 24-pin MIPI-CSI camera connector compatible with Raspberry Pi cameras. Operates at 1.8 V logic level, routed from JMEDIA connector. Camera 1 interface.
-- **CSI0 (B3):** 24-pin MIPI-CSI camera connector compatible with Raspberry Pi cameras. Operates at 1.8 V logic level, routed from JMEDIA connector. Camera 0 interface.
-- **JMEDIA CONNECTOR (JMEDIA):** Female 60-pin high-speed connector interfacing with the host board's JMEDIA header. Routes MIPI-CSI camera signals (`CSI0`, `CSI1`), MIPI-DSI display signals (DSI0), Camera Control Interface I2C (`CCI_I2C0`, `CCI_I2C1`), camera master clocks (CAM_MCLK0, CAM_MCLK1), and power rails. Signals operate at 1.8 V logic level. Passthrough design maintains pin availability for stacking.
+- **CSI1 (B2):** 22-pin MIPI-CSI camera connector compatible with Raspberry Pi cameras. Operates at 1.8 V logic level, routed from JMEDIA connector. Camera 1 interface.
+- **CSI0 (B3):** 22-pin MIPI-CSI camera connector compatible with Raspberry Pi cameras. Operates at 1.8 V logic level, routed from JMEDIA connector. Camera 0 interface.
+- **JMEDIA CONNECTOR (JMEDIA):** Female 60-pin high-speed connector interfacing with the host board's JMEDIA header. Routes MIPI-CSI camera signals (`CSI0`, `CSI1`), MIPI-DSI display signals (DSI0), Camera Control Interface I<sup>2</sup>C (`CCI_I2C0`, `CCI_I2C1`), camera master clocks (CAM_MCLK0, CAM_MCLK1), and power rails. Signals operate at 1.8 V logic level. Passthrough design maintains pin availability for stacking.
 - **JMISC CONNECTOR (JMISC):** Female 60-pin mixed-voltage connector interfacing with the host board's JMISC header. Routes SoC GPIO (1.8 V), MCU GPIO and peripherals (3.3 V), analog audio signals, debug or trace interfaces, and power rails (`+3V3`, `+5V_USB`, `+1V8`, `VBAT`, `VCOIN`). Passthrough design maintains pin availability for stacking.
 
-<p style="text-align: justify;">MIPI-CSI and MIPI-DSI signals operate in the 1.8 VDC domain. Camera Control Interface (CCI) I<sup>2</sup>C buses provide camera configuration and control. Audio signals are analog and referenced to ground. Level translation is required when interfacing 1.8 VDC SoC signals with 3.3 VDC or 5 VDC devices.</p>
+<p style="text-align: justify;">MIPI-CSI and MIPI-DSI signals operate in the 1.8 V DC domain. Camera Control Interface (CCI) I<sup>2</sup>C buses provide camera configuration and control. Audio signals are analog and referenced to ground. Level translation is required when interfacing 1.8 V DC SoC signals with 3.3 V DC or 5 V DC devices.</p>
 
 <div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
-  Do not use the Camera Control Interface I2C lines (CCI_I2C0, CCI_I2C1) or audio interface signals (MI2S0) as general-purpose I/O. These signals are interface-dedicated, operate at 1.8 VDC, and are reserved for their specific functions.
+  Do not use the Camera Control Interface I<sup>2</sup>C lines (CCI_I2C0, CCI_I2C1) or audio interface signals (MI2S0) as general-purpose I/O. These signals are interface-dedicated, operate at 1.8 V DC, and are reserved for their specific functions.
 </div>
 
 ### Power Distribution Header (J13)
 
-| **Pin** | **Designation** | **Direction** | **Voltage** | **Notes**                |
-|--------:|-----------------|---------------|-------------|--------------------------|
-|       1 | +5V             | OUT           | +5V         | 5V power output          |
-|       2 | DC_IN           | OUT           | Variable    | DC input from host board |
-|       3 | PWR_3P3V        | OUT           | +3.3V       | 3.3V main logic power    |
-|       4 | GND             | -             | 0V          | Ground                   |
+| **Pin** | **Designation** | **Direction** | **Voltage** | **Notes**             |
+|--------:|-----------------|---------------|-------------|-----------------------|
+|       1 | +5V             | OUT           | +5V         | 5V power output       |
+|       2 | DC_IN           | IN            | 7-24V       | DC input from user    |
+|       3 | PWR_3P3V        | OUT           | +3.3V       | 3.3V main logic power |
+|       4 | GND             | -             | 0V          | Ground                |
 
 This header provides access to the main power rails for external use or testing. It is connected to JMEDIA power distribution and includes test points TP21 (`DC_IN`) and TP22 (`PWR_3P3V`) for voltage monitoring.
 
 ### Low Voltage Power Header (J10)
 
-| **Pin** | **Designation** | **Direction** | **Voltage** | **Notes**                   |
-|--------:|-----------------|---------------|-------------|-----------------------------|
-|       1 | VCC_PX3_1P8     | OUT           | +1.8V       | 1.8V I2C translation rail   |
-|       2 | VCOIN           | IN            | 3.0V        | Coin cell backup (max 3.6V) |
-|       3 | VBAT            | IN            | Variable    | Battery voltage input       |
-|       4 | GND             | -             | 0V          | Ground                      |
+| **Pin** | **Designation** | **Direction** | **Voltage** | **Notes**                       |
+|--------:|-----------------|---------------|-------------|---------------------------------|
+|       1 | VCC_PX3_1P8     | OUT           | +1.8V       | 1.8V I2C translation rail       |
+|       2 | VCOIN           | IN            | 3.0V        | Coin cell backup (max 3.6V)     |
+|       3 | VBAT            | OUT           | Variable    | Battery voltage from UNO Q buck |
+|       4 | GND             | -             | 0V          | Ground                          |
 
-This header provides access to low-voltage and backup power rails connected to JMISC power distribution. Test point TP20 (`VCC_PX3_1P8`) is available for the 1.8 V rail. The VCOIN input has a maximum voltage limit of 3.6 VDC and is dedicated to host board RTC backup only.
+This header provides access to low voltage and backup power rails connected to JMISC power distribution. Test point TP20 (`VCC_PX3_1P8`) is available for the 1.8 V rail. The VCOIN input (pin 59) has a maximum voltage limit of 3.6 V DC and accepts power from an external CR2032 coin cell battery for host board RTC backup. The VBAT output (pin 60) provides battery voltage from the host board's buck converter.
 
 ### JMISC Expansion Header (Male)
 
-This header mirrors the JMISC Female connector and exposes power rails, SoC GPIO, MCU GPIO, debug, trace, and analog, audio signals for expansion. All SoC GPIO lines operate at a 1.8 VDC logic level, while MCU pins use a 3.3 VDC logic level. The header supports configurable Serial Engine 0 (SPI/UART/I<sup>2</sup>C), PWM outputs, digital microphone (DMIC), and multi-channel I<sup>2</sup>S audio interfaces.
+This header mirrors the JMISC Female connector and exposes power rails, SoC GPIO, MCU GPIO, debug, trace, and analog, audio signals for expansion. All SoC GPIO lines operate at a 1.8 V DC logic level, while MCU pins use a 3.3 V DC logic level. The header supports configurable Serial Engine 0 (SPI/UART/I<sup>2</sup>C), PWM outputs, digital microphone (DMIC), and multi-channel I<sup>2</sup>S audio interfaces.
 
 #### Power Rails
 
-| **Pin** | **Designation** | **Direction** | **Voltage** | **Notes**              |
-|--------:|-----------------|---------------|-------------|------------------------|
-|      53 | +3V3            | OUT           | +3.3V       | 3.3V power output      |
-|      54 | +5V_USB         | OUT           | +5V         | 5V USB power output    |
-|      55 | +3V3            | OUT           | +3.3V       | 3.3V power output      |
-|      56 | +5V_USB         | OUT           | +5V         | 5V USB power output    |
-|      57 | +1V8            | IN            | +1.8V       | 1.8V rail input        |
-|      59 | VCOIN           | IN            | 3.0V        | Coin cell backup       |
-|      60 | VBAT            | IN            | Variable    | Battery voltage        |
-|  26,27, | GND             | -             | 0V          | Ground (multiple pins) |
-|  35,44, |                 |               |             |                        |
-|      58 |                 |               |             |                        |
+| **Pin** | **Designation** | **Direction** | **Voltage** | **Notes**                       |
+|--------:|-----------------|---------------|-------------|---------------------------------|
+|      53 | +3V3            | OUT           | +3.3V       | 3.3V power output               |
+|      54 | +5V_USB         | OUT           | +5V         | 5V USB power output             |
+|      55 | +3V3            | OUT           | +3.3V       | 3.3V power output               |
+|      56 | +5V_USB         | OUT           | +5V         | 5V USB power output             |
+|      57 | +1V8            | IN            | +1.8V       | 1.8V rail input                 |
+|      59 | VCOIN           | IN            | 3.0V        | Coin cell backup                |
+|      60 | VBAT            | OUT           | Variable    | Battery voltage from UNO Q buck |
+|  26,27, | GND             | -             | 0V          | Ground (multiple pins)          |
+|  35,44, |                 |               |             |                                 |
+|      58 |                 |               |             |                                 |
 
 #### SoC GPIO (1.8 V Logic Level - MPU Domain)
 
@@ -209,7 +212,7 @@ This header mirrors the JMISC Female connector and exposes power rails, SoC GPIO
 |      52 | SOC_GPIO_101    | DMIC2_DATA/MI2S0_D1 | Digital mic 2 data / Audio data 1  |
 
 <div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
-  Note: SoC GPIO lines operate at 1.8 VDC and require proper level translation when interfacing with 3.3 VDC or 5 VDC devices.
+  Note: SoC GPIO lines operate at 1.8 V DC and require proper level translation when interfacing with 3.3 V DC or 5 V DC devices.
 </div>
 
 #### MCU GPIO (MCU Domain)
@@ -265,7 +268,7 @@ This header mirrors the JMISC Female connector and exposes power rails, SoC GPIO
 
 ### JMEDIA Header (Male)
 
-This header mirrors the JMEDIA Female connector and exposes camera and display signals, including MIPI CSI/DSI differential pairs and Camera Control Interface I2C buses. All signals operate at a 1.8 VDC logic level and require proper level translation for 3.3 VDC or 5 VDC interfacing.
+This header mirrors the JMEDIA Female connector and exposes camera and display signals, including MIPI CSI/DSI differential pairs and Camera Control Interface I<sup>2</sup>C buses. The I<sup>2</sup>C, CSI, and DSI signals are routed from JMEDIA Male connector. All signals operate at a 1.8 V DC logic level and require proper level translation for 3.3 V DC or 5 V DC interfacing.
 
 #### SoC Camera/Display Signals (MPU Domain)
 
@@ -281,7 +284,11 @@ This header mirrors the JMEDIA Female connector and exposes camera and display s
 |  varies | SOC_GPIO_30      | -            | General purpose I/O          |
 
 <div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
-    All SoC signals operate at 1.8 VDC and must not be connected directly to 3.3 VDC or 5 VDC devices without proper level translation.
+    All SoC signals operate at 1.8 V DC and must not be connected directly to 3.3 V DC or 5 V DC devices without proper level translation.
+</div>
+
+<div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
+  Camera GPIO signals (<code>SOC_GPIO_20</code>, <code>SOC_GPIO_21</code>, <code>SOC_GPIO_29</code>, <code>SOC_GPIO_30</code>) are not accessible through female headers. They are only available through the flat camera connectors and I/O expander circuits.
 </div>
 
 #### MIPI CSI/DSI Differential Pairs
@@ -296,13 +303,13 @@ This header mirrors the JMEDIA Female connector and exposes camera and display s
 
 Through the JMEDIA and JMISC connectors, the board provides access to:
 
-- **I<sup>2</sup>C:** Camera Control Interface I<sup>2</sup>C (`CCI_I2C0`/`I2C1`, 1.8 VDC) via JMEDIA and MCU `I2C4` (3.3 VDC) via JMISC for peripheral communication
+- **I<sup>2</sup>C:** Camera Control Interface I<sup>2</sup>C (`CCI_I2C0`/`I2C1`, 1.8 V DC) via JMEDIA and MCU `I2C4` (3.3 V DC) via JMISC for peripheral communication
 - **PSSI:** 8-bit parallel camera interface with pixel clock, data enable, and ready signals via JMISC
-- **GPIO:** SoC GPIO (1.8 VDC) and MCU GPIO (3.3 VDC) pins available via JMISC for general-purpose I/O
+- **GPIO:** SoC GPIO (1.8 V DC) and MCU GPIO (3.3 V DC) pins available via JMISC for general-purpose I/O
 
 ### Logic Level Compatibility
 
-<p style="text-align: justify;">The board uses three logic domains: MPU signals (SoC) operate at 1.8 VDC, MCU signals run at 3.3 VDC, and analog audio/microphone signals are referenced to ground. Level translation is mandatory when connecting 3.3 VDC or 5 VDC devices to 1.8 VDC SoC GPIO pins to prevent damage to the host board processor.</p>
+<p style="text-align: justify;">The board uses three logic domains: MPU signals (SoC) operate at 1.8 V DC, MCU signals run at 3.3 V DC, and analog audio/microphone signals are referenced to ground. Level translation is mandatory when connecting 3.3 V DC or 5 V DC devices to 1.8 V DC SoC GPIO pins to prevent damage to the host board processor.</p>
 
 ### Audio Interface Signals
 
@@ -326,7 +333,7 @@ Through the JMEDIA and JMISC connectors, the board provides access to:
 4. Connect cameras to the `CSI0` and `CSI1` connectors as needed.
 5. Connect a display to the `DSI0` connector if required.
 6. Connect audio peripherals to the 3.5 mm jacks as needed.
-7. When using UNO Q as the host board, power on using a 5 VDC / 3 A USB-C source or the VIN input (7-24 VDC).
+7. When using UNO Q as the host board, power on using a 5 V DC / 3 A USB-C source or the VIN input (7-24 V DC). The DC IN jack (J13) accepts 7-24 V DC power input for high-power configurations.
 
 <div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
   <strong>Note:</strong> Make sure the host board is powered off before installing or removing the UNO Media Carrier to prevent damage to the connectors or components.
@@ -334,10 +341,10 @@ Through the JMEDIA and JMISC connectors, the board provides access to:
 
 ### Power Considerations
 
-<p style="text-align: justify;">The UNO Media Carrier is powered mainly through the JMEDIA and JMISC connectors from the host board. An optional 5 VDC VIN input (J13) is available for additional power when using power-hungry peripherals such as multiple cameras or high-power displays.</p>
+<p style="text-align: justify;">The UNO Media Carrier is powered mainly through the JMEDIA and JMISC connectors from the host board. An optional 7-24 V DC VIN input (J13) is available for additional power when using power-hungry peripherals such as multiple cameras or high-power displays.</p>
 
 <div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
-  <strong>Power Budget:</strong> Ensure the host board's power supply can handle the combined current draw of the carrier board and all connected peripherals.
+  <strong>Power Budget:</strong> Ensure the host board's power supply can handle the combined current draw of the carrier board and all connected peripherals. Use the VIN input (7-24 V DC) if additional power is required.
 </div>
 
 ### Getting Started - Arduino App Lab
@@ -369,7 +376,7 @@ For first time setting up:
   <strong>Note:</strong> In <strong>PC-hosted</strong> mode, a <em>USB data</em> connection is required for first-time setup. Afterwards, you can use the <strong>Network</strong> target over LAN (SSH). In <strong>Single-Board Computer (SBC)</strong> mode, no USB data link is needed for setup, just power the board and use the <strong>Network</strong> target once it joins your network. For peripherals in SBC mode (keyboard, mouse, USB camera, microphone), use a USB-C dongle with external power delivery capabilities. When DisplayPort Alt-Mode is active, USB data transfer speeds are reduced.</p>
 </div>
 
-Use a 5 VDC / 3 A USB-C source and cable, or power from the 5 V or VIN pins as specified in the [input power section](#input-power) (USB-C is 5 VDC only / VIN is 7-24 VDC).
+Use a 5 V DC / 3 A USB-C source and cable, or power from the 5 V or VIN pins as specified in the [input power section](#input-power) (USB-C is 5 V DC only / VIN is 7-24 V DC).
 
 <div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
   First boot typically takes 20 to 30 seconds while Linux starts. Wait for the boot LED sequence or the LED-matrix animation to finish before interacting with the board.
@@ -402,7 +409,7 @@ Use a 5 VDC / 3 A USB-C source and cable, or power from the 5 V or VIN pins as s
 
 ### Camera Setup
 
-<p style="text-align: justify;">The UNO Media Carrier supports MIPI-CSI cameras connected via the 24-pin MIPI-CSI connectors. Cameras are controlled through the host board's Linux system using V4L2 drivers.</p>
+<p style="text-align: justify;">The UNO Media Carrier supports MIPI-CSI cameras connected via the 22-pin MIPI-CSI connectors. Cameras are controlled through the host board's Linux system using V4L2 drivers.</p>
 
 1. Lift the locking tab on the CSI connector (`CSI0` or `CSI1`).
 2. Insert the camera ribbon cable with contacts facing down.
