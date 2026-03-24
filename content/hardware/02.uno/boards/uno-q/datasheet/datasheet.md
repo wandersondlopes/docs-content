@@ -2433,6 +2433,7 @@ English:
 
 |  **Date**  | **Revision** | **Changes**                                                                                                                  |
 |:----------:|:------------:|------------------------------------------------------------------------------------------------------------------------------|
+| 24/03/2026 |      8       | General documentation update                                                                                                 |
 | 17/02/2026 |      7       | Update VBAT description in Power Supply section and JMISC pin 60 note                                                        |
 | 10/02/2026 |      6       | Translations in Chinese, Portuguese, Certification updates                                                                   |
 | 19/01/2026 |      5       | Add video output resolution specifications                                                                                   |
