@@ -6,4 +6,4 @@ primary_button_title: Datasheet
 sku: [ASX00085]
 ---
 
-The Arduino UNO Breakout Carrier is designed to give developers complete, direct access to every signal available on the UNO Q’s JMEDIA and JMISC high-speed connectors.
+The Arduino UNO Breakout Carrier is designed to give developers complete, direct access to relevant signal available on the UNO Q’s JMEDIA and JMISC high-speed connectors.
