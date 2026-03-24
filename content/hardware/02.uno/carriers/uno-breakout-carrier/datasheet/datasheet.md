@@ -439,7 +439,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 ## Reference Documentation
 |          **Ref**          | **Link**                                                     |
 | :-----------------------: | ------------------------------------------------------------ |
-|   Arduino App Lab         | https://www.arduino.cc/en/Main/Software                      |
+|   Arduino App Lab         | https://docs.arduino.cc/software/app-lab/                      |
 |   Arduino IDE (Desktop)   | https://www.arduino.cc/en/Main/Software                      |
 |    Arduino IDE (Cloud)    | https://create.arduino.cc/editor                             |
 | Cloud IDE Getting Started | https://create.arduino.cc/projecthub/Arduino_Genuino/getting-started-with-arduino-web-editor-4b3e4a |
