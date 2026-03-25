@@ -164,6 +164,7 @@ Use the limits below to size power sources, define rail tolerances, and plan the
 
 <p style="text-align: justify;">UNO Q supports dual power inputs: a USB-C port and a 7-24V DC input. 
 <em>USB-C VBUS</em> and the 5 V output of the 7-24 V buck are <em>diode-OR</em> combined onto the system 5 V bus (5V_SYS).</p>
+<p style="text-align: justify;"><code>5V_SYS</code> supplies the <strong>PM4125 PMIC (PMIC1)</strong> at <code>USB_IN</code>. The PMIC's L15A LDO provides the 1.8 V rail (<code>VREG_L15A_1P8V</code>) and powers the SoC I/O banks, ANX7625 DVDD18, Wi-Fi® digital logic, and the on-board level shifters. The 1.8 V rail is also available on JMISC. From <code>5V_SYS</code>, a buck generates the <code>PWR_3P8V</code> (3.8 V) reserved for system design and future features. A second buck generates <code>PWR_3P3V</code> for the STM32U585, the ANX7625 (3.3 V rails), the Wi-Fi® 3.3 V domain, and the 3.3 V header pins.</p>
 <p style="text-align: justify;">A <em>protected P-channel MOSFET</em> (<code>Q2801</code>) can source USB <code>VBUS</code> from <code>5V_SYS</code> when the board operates as a USB host/OTG. The <code>VCOIN</code> powers only the real-time clock of the PMIC and does not power the Linux or MCU domains. The <code>VBAT</code> connects to the <code>PWR_3P8V</code> and is reserved for system design and future features. </p>
 
 ![Arduino UNO Q Power Tree](assets/ABX00162-ABX00173_power_tree.png)
@@ -2430,11 +2431,13 @@ English:
 
 # Document Revision History
 
-|  **Date**  | **Revision** | **Changes**                                                  |
-| :--------: | :----------: | ------------------------------------------------------------ |
-| 17/02/2026 |      6       | Update VBAT description in Power Supply section and JMISC pin 60 note |
-| 10/02/2026 |      5       | Translations in Chinese, Portuguese, Certification updates   |
+|  **Date**  | **Revision** | **Changes**                                                                                                                  |
+|:----------:|:------------:|------------------------------------------------------------------------------------------------------------------------------|
+| 24/03/2026 |      8       | General documentation update                                                                                                 |
+| 17/02/2026 |      7       | Update VBAT description in Power Supply section and JMISC pin 60 note                                                        |
+| 10/02/2026 |      6       | Translations in Chinese, Portuguese, Certification updates                                                                   |
+| 19/01/2026 |      5       | Add video output resolution specifications                                                                                   |
 | 24/11/2025 |      4       | Add hardware acceleration section (graphics APIs, video codecs, OpenCL support); remove incorrect default password reference |
-| 05/11/2025 |      3       | Update operational information                               |
-| 27/10/2025 |      2       | Mechanical drawing and RTC power detail update               |
-| 01/10/2025 |      1       | First release                                                |
+| 05/11/2025 |      3       | Update operational information                                                                                               |
+| 27/10/2025 |      2       | Mechanical drawing and RTC power detail update                                                                               |
+| 01/10/2025 |      1       | First release                                                                                                                |
