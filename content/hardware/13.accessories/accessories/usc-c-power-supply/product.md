@@ -1,6 +1,6 @@
 ---
 title: USB-C Power Supply (45W)
-url_shop: 
+url_shop: https://store.arduino.cc/products/usb-c-power-supply
 sku: [TPX00242]
 ---
 
