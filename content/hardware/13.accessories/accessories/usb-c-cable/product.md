@@ -1,6 +1,6 @@
 ---
 title: USB-C Cable (Full 24-pin)
-url_shop: 
+url_shop: https://store.arduino.cc/products/usb-c-cable
 sku: [TPX00243]
 ---
 
