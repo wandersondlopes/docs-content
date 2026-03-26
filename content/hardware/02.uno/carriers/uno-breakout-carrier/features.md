@@ -1,6 +1,6 @@
 <FeatureDescription>
 
-This product expands the capabilities of the Arduino UNO Q by providing complete, direct access to relevant signal available on the JMEDIA and JMISC high-speed connectors. Ideal for advanced prototyping, testing, and integration work, the UNO Breakout Carrier safely exposes audio, I2C, SPI, UART, PWM, power rails, and control signals to standard headers. It eliminates the need for complex adapters or soldering, making it the ultimate tool for accelerating hardware validation and simplifying troubleshooting.
+The **UNO Breakout Carrier** expands the capabilities of the Arduino UNO Q by providing complete, direct access to relevant signal available on the JMEDIA and JMISC high-speed connectors. Ideal for advanced prototyping, testing, and integration work, the UNO Breakout Carrier safely exposes audio, I2C, SPI, UART, PWM, power rails, and control signals to standard headers. It eliminates the need for complex adapters or soldering, making it the ultimate tool for accelerating hardware validation and simplifying troubleshooting.
 
 </FeatureDescription>
 
