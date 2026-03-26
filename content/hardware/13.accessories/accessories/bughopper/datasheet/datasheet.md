@@ -58,7 +58,6 @@ The main features of the Bughopper are highlighted in the table shown below.
 
 - Arduino® UNO™ Q 2GB (SKU: ABX00162)
 - Arduino® UNO™ Q 4GB (SKU: ABX00173)
-- Arduino® VENTUNO™ Q (SKU: ABX00181)
 
 <div style="page-break-after: always;"></div>
 
