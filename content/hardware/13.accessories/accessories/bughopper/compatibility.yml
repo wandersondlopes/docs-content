@@ -4,4 +4,3 @@ software:
 hardware:
   boards:
     - uno-q
-    - ventuno
