@@ -1,7 +1,6 @@
 Board:
   Name: Arduino® Bughopper
   SKU: ABX00156
-  Release Date: 27 March 2026
 USB Bridge:
   IC: FT230XQ-R
   Baud Rate Range: 300 bps to 3 Mbps
