@@ -8,9 +8,9 @@ type: maker
 
 # Description
 
-<p style="text-align: justify;">The Arduino UNO Media Carrier extends the multimedia capabilities of compatible host boards, enabling advanced vision, display, and audio applications with plug-and-play simplicity. Designed for easy integration, it connects via the JMEDIA and JMISC high-speed connectors, both of which feature passthrough designs to keep all pins available for additional modules or carriers in your setup.</p>
+<p style="text-align: justify;">The Arduino UNO Media Carrier extends the multimedia capabilities of compatible host boards (UNO Q, VENTUNO Q), enabling advanced vision, display, and audio applications with plug-and-play simplicity. Designed for easy integration, it connects via the JMEDIA and JMISC high-speed connectors, both of which feature passthrough designs to keep all pins available for additional modules or carriers in your setup.</p>
 
-<p style="text-align: justify;">Equipped with two MIPI CSI connectors for standard Raspberry Pi cameras, the carrier opens the door to dual-camera computer vision projects, from stereo depth mapping to multi-angle image capture. A MIPI DSI interface provides compatibility with Raspberry Pi displays, making it easy to add rich, interactive visual output to your projects without additional adapters. For audio, the carrier includes three dedicated 3.5 mm jacks: one combined microphone input and headphone output for flexible audio capture and monitoring, one line out for connecting to amplifiers or powered speakers, and one ear out for direct connection to earphones.</p>
+<p style="text-align: justify;">Equipped with two MIPI CSI connectors for standard 22-pin 4 lanes MIPI CSI cameras (including Raspberry Pi cameras), the carrier opens the door to dual-camera computer vision projects, from stereo depth mapping to multi-angle image capture. A MIPI DSI interface provides compatibility with 22-pin 4 lanes MIPI DSI displays, making it easy to add rich, interactive visual output to your projects without additional adapters. For audio, the carrier includes three dedicated 3.5 mm jacks: one combined microphone input and headphone output for flexible audio capture and monitoring, one line out for connecting to amplifiers or powered speakers, and one ear out enabling Class-AB differential earpiece output.</p>
 
 <p style="text-align: justify;"> Together, these interfaces enable a complete edge multimedia hub, ideal for AI-powered kiosks, object tracking, interactive installations, and more.</p>
 
@@ -24,7 +24,7 @@ Makers and advanced hobbyists, educational institutions and training centers, pr
 
 ## Application Examples
 
-<p style="text-align: justify;">The UNO Media Carrier expands the multimedia capabilities of compatible host boards, enabling dual-camera computer vision, interactive displays, and multi-channel audio applications. With plug-and-play compatibility for Raspberry Pi cameras and displays, the carrier simplifies hardware integration for a wide range of multimedia projects.</p>
+<p style="text-align: justify;">The UNO Media Carrier expands the multimedia capabilities of compatible host boards (UNO Q, VENTUNO Q), enabling dual-camera computer vision, interactive displays, and multi-channel audio applications. With plug-and-play compatibility for Raspberry Pi cameras and displays, the carrier simplifies hardware integration for a wide range of multimedia projects.</p>
 
 - **Computer Vision and AI:** Stereo depth mapping for robotics, dual-camera object tracking for automated inspection systems, and gesture recognition interfaces using synchronized camera inputs.
 
@@ -48,9 +48,13 @@ Makers and advanced hobbyists, educational institutions and training centers, pr
 
 | **Component**     | **Details**                                                                                                       |
 |-------------------|-------------------------------------------------------------------------------------------------------------------|
-| Camera Connectors | - 2× MIPI-CSI 22-pin camera connectors<br></br>- Raspberry Pi camera compatible                                   |
-| Display Connector | - 1× MIPI-DSI 22-pin display connector<br></br>- Raspberry Pi display compatible                                  |
+| Camera Connectors | - 2× MIPI-CSI 22-pin 4 lanes camera connectors<br></br>- Raspberry Pi camera compatible                           |
+| Display Connector | - 1× MIPI-DSI 22-pin 4 lanes display connector<br></br>- Raspberry Pi display compatible                          |
 | Audio Connectors  | - 1× MIC-IN / Headphones Out 3.5 mm jack<br></br>- 1× Line Out 3.5 mm jack<br></br>- 1× Earphones Out 3.5 mm jack |
+
+<div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
+  <strong>Hardware Support:</strong> The UNO Media Carrier officially supports cameras based on the IMX219 sensor and the Waveshare 8-DSI-TOUCH-A display (<a href="https://www.waveshare.com/wiki/8-DSI-TOUCH-A" target="_blank">https://www.waveshare.com/wiki/8-DSI-TOUCH-A</a>) initially. Additional camera and display modules may be supported in future software updates.
+</div>
 
 #### Board Interface & Expansion
 
@@ -99,20 +103,28 @@ Makers and advanced hobbyists, educational institutions and training centers, pr
 
 ### Camera Interfaces
 
-<p style="text-align: justify;">The UNO Media Carrier provides two MIPI-CSI 22-pin camera connectors, compatible with standard Raspberry Pi cameras. These allow dual-camera computer vision applications such as stereo vision, depth mapping, or multi-angle capture.</p>
+<p style="text-align: justify;">The UNO Media Carrier provides two MIPI-CSI 22-pin 4 lanes camera connectors, compatible with standard Raspberry Pi cameras. These allow dual-camera computer vision applications such as stereo vision, depth mapping, or multi-angle capture.</p>
 
-| **Connector** | **Type** | **Pin Count** |
-|---------------|----------|:-------------:|
-| CSI0          | MIPI-CSI |      22       |
-| CSI1          | MIPI-CSI |      22       |
+| **Connector** | **Type** | **Pin Count** | **Lanes** |
+|---------------|----------|:-------------:|:---------:|
+| CSI0          | MIPI-CSI |      22       |     4     |
+| CSI1          | MIPI-CSI |      22       |     4     |
+
+<div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
+  <strong>Camera Support:</strong> The UNO Media Carrier officially supports cameras based on the IMX219 sensor initially. Additional camera modules may be supported in future software updates.
+</div>
 
 ### Display Interface
 
-<p style="text-align: justify;">The UNO Media Carrier includes one MIPI-DSI 22-pin display connector, compatible with Raspberry Pi displays for visual output in interactive applications.</p>
+<p style="text-align: justify;">The UNO Media Carrier includes one MIPI-DSI 22-pin 4 lanes display connector, compatible with Raspberry Pi displays for visual output in interactive applications.</p>
 
-| **Connector** | **Type** | **Pin Count** |
-|---------------|----------|:-------------:|
-| DSI0          | MIPI-DSI |      22       |
+| **Connector** | **Type** | **Pin Count** | **Lanes** |
+|---------------|----------|:-------------:|:---------:|
+| DSI0          | MIPI-DSI |      22       |     4     |
+
+<div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
+  <strong>Display Support:</strong> The UNO Media Carrier officially supports the Waveshare 8-DSI-TOUCH-A portrait touchscreen LCD display initially (<a href="https://www.waveshare.com/wiki/8-DSI-TOUCH-A" target="_blank">https://www.waveshare.com/wiki/8-DSI-TOUCH-A</a>). Additional display modules may be supported in future software updates.
+</div>
 
 ### Audio Interfaces
 
@@ -140,10 +152,10 @@ Makers and advanced hobbyists, educational institutions and training centers, pr
 
 - **LINE OUT (A1):** 3.5 mm audio jack for audio output. Signals routed through JMISC analog audio endpoints (`LINEOUT_P`, `LINEOUT_M`).
 - **MICROPHONE IN / HEADPHONES OUT (A2):** 3.5 mm jack supporting microphone input and headphone output. Microphone signals (`MIC2_INP`, `MIC2_INN`, `MIC2_BIAS`) and headphone signals (`HPH_L`, `HPH_R`, `HPH_REF`, `HS_DET`) routed through JMISC.
-- **EAR OUT (A3):** 3.5 mm audio jack for earphone connection. Signals routed through JMISC analog audio endpoints (`EAR_P_R`, `EAR_M_R`).
-- **DSI0 (B1):** 22-pin MIPI-DSI display connector compatible with Raspberry Pi displays. Operates at 1.8 V logic level, routed from JMEDIA connector.
-- **CSI1 (B2):** 22-pin MIPI-CSI camera connector compatible with Raspberry Pi cameras. Operates at 1.8 V logic level, routed from JMEDIA connector. Camera 1 interface.
-- **CSI0 (B3):** 22-pin MIPI-CSI camera connector compatible with Raspberry Pi cameras. Operates at 1.8 V logic level, routed from JMEDIA connector. Camera 0 interface.
+- **EAR OUT (A3):** 3.5 mm audio jack for Class-AB differential earpiece output. Signals routed through JMISC analog audio endpoints (`EAR_P_R`, `EAR_M_R`).
+- **DSI0 (B1):** 22-pin 4 lanes MIPI-DSI display connector compatible with Raspberry Pi displays. Operates at 1.8 V logic level, routed from JMEDIA connector.
+- **CSI1 (B2):** 22-pin 4 lanes MIPI-CSI camera connector compatible with Raspberry Pi cameras. Operates at 1.8 V logic level, routed from JMEDIA connector. Camera 1 interface.
+- **CSI0 (B3):** 22-pin 4 lanes MIPI-CSI camera connector compatible with Raspberry Pi cameras. Operates at 1.8 V logic level, routed from JMEDIA connector. Camera 0 interface.
 - **JMEDIA CONNECTOR (JMEDIA):** Female 60-pin high-speed connector interfacing with the host board's JMEDIA header. Routes MIPI-CSI camera signals (`CSI0`, `CSI1`), MIPI-DSI display signals (DSI0), Camera Control Interface I<sup>2</sup>C (`CCI_I2C0`, `CCI_I2C1`), camera master clocks (CAM_MCLK0, CAM_MCLK1), and power rails. Signals operate at 1.8 V logic level. Passthrough design maintains pin availability for stacking.
 - **JMISC CONNECTOR (JMISC):** Female 60-pin mixed-voltage connector interfacing with the host board's JMISC header. Routes SoC GPIO (1.8 V), MCU GPIO and peripherals (3.3 V), analog audio signals, debug or trace interfaces, and power rails (`+3V3`, `+5V_USB`, `+1V8`, `VBAT`, `VCOIN`). Passthrough design maintains pin availability for stacking.
 
@@ -166,12 +178,12 @@ This header provides access to the main power rails for external use or testing.
 
 ### Low Voltage Power Header (J10)
 
-| **Pin** | **Designation** | **Direction** | **Voltage** | **Notes**                       |
-|--------:|-----------------|---------------|-------------|---------------------------------|
-|       1 | VCC_PX3_1P8     | OUT           | +1.8V       | 1.8V I2C translation rail       |
-|       2 | VCOIN           | IN            | 3.0V        | Coin cell backup (max 3.6V)     |
-|       3 | VBAT            | OUT           | Variable    | Battery voltage from UNO Q buck |
-|       4 | GND             | -             | 0V          | Ground                          |
+| **Pin** | **Designation** | **Direction** | **Voltage** | **Notes**                            |
+|--------:|-----------------|---------------|-------------|--------------------------------------|
+|       1 | VCC_PX3_1P8     | OUT           | +1.8V       | 1.8V I2C translation rail            |
+|       2 | VCOIN           | IN            | 3.0V        | Coin cell backup (max 3.6V)          |
+|       3 | VBAT            | OUT           | Variable    | Battery voltage from host board buck |
+|       4 | GND             | -             | 0V          | Ground                               |
 
 This header provides access to low voltage and backup power rails connected to JMISC power distribution. Test point TP20 (`VCC_PX3_1P8`) is available for the 1.8 V rail. The VCOIN input (pin 59) has a maximum voltage limit of 3.6 V DC and accepts power from an external CR2032 coin cell battery for host board RTC backup. The VBAT output (pin 60) provides battery voltage from the host board's buck converter.
 
@@ -181,18 +193,18 @@ This header mirrors the JMISC Female connector and exposes power rails, SoC GPIO
 
 #### Power Rails
 
-| **Pin** | **Designation** | **Direction** | **Voltage** | **Notes**                       |
-|--------:|-----------------|---------------|-------------|---------------------------------|
-|      53 | +3V3            | OUT           | +3.3V       | 3.3V power output               |
-|      54 | +5V_USB         | OUT           | +5V         | 5V USB power output             |
-|      55 | +3V3            | OUT           | +3.3V       | 3.3V power output               |
-|      56 | +5V_USB         | OUT           | +5V         | 5V USB power output             |
-|      57 | +1V8            | IN            | +1.8V       | 1.8V rail input                 |
-|      59 | VCOIN           | IN            | 3.0V        | Coin cell backup                |
-|      60 | VBAT            | OUT           | Variable    | Battery voltage from UNO Q buck |
-|  26,27, | GND             | -             | 0V          | Ground (multiple pins)          |
-|  35,44, |                 |               |             |                                 |
-|      58 |                 |               |             |                                 |
+| **Pin** | **Designation** | **Direction** | **Voltage** | **Notes**                            |
+|--------:|-----------------|---------------|-------------|--------------------------------------|
+|      53 | +3V3            | OUT           | +3.3V       | 3.3V power output                    |
+|      54 | +5V_USB         | OUT           | +5V         | 5V USB power output                  |
+|      55 | +3V3            | OUT           | +3.3V       | 3.3V power output                    |
+|      56 | +5V_USB         | OUT           | +5V         | 5V USB power output                  |
+|      57 | +1V8            | IN            | +1.8V       | 1.8V rail input                      |
+|      59 | VCOIN           | IN            | 3.0V        | Coin cell backup                     |
+|      60 | VBAT            | OUT           | Variable    | Battery voltage from host board buck |
+|  26,27, | GND             | -             | 0V          | Ground (multiple pins)               |
+|  35,44, |                 |               |             |                                      |
+|      58 |                 |               |             |                                      |
 
 #### SoC GPIO (1.8 V Logic Level - MPU Domain)
 
@@ -317,7 +329,7 @@ Through the JMEDIA and JMISC connectors, the board provides access to:
 
 ### Power Output Capability
 
-<p style="text-align: justify;">The combined maximum current for the <code>+3V3</code> and <code>+5V_USB</code> rails depends on the host board's specifications. When using the UNO Q, refer to its power ratings for maximum current limits. The <code>VCC_PX3_1P8</code> rail provides low current, suitable only for I<sup>2</sup>C-level translation circuits and should not be used for applications requiring high current or external device power supply.</p>
+<p style="text-align: justify;">The combined maximum current for the <code>+3V3</code> and <code>+5V_USB</code> rails depends on the host board's specifications. Refer to your host board's datasheet for maximum current limits (UNO Q, VENTUNO Q). The <code>VCC_PX3_1P8</code> rail provides low current, suitable only for I<sup>2</sup>C-level translation circuits and should not be used for applications requiring high current or external device power supply.</p>
 
 ## Device Operation
 
@@ -333,7 +345,7 @@ Through the JMEDIA and JMISC connectors, the board provides access to:
 4. Connect cameras to the `CSI0` and `CSI1` connectors as needed.
 5. Connect a display to the `DSI0` connector if required.
 6. Connect audio peripherals to the 3.5 mm jacks as needed.
-7. When using UNO Q as the host board, power on using a 5 V DC / 3 A USB-C source or the VIN input (7-24 V DC). The DC IN jack (J13) accepts 7-24 V DC power input for high-power configurations.
+7. Power on the host board. Both UNO Q and VENTUNO Q support 7-24 V DC via VIN input. UNO Q can alternatively be powered via 5 V DC / 3 A USB-C.
 
 <div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
   <strong>Note:</strong> Make sure the host board is powered off before installing or removing the UNO Media Carrier to prevent damage to the connectors or components.
@@ -357,7 +369,7 @@ Arduino App Lab [1] is a unified editor that builds and runs projects on both th
 
 Apps use **Bridge** to exchange data between the Linux side and the microcontroller.
 
-Arduino App Lab can be installed on your PC or executed directly on the UNO Q in Single-Board Computer mode. For this setup, the UNO Q's 4GB LPDDR4X variant is recommended to ensure sufficient memory for stable operation and resource-intensive applications. To use the board: 
+Arduino App Lab can be installed on your PC or executed directly on compatible host boards (UNO Q, VENTUNO Q) in Single-Board Computer mode. When using UNO Q, the 4GB LPDDR4X variant is recommended to provide sufficient memory for stable operation and resource-intensive applications. To use the board:
 
 - Launch a ready-to-use example in Arduino App Lab, customize it to your needs, or build a new application from scratch using the integrated editor.
 - Press the **Run** button in Arduino App Lab [1].
@@ -366,7 +378,7 @@ Arduino App Lab can be installed on your PC or executed directly on the UNO Q in
 
 For first time setting up:
 
-1. Install Arduino App Lab [1], launch it, and connect UNO Q. Use a **USB-C data** cable for PC-hosted mode, or simply power the board for SBC mode.
+1. Install Arduino App Lab [1], launch it, and connect the host board (UNO Q, VENTUNO Q). Use a **USB-C data** cable for PC-hosted mode, or simply power the board for SBC mode.
 2. The board will automatically check for updates. If there are any updates available, you will be prompted to install them. Once the update is finished, the Arduino App Lab[1] will need to be restarted.
 3. During the first setup, you will be asked to provide a name and password for the device. You will also be asked to provide Wi-Fi® credentials for your local network.
 4. To test the board, navigate to an example App in the **"Examples"** section of the Arduino App Lab[1], and click on the "Run" button in the top right corner. You can also create a new App in the **"Apps"** section.
