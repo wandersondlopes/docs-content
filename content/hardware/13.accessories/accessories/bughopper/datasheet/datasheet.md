@@ -191,7 +191,7 @@ The Bughopper board outline is shown in the figure below; <strong>all the dimens
 
 ### Board Connectors
 
-<p style="text-align: justify;">The Bughopper features three connectors: a USB-C connector on one end for host communication and power, a female 2.54 mm 2×5 header or direct connection to JCTL header of the taget board, and a male 1.27 mm 2×5 header (FTSH-105-01-L-DH-C-TR) for compact ribbon cable connections. The placement of these connectors is shown in the figure below; <strong>all the dimensions are in mm</strong>.</p>
+<p style="text-align: justify;">The Bughopper features three connectors: a USB-C connector on one end for host communication and power, a female 2.54 mm 2×5 header or direct connection to JCTL header of the target board, and a male 1.27 mm 2×5 header (FTSH-105-01-L-DH-C-TR) for compact ribbon cable connections. The placement of these connectors is shown in the figure below; <strong>all the dimensions are in mm</strong>.</p>
 
 <img src="assets/Bughopper_Connectors_1.png" alt="Bughopper board connectors placement (top view); all dimensions are in mm." style="width: 75%; height: auto;"></img>
 
