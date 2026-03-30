@@ -120,7 +120,7 @@ Library repository available [here](https://github.com/arduino-libraries/Arduino
  * This example shows how to use the Modulino LED Matrix library to display
  * basic graphics and animations on the Modulino LED Matrix display.
  *
- * Initial author: Sebastian Romero (s.romero@arduino.cc)
+ * Initial author: Sebastian Romero
  */
 
 #include "Modulino_LED_Matrix.h"
@@ -175,7 +175,7 @@ This example demonstrates how to use the ArduinoGraphics library integration to 
 * basic shapes using the ArduinoGraphics library.
 * The sketch cycles through displaying a point, a line, a rectangle, and a circle on the LED matrix.
 *
-* Initial author: Sebastian Romero (s.romero@arduino.cc)
+* Initial author: Sebastian Romero
 */
 
 #include "ArduinoGraphics.h"
@@ -271,7 +271,7 @@ The LED Matrix supports three display modes:
  * This example shows how to use the Modulino LED Matrix library to display
  * grayscale graphics and animations on the Modulino LED Matrix display.
  *
- * Initial author: Sebastian Romero (s.romero@arduino.cc)
+ * Initial author: Sebastian Romero
  */
 
 #include "Modulino_LED_Matrix.h"
@@ -343,7 +343,7 @@ This example demonstrates how to use the Modulino LED Matrix module.
 It shows how to set and unset individual pixels, draw shapes, display text, frames,
 and run a simple Matrix-style rain animation.
 
-Initial author: Sebastian Romero (s.romero@arduino.cc)
+Initial author: Sebastian Romero
 """
 
 from modulino import ModulinoLEDMatrix
@@ -531,7 +531,7 @@ This example demonstrates how to create a simple animation on the Modulino LED M
 This example demonstrates how to create a simple animation on the Modulino LED Matrix
 by cycling through a series of pre-defined frames with specific durations.
 
-Initial author: Sebastian Romero (s.romero@arduino.cc)
+Initial author: Sebastian Romero
 """
 
 from modulino import ModulinoLEDMatrix, Animation
