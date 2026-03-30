@@ -121,8 +121,8 @@ The main features of the Bughopper are highlighted in the table shown below.
 - <p style="text-align: justify;"><strong>USB-C connector</strong>: Provides the physical USB interface to the host development machine. Includes ESD protection (ESD321DYAR) on the data lines and a TVS diode (STN1010SB301) on V<sub>BUS</sub>.</p>
 - <p style="text-align: justify;"><strong>FTDI FT230XQ</strong>: The main IC of the board. It handles the entire USB protocol, converts USB data to UART signals (TXD, RXD), generates +3.3 VDC via its internal voltage regulator, and provides four configurable GPIOs.</p>
 - <p style="text-align: justify;"><strong>Level translator (SN74AVC2T245RSWR)</strong>: Performs bidirectional voltage-level translation between the FT230XQ's +3.3 VDC UART signals and the V<sub>TARGET</sub> domain (from +1.2 to +3.6 VDC) of the connected target board, ensuring safe communication across different voltage levels. V<sub>TARGET</sub> is supplied by the target board through the JCTL 2.54 mm connector.</p>
-- <p style="text-align: justify;"><strong>Auxiliary  FT230XQ's GPIO Lines (x4, via 2N7002PS MOSFETs)</strong>: The FT230XQ's CBUS0, CBUS1, CBUS2 and CBUS3 outputs are converted into open-drain signals via x4 2N7002PS MOSFETs , allowing to control four signals of the target board preventing back-powering.
-- **Status LEDs**: Four LEDs provide at-a-glance status: green (+3.3 VDC power), red (V<sub>TARGET</sub>), and two yellow (TXD and RXD activity).</p>
+- <p style="text-align: justify;"><strong>Auxiliary  FT230XQ's GPIO Lines (x4, via 2N7002PS MOSFETs)</strong>: The FT230XQ's CBUS0, CBUS1, CBUS2 and CBUS3 outputs are converted into open-drain signals via x4 2N7002PS MOSFETs , allowing to control four signals of the target board preventing back-powering.</p>
+- <p style="text-align: justify;"><strong>Status LEDs</strong>: Four LEDs provide at-a-glance status: green (+3.3 VDC power), red (V<sub>TARGET</sub>), and two yellow (TXD and RXD activity).</p>
 
 <div style="page-break-after: always;"></div>
 
