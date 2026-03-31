@@ -1,6 +1,6 @@
 ---
 identifier: TPX00243
-title: Arduino® USB-C Cable (Full 24-Pin)
+title: Arduino® USB-C Cable (24-Pin)
 type: maker
 ---
 
@@ -8,7 +8,7 @@ type: maker
 
 # Description
 
-<p style="text-align: justify;">The Arduino® USB-C Cable (Full 24-pin) (TPX00243) is a USB-C to USB-C cable featuring full 24-pin connectivity for complete functionality, including data transfer, video output, and power delivery. This 1-meter braided cable supports USB 3.0 data speeds up to 5 Gbps, power delivery up to 60 W (20 V / 3 A), and DisplayPort Alt Mode for video transmission. Designed for use with USB-C devices requiring full-featured connectivity, it provides reliable performance for development, prototyping, and deployment scenarios.</p>
+<p style="text-align: justify;">The Arduino® USB-C Cable (24-pin) (TPX00243) is a USB-C to USB-C cable featuring 24-pin connectivity for complete functionality, including data transfer, video output, and power delivery. This 1-meter braided cable supports USB 3.0 data speeds up to 5 Gbps, power delivery up to 60 W (20 V / 3 A), and DisplayPort Alt Mode for video transmission. Designed for use with USB-C devices requiring full-featured connectivity, it provides reliable performance for development, prototyping, and deployment scenarios.</p>
 
 <div style="page-break-after: always;"></div>
 
@@ -41,7 +41,7 @@ type: maker
 | Cable Construction | Braided with aluminum foil and woven shielding |
 
 <div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
-  <strong>Note:</strong> This cable features full 24-pin connectivity with proper wire shielding and color-coded internal wiring for data integrity. All pins (A1-A12, B1-B12) are connected on both ends to provide functionality for data, video, and power delivery. Not all USB-C cables support all 24 pins. Check full-featured cable requirements for your application.
+  <strong>Note:</strong> This cable features 24-pin connectivity with proper wire shielding and color-coded internal wiring for data integrity. All pins (A1-A12, B1-B12) are connected on both ends to provide functionality for data, video, and power delivery. Not all USB-C cables support all 24 pins. Check full-featured cable requirements for your application.
 </div>
 
 ### Functionalities
@@ -56,7 +56,7 @@ type: maker
 
 ## Usage
 
-<p style="text-align: justify;">The Arduino USB-C Cable (Full 24-pin) provides complete connectivity for USB-C devices requiring simultaneous data transfer, video output, and power delivery. The full 24-pin configuration allows compatibility with devices that require all USB-C features, including single-board computers with video output capabilities, laptops, tablets, and displays.</p>
+<p style="text-align: justify;">The Arduino USB-C Cable (24-pin) provides complete connectivity for USB-C devices requiring simultaneous data transfer, video output, and power delivery. The 24-pin configuration allows compatibility with devices that require all USB-C features, including single-board computers with video output capabilities, laptops, tablets, and displays.</p>
 
 ### Key Use Cases
 
@@ -135,7 +135,7 @@ type: maker
 
 ### Package Contents
 
-- 1× Arduino USB-C Cable (Full 24-pin, 1 m)
+- 1× Arduino USB-C Cable (24-pin, 1 m)
 
 <div style="page-break-after: always;"></div>
 
@@ -204,4 +204,5 @@ This equipment complies with FCC radiation exposure limits set forth for an unco
 
 |  **Date**  | **Revision** | **Changes**   |
 |:----------:|:------------:|---------------|
+| 31/03/2026 |      2       | Updated product name |
 | 27/03/2026 |      1       | First release |
