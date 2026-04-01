@@ -52,7 +52,7 @@ When a client wants to communicate, it connects to the router via a Unix socket 
 
 ### Managing the Router Service
 
-The `arduino-router` runs automatically as a `systemd` service. In most cases, you won't need to interact with it directly. Here are some useful commands for debugging and management.
+The `arduino-router` runs automatically as a `systemd` service. In most cases, you don't need to interact with it directly. Here are some useful commands for debugging and management.
 
 Check if the router is running and view its status:
 
@@ -76,10 +76,16 @@ journalctl -u arduino-router -f
 
 ![Managing Router Service (2)](assets/router-service-2.png)
 
-For more detailed debugging information, you can enable verbose logging. Edit the service configuration:
+For more detailed debugging information, you can enable verbose logging. To edit the full system-wide unit file directly, use:
 
 ```bash
-sudo nano /etc/systemd/system/arduino-router.service
+sudo systemctl edit --full arduino-router.service
+```
+
+Alternatively, if you prefer to keep your changes isolated in a drop-in overlay, which overrides only specific settings without touching the original unit file, use the following command:
+
+```bash
+sudo systemctl edit arduino-router.service
 ```
 
 Add `--verbose` to the end of the `ExecStart` line:
@@ -845,13 +851,21 @@ sudo systemctl restart arduino-router
 
 ### Debugging Tips
 
-Enable verbose logging to see all message traffic. Edit the service configuration and add `--verbose` to the ExecStart line:
+Enable verbose logging to see all message traffic. To edit the full system-wide unit file directly, use:
 
 ```bash
-sudo nano /etc/systemd/system/arduino-router.service
+sudo systemctl edit --full arduino-router.service
+```
+
+Alternatively, if you prefer to keep your changes isolated in a drop-in overlay, which overrides only specific settings without touching the original unit file, use:
+
+```bash
+sudo systemctl edit arduino-router.service
 ```
 
 ![Router Service Configuration](assets/router-service-3.png)
+
+Add `--verbose` to the `ExecStart` line, then reload and restart:
 
 ```bash
 sudo systemctl daemon-reload
