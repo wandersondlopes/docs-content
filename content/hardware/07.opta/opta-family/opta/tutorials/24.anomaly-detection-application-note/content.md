@@ -27,7 +27,7 @@ software:
 
 Motor condition monitoring is essential in industrial settings, where unexpected equipment failures can lead to significant downtime and high maintenance costs. This application note shows how to build a predictive maintenance system using the Opta™ micro PLC, an accelerometer and Edge Impulse®, taking advantage of the Opta™'s dual-core STM32H747XI microcontroller to separate real-time data acquisition from machine learning inference.
 
-![](assets/hero-banner.png)
+![Opta™ Dual-Core Application Note](assets/hero-banner.png)
 
 The developed system monitors vibration patterns to identify unusual operating conditions that may signal mechanical problems, wear or potential failures. It uses machine learning to detect vibration patterns that differ from normal motor operation. The application note progresses from a single-core implementation to a dual-core architecture where the Cortex®-M4 core handles all I/O operations (sensor reading, LED control, relay outputs) while the Cortex®-M7 core runs the Edge Impulse inference engine. This separation demonstrates how industrial predictive maintenance systems can benefit from dedicated processing for time-sensitive I/O and compute-intensive tasks, a pattern applicable to many real-world industrial monitoring scenarios.
 
