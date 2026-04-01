@@ -3,7 +3,7 @@ title: Bughopper
 url_shop: https://store.arduino.cc/products/bughopper
 primary_button_url: https://docs.arduino.cc/resources/datasheets/ABX00156-datasheet.pdf
 primary_button_title: Datasheet
-forumCategorySlug: '/hardware/accessories/bughopper/231'
+forumCategorySlug: '/official-hardware/accessories/bughopper/231'
 sku: [ABX00156]
 ---
 
