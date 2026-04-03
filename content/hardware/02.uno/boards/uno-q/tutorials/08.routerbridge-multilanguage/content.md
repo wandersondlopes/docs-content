@@ -82,17 +82,17 @@ For more detailed debugging information, you can enable verbose logging. To edit
 sudo systemctl edit --full arduino-router.service
 ```
 
+![Managing Router Service (3.1)](assets/router-service-3-1.png)
+
 Alternatively, if you prefer to keep your changes isolated in a drop-in overlay, which overrides only specific settings without touching the original unit file, use the following command:
 
 ```bash
 sudo systemctl edit arduino-router.service
 ```
 
-Add `--verbose` to the end of the `ExecStart` line:
+![Managing Router Service (3.2)](assets/router-service-3-2.png)
 
-![Managing Router Service (3)](assets/router-service-3.png)
-
-Then, reload and restart:
+Add `--verbose` to the end of the `ExecStart` line, then reload and restart:
 
 ```bash
 sudo systemctl daemon-reload
@@ -857,13 +857,15 @@ Enable verbose logging to see all message traffic. To edit the full system-wide 
 sudo systemctl edit --full arduino-router.service
 ```
 
+![Router Service Configuration](assets/router-service-3-1.png)
+
 Alternatively, if you prefer to keep your changes isolated in a drop-in overlay, which overrides only specific settings without touching the original unit file, use:
 
 ```bash
 sudo systemctl edit arduino-router.service
 ```
 
-![Router Service Configuration](assets/router-service-3.png)
+![Router Service Configuration](assets/router-service-3-2.png)
 
 Add `--verbose` to the `ExecStart` line, then reload and restart:
 
