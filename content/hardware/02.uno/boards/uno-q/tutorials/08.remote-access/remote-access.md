@@ -69,30 +69,6 @@ sudo systemctl status xrdp
 
 The service listens on port `3389` by default.
 
-### Configuring The Desktop Session
-
-By default, if a desktop session is already running (e.g., via LightDM on display `:0`), the shared D-Bus session causes xrdp to show a black screen and disconnect. To fix this, configure xrdp to launch its own isolated XFCE session:
-
-```bash
-sudo tee /etc/xrdp/startwm.sh << 'EOF'
-#!/bin/sh
-unset DBUS_SESSION_BUS_ADDRESS
-unset XDG_RUNTIME_DIR
-if [ -r /etc/profile ]; then
-    . /etc/profile
-fi
-exec dbus-run-session -- xfce4-session
-EOF
-```
-
-Restart xrdp to apply the change:
-
-```bash
-sudo systemctl restart xrdp
-```
-
-***If you are using a different desktop environment, replace `xfce4-session` with the appropriate session command (e.g., `lxsession` for LXDE, `mate-session` for MATE). Check which sessions are available with `ls /usr/share/xsessions/`.***
-
 ### RDP Clients
 
 Install an RDP client on your computer:
@@ -150,6 +126,32 @@ To access the UNO Q desktop remotely from a different network, combine xrdp with
 4. Log in with your UNO Q credentials (default user: `arduino`).
 
 This provides full graphical desktop access from anywhere in the world, without exposing port `3389` to the public internet.
+
+### Troubleshooting: Black Screen On Connect
+
+If xrdp connects but immediately shows a black screen and disconnects, it is likely caused by a conflict with the LightDM session already running on display `:0`. The shared D-Bus session bus prevents xrdp from starting its own session cleanly.
+
+To fix this, override the xrdp startup script to launch an isolated XFCE session with its own D-Bus instance:
+
+```bash
+sudo tee /etc/xrdp/startwm.sh << 'EOF'
+#!/bin/sh
+unset DBUS_SESSION_BUS_ADDRESS
+unset XDG_RUNTIME_DIR
+if [ -r /etc/profile ]; then
+    . /etc/profile
+fi
+exec dbus-run-session -- xfce4-session
+EOF
+```
+
+Then restart xrdp:
+
+```bash
+sudo systemctl restart xrdp
+```
+
+***If you are using a different desktop environment, replace `xfce4-session` with the appropriate command. Check available sessions with `ls /usr/share/xsessions/`.***
 
 ---
 
