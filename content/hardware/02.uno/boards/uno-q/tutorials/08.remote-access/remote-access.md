@@ -5,8 +5,6 @@ author: Arduino
 tags: [UNO Q, remote access, ssh, tailscale, rustdesk]
 ---
 
-# Remote Access from Anywhere
-
 This tutorial covers how to access your [Arduino® UNO Q](https://store.arduino.cc/products/uno-q) remotely from outside your local network. We will cover two methods:
 
 1. **Tailscale + SSH:** For secure command-line access.
@@ -65,7 +63,7 @@ sudo dpkg -i rustdesk-*-aarch64.deb
 sudo apt -f install
 ```
 
-### 2. Install and configure dummy display
+### 2. Install and Configure Dummy Display
 
 Install the dummy display driver:
 
@@ -105,7 +103,7 @@ EndSection
 EOF
 ```
 
-### 3. Configure lightdm auto-login
+### 3. Configure LightDM Auto-Login
 
 Set up LightDM to automatically log in the `arduino` user (replace `arduino` with your username if it is different):
 
@@ -116,7 +114,7 @@ autologin-user=arduino
 EOF
 ```
 
-### 4. Enable RustDesk and reboot
+### 4. Enable RustDesk and Reboot
 
 Enable the RustDesk service and reboot the board:
 
@@ -125,7 +123,7 @@ sudo systemctl enable rustdesk
 sudo reboot
 ```
 
-### 5. Set RustDesk password
+### 5. Set RustDesk Password
 
 After the board has rebooted, reconnect via SSH to retrieve your RustDesk ID and set a password:
 
@@ -144,7 +142,7 @@ Install RustDesk on your client device (macOS, iOS, Windows, Linux) from [rustde
 
 ![RustDesk Client UI](assets/rustdesk-client-ui.png)
 
-### 7. Toggle between HDMI and headless mode
+### 7. Toggle Between HDMI and Headless Mode
 
 The dummy driver overrides the real GPU, meaning if you plug in a physical monitor via HDMI, it will show a black screen while the dummy driver is active. 
 
@@ -176,6 +174,6 @@ sudo toggle-display
 ```
 ![Toggle Dummy Display](assets/toggle-dummy-display.png)
 
-### After reboot
+### After Reboot
 
 Everything starts automatically: LightDM auto-logs in on the dummy display, RustDesk runs, and the desktop is accessible remotely from any device.
