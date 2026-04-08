@@ -15,7 +15,7 @@ This tutorial covers how to access your [Arduino® UNO Q](https://store.arduino.
 
 [Tailscale](https://tailscale.com/) is a zero-config VPN that creates a secure network between your devices. By installing Tailscale on your UNO Q and your computer, you can SSH into your board from anywhere as if it were on your local network.
 
-### Installing Tailscale on UNO Q
+### Installing Tailscale On UNO Q
 
 1. Connect to your UNO Q via SSH or open a terminal in desktop mode.
 2. Install Tailscale by running the following command:
@@ -32,7 +32,7 @@ This tutorial covers how to access your [Arduino® UNO Q](https://store.arduino.
 
    *Follow the provided link to authenticate with your Tailscale account.*
 
-### Connecting via SSH
+### Connecting Via SSH
 
 Once both your computer and the UNO Q are connected to the same Tailscale network, you can find the board's Tailscale IP address in the Tailscale admin console or by running `tailscale ip -4` on the board.
 
@@ -50,7 +50,7 @@ ssh arduino@<tailscale-ip>
 
 [xrdp](http://www.xrdp.org/) is an open-source RDP (Remote Desktop Protocol) server for Linux. RDP is the de facto standard for remote desktop access, and RDP clients are available on all major platforms — Remote Desktop is even pre-installed on Windows machines. On Debian-based systems like the UNO Q, xrdp works out of the box with minimal configuration.
 
-### Installing xrdp on UNO Q
+### Installing Xrdp On UNO Q
 
 Connect to your UNO Q via SSH or ADB shell, then install xrdp and its dependencies:
 
@@ -69,7 +69,7 @@ sudo systemctl status xrdp
 
 The service listens on port `3389` by default.
 
-### Configuring the Desktop Session
+### Configuring The Desktop Session
 
 By default, if a desktop session is already running (e.g., via LightDM on display `:0`), the shared D-Bus session causes xrdp to show a black screen and disconnect. To fix this, configure xrdp to launch its own isolated XFCE session:
 
@@ -105,7 +105,7 @@ Install an RDP client on your computer:
   sudo apt install remmina
   ```
 
-### RDP over LAN (Ethernet / Wi-Fi®)
+### RDP Over LAN (Ethernet / Wi-Fi®)
 
 If the UNO Q is connected to the same local network as your computer (via Ethernet or Wi-Fi®), you can connect directly using the board's local IP address.
 
@@ -118,12 +118,12 @@ If the UNO Q is connected to the same local network as your computer (via Ethern
 2. On your computer, open your RDP client and connect to `<board-ip>:3389`.
 3. Log in with your UNO Q credentials (default user: `arduino`).
 
-### RDP over USB via ADB Forward
+### RDP Over USB Via ADB Forward
 
 If you do not have network access, you can tunnel the RDP connection over USB using ADB port forwarding.
 
 1. Connect the UNO Q to your computer via USB-C®.
-2. Ensure ADB is installed on your computer (see the [ADB tutorial](/hardware/uno/boards/uno-q/tutorials/adb/) for installation instructions).
+2. Ensure ADB is installed on your computer (see the [ADB tutorial](/tutorials/uno-q/adb/) for installation instructions).
 3. Forward the RDP port through ADB:
 
    ```bash
@@ -135,7 +135,7 @@ If you do not have network access, you can tunnel the RDP connection over USB us
 
 ***To stop the port forward when you are done, run `adb forward --remove tcp:3389`.***
 
-### RDP over VPN (Tailscale)
+### RDP Over VPN (Tailscale)
 
 To access the UNO Q desktop remotely from a different network, combine xrdp with a VPN like [Tailscale](https://tailscale.com/). If you have already set up Tailscale as described in [Section 1](#1-tailscale--ssh), you can connect to the board's Tailscale IP using your RDP client.
 
@@ -171,7 +171,7 @@ sudo dpkg -i rustdesk-*-aarch64.deb
 sudo apt -f install
 ```
 
-### Install and Configure Dummy Display
+### Install And Configure Dummy Display
 
 Install the dummy display driver:
 
