@@ -43,6 +43,8 @@ From your computer, SSH into the board using its Tailscale IP:
 ssh arduino@<tailscale-ip>
 ```
 
+![Tailscale SSH connection](assets/tailscale-ssh-connection.png)
+
 ---
 
 ## 2. RustDesk (Desktop Access)
@@ -52,6 +54,8 @@ ssh arduino@<tailscale-ip>
 ### 1. Install RustDesk
 
 First, find the link for the latest `aarch64.deb` package on the [RustDesk Releases page](https://github.com/rustdesk/rustdesk/releases/latest). 
+
+![RustDesk Releases Page](assets/rustdesk-releases.png)
 
 Connect to your board (via SSH or terminal) and download it using `wget`. Then, install it using a wildcard (`*`) so the command works regardless of the downloaded version:
 
@@ -127,14 +131,18 @@ After the board has rebooted, reconnect via SSH to retrieve your RustDesk ID and
 
 ```bash
 rustdesk --get-id
-rustdesk --password your_password
+sudo rustdesk --password your_password
 ```
+
+![RustDesk Terminal Output](assets/rustdesk-terminal-output.png)
 
 *Note down the ID — you'll need it to connect.*
 
 ### 6. Connect
 
 Install RustDesk on your client device (macOS, iOS, Windows, Linux) from [rustdesk.com](https://rustdesk.com/). Enter the board's ID and password. This works across different networks from anywhere in the world.
+
+![RustDesk Client UI](assets/rustdesk-client-ui.png)
 
 ### 7. Toggle between HDMI and headless mode
 
@@ -166,6 +174,7 @@ Switch anytime by running:
 ```bash
 sudo toggle-display
 ```
+![Toggle Dummy Display](assets/toggle-dummy-display.png)
 
 ### After reboot
 
