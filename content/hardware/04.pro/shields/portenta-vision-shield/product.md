@@ -1,6 +1,6 @@
 ---
 title: Portenta Vision Shield
-url_shop: https://store.arduino.cc/portenta-vision-shield
+url_shop: https://store.arduino.cc/products/portenta-vision-shield-lora%C2%AE 
 
 url_guide: /tutorials/portenta-vision-shield/user-manual
 primary_button_url: /tutorials/portenta-vision-shield/user-manual
