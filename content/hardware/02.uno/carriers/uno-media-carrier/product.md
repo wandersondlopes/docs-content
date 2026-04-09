@@ -4,7 +4,7 @@ url_shop: https://store.arduino.cc/products/uno-media-carrier
 url_guide: /tutorials/uno-media-carrier/smart-doorbell
 primary_button_url: /hardware/uno-q
 primary_button_title: UNO Q
-forumCategorySlug: '/hardware/uno-family/uno-media-carrier/229'
+forumCategorySlug: '/official-hardware/uno-family/uno-media-carrier/229'
 sku: [ASX00083]
 ---
 
