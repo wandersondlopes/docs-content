@@ -67,11 +67,12 @@ On the software side there might be some issue with third party libraries that d
 ### Features
 
 **Batteries, Pins and board LEDs**
-_Batteries:_ the Nano Every has no battery connector, nor charger. You can connect any external battery of your liking as long as you respect the voltage limits of the board.
-_Vin:_ This pin can be used to power the board with a DC voltage source. If the power is fed through this pin, the USB power source is disconnected. This pin is an INPUT. Respect the voltage limits of 7-21V to assure the proper functionality of the board.
-_5V:_ This pin outputs 5V from the board when powered from the USB connector or from the VIN pin of the board.
-_3.3V:_ This pin outputs 3.3V through the on-board voltage regulator.
-_LED ON:_ This LED is connected to the 5V input from either USB or VIN.
+
+* _Batteries:_ the Nano Every has no battery connector, nor charger. You can connect any external battery of your liking as long as you respect the voltage limits of the board.
+* _Vin:_ This pin can be used to power the board with a DC voltage source. If the power is fed through this pin, the USB power source is disconnected. This pin is an INPUT. Respect the voltage limits of 7-21V to assure the proper functionality of the board.
+* _5V:_ This pin outputs 5V from the board when powered from the USB connector or from the VIN pin of the board.
+* _3.3V:_ This pin outputs 3.3V through the on-board voltage regulator.
+* _LED ON:_ This LED is connected to the 5V input from either USB or VIN.
 
 **Serial ports on the Arduino Nano Every**
 
