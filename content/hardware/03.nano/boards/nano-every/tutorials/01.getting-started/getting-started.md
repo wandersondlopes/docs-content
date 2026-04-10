@@ -62,7 +62,7 @@ The microcontroller on the Arduino Nano Every runs at 5V and it is fully electri
 
 On the software side there might be some issue with third party libraries that don't manage the pin mapping of the microcontroller; if the sketch has assembly parts inside, you should turn on the "Register Emulation" mode to emulate ATmega328P registers in the 4809 while compiling.
 
-![](assets/nano-every-mode.png)
+![Selectable modes](assets/nano-every-mode.png)
 
 ### Features
 
@@ -89,6 +89,6 @@ Since we don't officially support SAMD11 in our SAMD core, the core to be used i
 
 To reprogram the D11, simply power it while shorting SWDIO to GND pins.
 
-![](assets/NanoEvery_D11_Pins.jpg)
+![Nano Every SWDIO pins](assets/NanoEvery_D11_Pins.jpg)
 
 The board will appear as "MuxTo bootloader" and can be reprogammed using bossac or the IDE Upload button if you selected "Arduino MuxTO" target.
