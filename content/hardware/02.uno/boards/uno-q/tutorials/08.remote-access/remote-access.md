@@ -1,7 +1,7 @@
 ---
 title: Remote Access From Anywhere
 description: Learn how to access your UNO Q remotely from anywhere using Tailscale, xrdp, or RustDesk.
-author: Arduino
+author: Ernesto Voltaggio
 tags: [UNO Q, remote access, ssh, tailscale, xrdp, rdp, rustdesk]
 ---
 
