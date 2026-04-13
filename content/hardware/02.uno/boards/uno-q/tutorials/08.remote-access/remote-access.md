@@ -129,9 +129,11 @@ This provides full graphical desktop access from anywhere in the world, without 
 
 ### Troubleshooting: Black Screen On Connect
 
-If xrdp connects but immediately shows a black screen and disconnects, it is likely caused by a conflict with the LightDM session already running on display `:0`. The shared D-Bus session bus prevents xrdp from starting its own session cleanly.
+If xrdp connects but immediately shows a black screen and disconnects, the cause is usually a conflict with the desktop session already running on the board.
 
-To fix this, override the xrdp startup script to launch an isolated XFCE session with its own D-Bus instance:
+When the UNO Q boots, it starts a local desktop session managed by LightDM (the login screen and session manager). That session is already signed in as the `arduino` user and is using the board's main display. When you then connect over xrdp, it tries to start a *second* desktop session for your remote connection, but the two sessions end up sharing resources that only one session can own at a time, most notably the per-user message bus (D-Bus) that desktop apps use to talk to each other. Since the local session got there first, the remote one fails to start cleanly and kicks you out, which is what you see as a black screen.
+
+The fix is to tell xrdp to start its remote desktop session in complete isolation from the local one, with its own private message bus. Overwrite the xrdp startup script:
 
 ```bash
 sudo tee /etc/xrdp/startwm.sh << 'EOF'
