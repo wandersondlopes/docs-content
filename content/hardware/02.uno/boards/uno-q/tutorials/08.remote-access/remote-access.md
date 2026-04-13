@@ -61,7 +61,7 @@ sudo systemctl enable xrdp
 sudo systemctl start xrdp
 ```
 
-Verify that xrdp is running:
+Verify that `xrdp` is running:
 
 ```bash
 sudo systemctl status xrdp
