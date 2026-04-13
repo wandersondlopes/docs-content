@@ -1,5 +1,5 @@
 ---
-title: Remote Access From Anywhere
+title: Remote Access Options for UNO Q
 description: Learn how to access your UNO Q remotely from anywhere using Tailscale, xrdp, or RustDesk.
 author: Ernesto Voltaggio
 tags: [UNO Q, remote access, ssh, tailscale, xrdp, rdp, rustdesk]
@@ -11,11 +11,28 @@ This tutorial covers how to access your [Arduino® UNO Q](https://store.arduino.
 2. **xrdp (Remote Desktop):** For graphical desktop access over USB, LAN, or VPN using the standard RDP protocol.
 3. **RustDesk:** For full graphical desktop access using a third-party open-source solution.
 
-## 1. Tailscale + SSH
+Each method is self-contained — pick the one that fits your needs, or combine them.
+
+## Required Hardware and Software
+
+### Hardware Requirements
+
+- [Arduino® UNO Q](https://store.arduino.cc/products/uno-q)
+- A computer (macOS, Windows, or Linux) to connect from
+- USB-C® cable (only required for the ADB-over-USB workflow)
+- Network connection (Ethernet or Wi-Fi®) for LAN- or VPN-based methods
+
+### Software Requirements
+
+- A [Tailscale](https://tailscale.com/) account (for the Tailscale + SSH and RDP-over-VPN methods)
+- An RDP client on your computer (for the xrdp method) — Remote Desktop is pre-installed on Windows; on macOS use [Windows App](https://apps.apple.com/app/windows-app/id1295203466); on Linux install [Remmina](https://remmina.org/)
+- The [RustDesk](https://rustdesk.com/) client on your computer (for the RustDesk method)
+
+## Tailscale + SSH
 
 [Tailscale](https://tailscale.com/) is a zero-config VPN that creates a secure network between your devices. By installing Tailscale on your UNO Q and your computer, you can SSH into your board from anywhere as if it were on your local network.
 
-### Installing Tailscale On UNO Q
+### 1. Installing Tailscale On UNO Q
 
 1. Connect to your UNO Q via SSH or open a terminal in desktop mode.
 2. Install Tailscale by running the following command:
@@ -32,7 +49,7 @@ This tutorial covers how to access your [Arduino® UNO Q](https://store.arduino.
 
    *Follow the provided link to authenticate with your Tailscale account.*
 
-### Connecting Via SSH
+### 2. Connecting Via SSH
 
 Once both your computer and the UNO Q are connected to the same Tailscale network, you can find the board's Tailscale IP address in the Tailscale admin console or by running `tailscale ip -4` on the board.
 
@@ -46,11 +63,11 @@ ssh arduino@<tailscale-ip>
 
 ---
 
-## 2. Xrdp (Remote Desktop)
+## xrdp (Remote Desktop)
 
-[xrdp](http://www.xrdp.org/) is an open-source RDP (Remote Desktop Protocol) server for Linux. RDP is the de facto standard for remote desktop access, and RDP clients are available on all major platforms — Remote Desktop is even pre-installed on Windows machines. On Debian-based systems like the UNO Q, xrdp works out of the box with minimal configuration.
+[xrdp](http://www.xrdp.org/) is an open-source RDP (Remote Desktop Protocol) server for Linux. RDP is the de facto standard for remote desktop access, and RDP clients are available on all major platforms — Remote Desktop is even pre-installed on Windows machines. Since the UNO Q runs a Debian-based OS, xrdp works out of the box with minimal configuration.
 
-### Installing Xrdp On UNO Q
+### 1. Installing xrdp On UNO Q
 
 Connect to your UNO Q via SSH or ADB shell, then install xrdp and its dependencies:
 
@@ -69,7 +86,7 @@ sudo systemctl status xrdp
 
 The service listens on port `3389` by default.
 
-### RDP Clients
+### 2. RDP Clients
 
 Install an RDP client on your computer:
 
@@ -90,6 +107,8 @@ If the UNO Q is connected to the same local network as your computer (via Ethern
    ```bash
    hostname -I
    ```
+
+   *`hostname -I` usually returns more than one address. Use the one that looks like your LAN (typically starting with `192.168.` or `10.`). Ignore `172.x.x.x` addresses — those belong to Docker's internal networks, not your LAN.*
 
 2. On your computer, open your RDP client and connect to `<board-ip>:3389`.
 3. Log in with your UNO Q credentials (default user: `arduino`).
@@ -113,7 +132,7 @@ If you do not have network access on the UNO Q, you can tunnel the RDP connectio
 
 ### RDP Over VPN (Tailscale)
 
-To access the UNO Q desktop remotely from a different network, combine xrdp with a VPN like [Tailscale](https://tailscale.com/). If you have already set up Tailscale as described in [Section 1](#1-tailscale--ssh), you can connect to the board's Tailscale IP using your RDP client.
+To access the UNO Q desktop remotely from a different network, combine xrdp with a VPN like [Tailscale](https://tailscale.com/). If you have already set up Tailscale as described in the [Tailscale + SSH](#tailscale--ssh) section, you can connect to the board's Tailscale IP using your RDP client.
 
 1. Ensure Tailscale is running on both the UNO Q and your computer.
 2. Find the board's Tailscale IP:
@@ -157,11 +176,11 @@ sudo systemctl restart xrdp
 
 ---
 
-## 3. RustDesk (Desktop Access)
+## RustDesk (Desktop Access)
 
 [RustDesk](https://rustdesk.com/) is an open-source remote desktop software. Since the UNO Q can be run headlessly (without a physical monitor), we will configure a dummy display driver so that the desktop environment loads and can be accessed remotely.
 
-### Install RustDesk
+### 1. Install RustDesk
 
 First, find the link for the latest `aarch64.deb` package on the [RustDesk Releases page](https://github.com/rustdesk/rustdesk/releases/latest). 
 
@@ -175,16 +194,16 @@ sudo dpkg -i rustdesk-*-aarch64.deb
 sudo apt -f install
 ```
 
-### Install And Configure Dummy Display
+### 2. Install And Configure Dummy Display
 
-Install the dummy display driver:
+1. Install the dummy display driver:
 
 ```bash
 sudo apt install xserver-xorg-video-dummy
 sudo mkdir -p /etc/X11/xorg.conf.d
 ```
 
-Create the configuration file:
+2. Create the configuration file:
 
 ```bash
 sudo tee /etc/X11/xorg.conf.d/10-dummy.conf << 'EOF'
@@ -215,9 +234,13 @@ EndSection
 EOF
 ```
 
-### Configure LightDM Auto-Login
+### 3. Configure LightDM Auto-Login
 
-Set up LightDM to automatically log in the `arduino` user (replace `arduino` with your username if it is different):
+LightDM is the login manager that starts the desktop session when the UNO Q boots. By default it shows a login screen; we will configure it to sign in the `arduino` user automatically so that the desktop (and RustDesk) become available after a reboot without any user interaction.
+
+***You are changing how the board starts up. After applying this step, the UNO Q will boot straight into the `arduino` desktop session without asking for a password. Skip this step if you need the login screen to remain enabled.***
+
+Append the auto-login configuration (replace `arduino` with your username if it is different):
 
 ```bash
 sudo tee -a /etc/lightdm/lightdm.conf << 'EOF'
@@ -226,7 +249,9 @@ autologin-user=arduino
 EOF
 ```
 
-### Enable RustDesk and Reboot
+To revert auto-login later, open `/etc/lightdm/lightdm.conf` with a text editor and remove the two lines you just added, then reboot.
+
+### 4. Enable RustDesk and Reboot
 
 Enable the RustDesk service and reboot the board:
 
@@ -235,7 +260,7 @@ sudo systemctl enable rustdesk
 sudo reboot
 ```
 
-### Set RustDesk Password
+### 5. Set RustDesk Password
 
 After the board has rebooted, reconnect via SSH to retrieve your RustDesk ID and set a password:
 
@@ -248,7 +273,7 @@ sudo rustdesk --password your_password
 
 *Note down the ID — you'll need it to connect.*
 
-### Connect
+### 6. Connect
 
 Install RustDesk on your client device (macOS, iOS, Windows, Linux) from [rustdesk.com](https://rustdesk.com/). Enter the board's ID and password. This works across different networks from anywhere in the world.
 
