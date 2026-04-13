@@ -63,11 +63,11 @@ ssh arduino@<tailscale-ip>
 
 ---
 
-## xrdp (Remote Desktop)
+## Xrdp (Remote Desktop)
 
 [xrdp](http://www.xrdp.org/) is an open-source RDP (Remote Desktop Protocol) server for Linux. RDP is the de facto standard for remote desktop access, and RDP clients are available on all major platforms — Remote Desktop is even pre-installed on Windows machines. Since the UNO Q runs a Debian-based OS, xrdp works out of the box with minimal configuration.
 
-### 1. Installing xrdp On UNO Q
+### 1. Installing Xrdp On UNO Q
 
 Connect to your UNO Q via SSH or ADB shell, then install xrdp and its dependencies:
 
