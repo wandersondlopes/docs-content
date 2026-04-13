@@ -96,7 +96,7 @@ If the UNO Q is connected to the same local network as your computer (via Ethern
 
 ### RDP Over USB Via ADB Forward
 
-If you do not have network access, you can tunnel the RDP connection over USB using ADB port forwarding.
+If you do not have network access on the UNO Q, you can tunnel the RDP connection over USB using ADB port forwarding.
 
 1. Connect the UNO Q to your computer via USB-C®.
 2. Ensure ADB is installed on your computer (see the [ADB tutorial](/tutorials/uno-q/adb/) for installation instructions).
