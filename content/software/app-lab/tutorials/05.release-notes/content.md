@@ -1,6 +1,5 @@
 ---
 title: 'App Lab Release Notes'
-difficulty: beginner
 tags: [app-lab, releases]
 description: 'This article contains release notes of App Lab.'
 author: Arduino Team
@@ -10,13 +9,69 @@ author: Arduino Team
 
 This page contains all release notes for Arduino App Lab. To access the software, go [here](https://www.arduino.cc/en/software/#app-lab-section).
 
->Note: You need to have an UNO Q ([2GB](https://store.arduino.cc/products/uno-q) or [4GB](https://store.arduino.cc/products/uno-q-4gb)) to use Arduino App Lab.
+<Alert type="info">Note: You need to have an UNO Q ([2GB](https://store.arduino.cc/products/uno-q) or [4GB](https://store.arduino.cc/products/uno-q-4gb)) to use Arduino App Lab.</Alert>
 
 ## Releases
 
+### Release 0.6.0 [2026.03.18]
+
+Flashing and updating your board will now become easier, with the new board settings page! Set up your board, and explore the new Bricks and Examples in this newest release.
+
+New Examples:
+
+* Telegram Bot
+* Music Composer
+* Cloud AI Assistant
+
+See a full list of what’s new and which bugs have been fixed below.
+
+#### What’s new
+
+* A new board settings page, with update and flash features
+* Edge Impulse model update action when model has been retrained
+* UI Updated
+  * Device Discovery Page
+  * Edge Impulse Integration
+* Bricks
+  * New: Sound Generator
+  * New: Telegram Bot
+  * New: Automatic Speech Recognition (Cloud)
+  * Improvement: Wave Generator
+  * All bricks now have a basic use example
+* Examples
+  * New: Telegram Bot
+  * New: Music Composer
+  * New: Cloud AI Assistant
+  * Improvement: Thread safety on "Led Matrix Painter" sketch
+
+#### What’s fixed
+
+* Editor file tree and app edit actions issues
+* Accessibility improvements (better keyboard support coverage)
+* Sketch libraries needed by the examples are now downloaded as a part of the software update
+* Arduino Apps description is now taken from the readme.md file (if not present in the app.yaml file)
+* The arduino-router package now provides a CLI (arduino-router-client) to manually send messages, for test and debugging purposes
+* Improved compilation speed when the sketch was not changed
+* Bricks
+  * Fix audio peripheral enumeration
+  * Logging LLM provider logs in case of error
+* Examples
+  * Fix "Detect objects on smartphone camera" example in usb mode
+  * Fix "Detect objects on smartphone camera" example in case of multiple detection
+  * Updated libraries used in sketches
+
+<Alert type="info">You can always find the latest release [here](https://github.com/arduino/arduino-app-lab/releases). </Alert>
+
+## Previous Releases
+
+Below is a list of release notes for previous versions.
+
 ### Release 0.5.0 [2026.02.27]
 
-You can now connect App Lab with Arduino Cloud and your Edge Impulse Account! This means that you can now use the IoT Remote App as a camera input to your examples, as well as create your own custom models using Edge Impulse.
+<details>
+  <summary><strong>Details</strong></summary>
+
+You can now connect App Lab with Arduino Cloud and your Edge Impulse account! This means that you can now use the IoT Remote App as a camera input to your examples, as well as create your own custom models using Edge Impulse.
 
 New Examples: 
 
@@ -58,57 +113,42 @@ See a full list of what's new and which bugs have been fixed below.
 * Examples
   * Fixes on Object Detection in case of multiple detection
 
->You can always find the latest release [here](https://github.com/arduino/arduino-app-lab/releases). 
+#### GitHub Release
 
-## Previous Releases
+https://github.com/arduino/arduino-app-lab/releases/tag/al-0.5.0
 
-Below is a list of release notes for previous versions.
+</details>
 
 ### Release 0.4.0 [2026.02.06]
 
 <details>
   <summary><strong>Details</strong></summary>
 
-#### What’s New
-
-- **Integrated Board Updates:** You can now update outdated boards directly within App Lab using the new built-in Flasher tool.
-- **Optional Wi-Fi Setup:** You can now skip the Wi-Fi configuration step during setup. Note: A warning will appear to remind you that some network-dependent features will be unavailable.
-- **Enhanced Code Editor:** Added syntax highlighting for Web development (JS/TS, CSS/SCSS, HTML, and JSON) to make code easier to read.
-- **Improved Troubleshooting:** If an App crashes, the app now saves the logs so you can review what happened.
-- **General Refinements:** Updated the user interface and added several small improvements to the editor for a smoother experience.
-- **Analytics:** Improved our internal reporting to better understand the difference between PC and SBC users.
-
-#### What’s Fixed
-
-- **File Retention:** Resolved an issue where App.yaml or README.md files would occasionally be deleted during configuration.
-- **App Stability:** Fixed a bug that sometimes prevented the Arduino App interface from opening.
-- **Network Errors:** The system now correctly identifies and reports "wrong password" errors when connecting to a network.
-- **README Display:** Fixed a bug in Network mode that caused README files to appear corrupted or fail to load.
-- **Security:** Applied security updates to the open-source repository.
 #### What's New
 
-- Flasher tool integrated in App Lab (for outdated boards)
-- Skip WiFi step with warning (WiFi dependent features not managed yet)
-- Syntax highlighting for Web dev code (js/ts, css/scss, html, json)
-- Analytics enhancement to distinguish SBC/PC users
-- Persist app logs when Arduino Apps crash unexpectedly
-- Editor QOL updates
-- UI rework
+* Flasher tool integrated in App Lab (for outdated boards)
+* Skip WiFi step with warning (WiFi dependent features not managed yet)
+* Syntax highlighting for Web dev code (js/ts, css/scss, html, json)
+* Analytics enhancement to distinguish SBC/PC users
+* Persist app logs when Arduino Apps crash unexpectedly
+* Editor QOL updates
+* UI rework
 
 #### What's Fixed
 
-- Disappearing App.yaml/README.md on app/brick configuration
-- Arduino App UI occasionally not opening
-- Unmanaged “wrong password” when connecting network mode
-- SBC/network mode corrupt README.md loading in UI
-- Security fixes for open source repo
-- Miscellaneous behavioural and cosmetic corrections
+* Disappearing App.yaml/README.md on app/brick configuration
+* Arduino App UI occasionally not opening
+* Unmanaged “wrong password” when connecting network mode
+* SBC/network mode corrupt README.md loading in UI
+* Security fixes for open source repo
+* Miscellaneous behavioural and cosmetic corrections
 
-
-### GitHub Release
+#### GitHub Release
 
 https://github.com/arduino/arduino-app-lab/releases/tag/al-0.4.0
 
 </details>
+
+<br></br>
 
 If you have already downloaded App Lab once, you should get your updates automatically next time you open the software. You can also [download the latest release here](https://www.arduino.cc/en/software/#app-lab-section). 
